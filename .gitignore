@@ -1,0 +1,57 @@
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Build output
+/dist
+/build
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Uploads and user-generated content
+/uploads/*
+!/uploads/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# OCR training data (if not needed in repo)
+*.traineddata
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
