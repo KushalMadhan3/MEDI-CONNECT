@@ -198,9 +198,9 @@ export function BrowseDoctors({ onNavigate }: { onNavigate: NavigateFn }) {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F5F3FA] via-[#FAFBFF] to-[#F0EDFF]">
+    <div className="min-h-screen bg-gradient-to-br from-[#CFE3FF] via-[#F2F6FF] to-[#E0CFFF]">
       {/* Header */}
-      <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-[#E8EAFF]">
+      <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-[#C4DCFF]">
         <div className="max-w-[1500px] mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <button 
@@ -234,7 +234,7 @@ export function BrowseDoctors({ onNavigate }: { onNavigate: NavigateFn }) {
         {/* Page Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-3">
-            <Stethoscope className="w-10 h-10 text-[#3F53D9]" />
+            <Stethoscope className="w-10 h-10 text-[#1E5FBF]" />
             Browse Our Doctors
           </h1>
           <p className="text-lg text-gray-600">
@@ -254,7 +254,7 @@ export function BrowseDoctors({ onNavigate }: { onNavigate: NavigateFn }) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3F53D9] focus:border-transparent"
+                className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1E5FBF] focus:border-transparent"
               />
             </div>
             <MedicalButton
@@ -274,7 +274,7 @@ export function BrowseDoctors({ onNavigate }: { onNavigate: NavigateFn }) {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   selectedCategory === category.id
-                    ? 'bg-[#3F53D9] text-white'
+                    ? 'bg-[#1E5FBF] text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -287,7 +287,7 @@ export function BrowseDoctors({ onNavigate }: { onNavigate: NavigateFn }) {
         {/* Loading State */}
         {loading && (
           <div className="flex flex-col items-center justify-center py-16">
-            <Loader2 className="w-12 h-12 text-[#3F53D9] animate-spin mb-4" />
+            <Loader2 className="w-12 h-12 text-[#1E5FBF] animate-spin mb-4" />
             <p className="text-gray-500">Loading doctors...</p>
           </div>
         )}
@@ -360,7 +360,7 @@ export function BrowseDoctors({ onNavigate }: { onNavigate: NavigateFn }) {
                       <div className="p-6">
                         {/* Doctor Image and Basic Info */}
                         <div className="flex items-start gap-4 mb-4">
-                          <div className="w-20 h-20 rounded-full bg-[#E8EAFF] flex items-center justify-center overflow-hidden flex-shrink-0">
+                          <div className="w-20 h-20 rounded-full bg-[#C4DCFF] flex items-center justify-center overflow-hidden flex-shrink-0">
                             {doctor.image ? (
                               <img
                                 src={doctor.image}
@@ -372,7 +372,7 @@ export function BrowseDoctors({ onNavigate }: { onNavigate: NavigateFn }) {
                                 }}
                               />
                             ) : (
-                              <Stethoscope className="w-10 h-10 text-[#3F53D9]" />
+                              <Stethoscope className="w-10 h-10 text-[#1E5FBF]" />
                             )}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -393,15 +393,15 @@ export function BrowseDoctors({ onNavigate }: { onNavigate: NavigateFn }) {
                         <div className="space-y-3 mb-4">
                           {/* Specialization Badge */}
                           <div className="flex items-center gap-2">
-                            <Award className="w-4 h-4 text-[#3F53D9]" />
-                            <span className="text-sm font-semibold text-[#3F53D9] bg-[#E8EAFF] px-2 py-1 rounded">
+                            <Award className="w-4 h-4 text-[#1E5FBF]" />
+                            <span className="text-sm font-semibold text-[#1E5FBF] bg-[#C4DCFF] px-2 py-1 rounded">
                               {doctor.specialization}
                             </span>
                           </div>
                           
                           {/* Experience */}
                           <div className="flex items-center gap-2 text-sm text-gray-600">
-                            <Clock className="w-4 h-4 text-[#3F53D9]" />
+                            <Clock className="w-4 h-4 text-[#1E5FBF]" />
                             <span className="font-medium">{doctor.experience} of experience</span>
                           </div>
                           
@@ -452,10 +452,10 @@ export function BrowseDoctors({ onNavigate }: { onNavigate: NavigateFn }) {
                         <div className="pt-4 border-t border-gray-200">
                           <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-2">
-                              <DollarSign className="w-5 h-5 text-[#3F53D9]" />
+                              <DollarSign className="w-5 h-5 text-[#1E5FBF]" />
                               <div>
                                 <p className="text-xs text-gray-500 uppercase">Consultation Fee</p>
-                                <p className="text-2xl font-bold text-[#3F53D9]">
+                                <p className="text-2xl font-bold text-[#1E5FBF]">
                                   ₹{doctor.consultationPrice}
                                 </p>
                               </div>

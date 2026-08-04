@@ -337,16 +337,16 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
 
     return (
         <div className="max-w-4xl mx-auto space-y-6">
-            <h2 className="text-2xl font-bold text-[#333]">Profile Settings</h2>
+            <h2 className="text-2xl font-bold text-[#1A1A1A]">Profile Settings</h2>
             
             {/* Tab Navigation */}
-            <div className="flex gap-2 border-b border-[#E8EAFF]">
+            <div className="flex gap-2 border-b border-[#C4DCFF]">
                 <button
                     onClick={() => setActiveTab('personal')}
                     className={`px-6 py-3 font-medium transition-colors ${
                         activeTab === 'personal'
-                            ? 'text-[#3F53D9] border-b-2 border-[#3F53D9]'
-                            : 'text-[#6E6E6E] hover:text-[#3F53D9]'
+                            ? 'text-[#1E5FBF] border-b-2 border-[#1E5FBF]'
+                            : 'text-[#555555] hover:text-[#1E5FBF]'
                     }`}
                 >
                     Personal Info
@@ -355,8 +355,8 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                     onClick={() => setActiveTab('health')}
                     className={`px-6 py-3 font-medium transition-colors ${
                         activeTab === 'health'
-                            ? 'text-[#3F53D9] border-b-2 border-[#3F53D9]'
-                            : 'text-[#6E6E6E] hover:text-[#3F53D9]'
+                            ? 'text-[#1E5FBF] border-b-2 border-[#1E5FBF]'
+                            : 'text-[#555555] hover:text-[#1E5FBF]'
                     }`}
                 >
                     Health Metrics
@@ -365,8 +365,8 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                     onClick={() => setActiveTab('documents')}
                     className={`px-6 py-3 font-medium transition-colors ${
                         activeTab === 'documents'
-                            ? 'text-[#3F53D9] border-b-2 border-[#3F53D9]'
-                            : 'text-[#6E6E6E] hover:text-[#3F53D9]'
+                            ? 'text-[#1E5FBF] border-b-2 border-[#1E5FBF]'
+                            : 'text-[#555555] hover:text-[#1E5FBF]'
                     }`}
                 >
                     Health Documents
@@ -385,15 +385,15 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                 <MedicalCard variant="filled" className="bg-white border p-6 space-y-6">
                     {/* Profile Photo */}
                     <div>
-                        <label className="block text-sm font-medium text-[#6E6E6E] mb-3">Profile Photo</label>
+                        <label className="block text-sm font-medium text-[#555555] mb-3">Profile Photo</label>
                         <div className="flex items-start gap-6">
                             {/* Photo Preview */}
                             <div className="relative">
-                                <div className="w-32 h-32 rounded-full bg-[#E8EAFF] flex items-center justify-center overflow-hidden border-2 border-[#E8EAFF] shadow-sm">
+                                <div className="w-32 h-32 rounded-full bg-[#C4DCFF] flex items-center justify-center overflow-hidden border-2 border-[#C4DCFF] shadow-sm">
                                     {profilePhoto ? (
                                         <img src={profilePhoto} alt="Profile" className="w-full h-full object-cover" />
                                     ) : (
-                                        <User className="w-16 h-16 text-[#3F53D9]" />
+                                        <User className="w-16 h-16 text-[#1E5FBF]" />
                                     )}
                                 </div>
                                 {profilePhoto && (
@@ -454,10 +454,10 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                                 </div>
                                 
                                 {photoFile && !uploadingPhoto && (
-                                    <div className="text-sm text-[#6E6E6E] bg-[#F5F3FA] p-2 rounded-lg">
+                                    <div className="text-sm text-[#555555] bg-[#CFE3FF] p-2 rounded-lg">
                                         <p className="font-medium">Selected: {photoFile.name}</p>
                                         <p className="text-xs">Size: {(photoFile.size / 1024).toFixed(2)} KB</p>
-                                        <p className="text-xs mt-1 text-[#3F53D9]">Photo will be saved when you click "Save Changes"</p>
+                                        <p className="text-xs mt-1 text-[#1E5FBF]">Photo will be saved when you click "Save Changes"</p>
                                     </div>
                                 )}
                                 
@@ -467,7 +467,7 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                                     </div>
                                 )}
                                 
-                                <p className="text-xs text-[#6E6E6E]">
+                                <p className="text-xs text-[#555555]">
                                     Supported formats: JPG, PNG, GIF, WEBP (Max 10MB)
                                 </p>
                             </div>
@@ -477,40 +477,40 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                     {/* Personal Info */}
                     <div>
                         <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                            <User className="w-5 h-5 text-[#3F53D9]" /> Personal Information
+                            <User className="w-5 h-5 text-[#1E5FBF]" /> Personal Information
                         </h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Full Name</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Full Name</label>
                                 <div className="relative">
                                     <input
                                         type="text"
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                     />
-                                    <User className="w-4 h-4 text-[#6E6E6E] absolute left-3 top-3" />
+                                    <User className="w-4 h-4 text-[#555555] absolute left-3 top-3" />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Email</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Email</label>
                                 <div className="relative">
                                     <input
                                         type="email"
                                         name="email"
                                         value={formData.email}
                                         disabled
-                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#E8EAFF] bg-[#F5F3FA] text-[#6E6E6E]"
+                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#C4DCFF] bg-[#CFE3FF] text-[#555555]"
                                     />
-                                    <Mail className="w-4 h-4 text-[#6E6E6E] absolute left-3 top-3" />
+                                    <Mail className="w-4 h-4 text-[#555555] absolute left-3 top-3" />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Mobile Number</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Mobile Number</label>
                                 <div className="relative">
                                     <input
                                         type="tel"
@@ -518,30 +518,30 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                                         value={formData.phone}
                                         onChange={handleChange}
                                         placeholder="+91 98765 43210"
-                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                     />
-                                    <Phone className="w-4 h-4 text-[#6E6E6E] absolute left-3 top-3" />
+                                    <Phone className="w-4 h-4 text-[#555555] absolute left-3 top-3" />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Age</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Age</label>
                                 <input
                                     type="number"
                                     name="age"
                                     value={formData.age}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                    className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Gender</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Gender</label>
                                 <select
                                     name="gender"
                                     value={formData.gender}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                    className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                 >
                                     <option>Male</option>
                                     <option>Female</option>
@@ -550,27 +550,27 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Date of Birth</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Date of Birth</label>
                                 <div className="relative">
                                     <input
                                         type="date"
                                         name="dateOfBirth"
                                         value={formData.dateOfBirth}
                                         onChange={handleChange}
-                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                     />
-                                    <Calendar className="w-4 h-4 text-[#6E6E6E] absolute left-3 top-3" />
+                                    <Calendar className="w-4 h-4 text-[#555555] absolute left-3 top-3" />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Blood Type</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Blood Type</label>
                                 <div className="relative">
                                     <select
                                         name="bloodType"
                                         value={formData.bloodType}
                                         onChange={handleChange}
-                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                     >
                                         <option value="">Select Blood Type</option>
                                         <option value="A+">A+</option>
@@ -582,12 +582,12 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                                         <option value="O+">O+</option>
                                         <option value="O-">O-</option>
                                     </select>
-                                    <Droplets className="w-4 h-4 text-[#6E6E6E] absolute left-3 top-3" />
+                                    <Droplets className="w-4 h-4 text-[#555555] absolute left-3 top-3" />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Emergency Contact</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Emergency Contact</label>
                                 <div className="relative">
                                     <input
                                         type="tel"
@@ -595,48 +595,48 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                                         value={formData.emergencyContact}
                                         onChange={handleChange}
                                         placeholder="+91 98765 43210"
-                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                        className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                     />
-                                    <Phone className="w-4 h-4 text-[#6E6E6E] absolute left-3 top-3" />
+                                    <Phone className="w-4 h-4 text-[#555555] absolute left-3 top-3" />
                                 </div>
                             </div>
                         </div>
 
                         <div className="mt-4">
-                            <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Address</label>
+                            <label className="block text-sm font-medium text-[#555555] mb-1">Address</label>
                             <div className="relative">
                                 <textarea
                                     name="address"
                                     value={formData.address}
                                     onChange={handleChange}
                                     rows={3}
-                                    className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                    className="w-full pl-10 pr-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                 ></textarea>
-                                <MapPin className="w-4 h-4 text-[#6E6E6E] absolute left-3 top-3" />
+                                <MapPin className="w-4 h-4 text-[#555555] absolute left-3 top-3" />
                             </div>
                         </div>
                     </div>
 
-                    <div className="border-t border-[#E8EAFF] my-6"></div>
+                    <div className="border-t border-[#C4DCFF] my-6"></div>
 
                     {/* Security - Simplified to just one password field */}
                     <div>
                         <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                            <Lock className="w-5 h-5 text-[#3F53D9]" /> Security
+                            <Lock className="w-5 h-5 text-[#1E5FBF]" /> Security
                         </h3>
 
                         <div className="grid grid-cols-1 gap-4">
                             <div>
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">New Password</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">New Password</label>
                                 <input
                                     type="password"
                                     name="newPassword"
                                     value={formData.newPassword}
                                     onChange={handleChange}
                                     placeholder="Enter new password to change"
-                                    className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                    className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                 />
-                                <p className="text-xs text-[#6E6E6E] mt-1">Leave blank to keep current password</p>
+                                <p className="text-xs text-[#555555] mt-1">Leave blank to keep current password</p>
                             </div>
                         </div>
                     </div>
@@ -676,12 +676,12 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                     <MedicalCard variant="filled" className="bg-white border p-6 space-y-6">
                         <div>
                             <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                                <Activity className="w-5 h-5 text-[#3F53D9]" /> Health Metrics
+                                <Activity className="w-5 h-5 text-[#1E5FBF]" /> Health Metrics
                             </h3>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-[#6E6E6E] mb-1 flex items-center gap-2">
+                                    <label className="block text-sm font-medium text-[#555555] mb-1 flex items-center gap-2">
                                         <Weight className="w-4 h-4" /> Height (cm)
                                     </label>
                                     <input
@@ -690,12 +690,12 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                                         value={healthMetrics.height}
                                         onChange={handleHealthMetricsChange}
                                         placeholder="170"
-                                        className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                        className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-[#6E6E6E] mb-1 flex items-center gap-2">
+                                    <label className="block text-sm font-medium text-[#555555] mb-1 flex items-center gap-2">
                                         <Weight className="w-4 h-4" /> Weight (kg)
                                     </label>
                                     <input
@@ -704,12 +704,12 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                                         value={healthMetrics.weight}
                                         onChange={handleHealthMetricsChange}
                                         placeholder="70"
-                                        className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                        className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-[#6E6E6E] mb-1 flex items-center gap-2">
+                                    <label className="block text-sm font-medium text-[#555555] mb-1 flex items-center gap-2">
                                         <Activity className="w-4 h-4" /> Blood Pressure
                                     </label>
                                     <input
@@ -718,12 +718,12 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                                         value={healthMetrics.bloodPressure}
                                         onChange={handleHealthMetricsChange}
                                         placeholder="120/80"
-                                        className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                        className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-[#6E6E6E] mb-1 flex items-center gap-2">
+                                    <label className="block text-sm font-medium text-[#555555] mb-1 flex items-center gap-2">
                                         <Heart className="w-4 h-4" /> Heart Rate (bpm)
                                     </label>
                                     <input
@@ -732,12 +732,12 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                                         value={healthMetrics.heartRate}
                                         onChange={handleHealthMetricsChange}
                                         placeholder="72"
-                                        className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                        className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-[#6E6E6E] mb-1 flex items-center gap-2">
+                                    <label className="block text-sm font-medium text-[#555555] mb-1 flex items-center gap-2">
                                         <Thermometer className="w-4 h-4" /> Temperature (°C)
                                     </label>
                                     <input
@@ -747,44 +747,44 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                                         onChange={handleHealthMetricsChange}
                                         placeholder="36.5"
                                         step="0.1"
-                                        className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                        className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                     />
                                 </div>
                             </div>
 
                             <div className="mt-4">
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Allergies</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Allergies</label>
                                 <textarea
                                     name="allergies"
                                     value={healthMetrics.allergies}
                                     onChange={handleHealthMetricsChange}
                                     placeholder="List any known allergies..."
                                     rows={2}
-                                    className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                    className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                 />
                             </div>
 
                             <div className="mt-4">
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Chronic Conditions</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Chronic Conditions</label>
                                 <textarea
                                     name="chronicConditions"
                                     value={healthMetrics.chronicConditions}
                                     onChange={handleHealthMetricsChange}
                                     placeholder="List any chronic conditions..."
                                     rows={2}
-                                    className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                    className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                 />
                             </div>
 
                             <div className="mt-4">
-                                <label className="block text-sm font-medium text-[#6E6E6E] mb-1">Current Medications</label>
+                                <label className="block text-sm font-medium text-[#555555] mb-1">Current Medications</label>
                                 <textarea
                                     name="currentMedications"
                                     value={healthMetrics.currentMedications}
                                     onChange={handleHealthMetricsChange}
                                     placeholder="List current medications..."
                                     rows={2}
-                                    className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                                    className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                                 />
                             </div>
 
@@ -810,13 +810,13 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
                 <MedicalCard variant="filled" className="bg-white border p-6 space-y-6">
                     <div>
                         <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                            <FileText className="w-5 h-5 text-[#3F53D9]" /> Health Documents
+                            <FileText className="w-5 h-5 text-[#1E5FBF]" /> Health Documents
                         </h3>
 
-                        <div className="border-2 border-dashed border-[#E8EAFF] rounded-xl p-8 text-center">
-                            <FileText className="w-12 h-12 text-[#3F53D9] mx-auto mb-4" />
-                            <h4 className="font-medium text-[#333] mb-2">Upload Health Documents</h4>
-                            <p className="text-sm text-[#6E6E6E] mb-4">Upload lab reports, test results, or other health documents</p>
+                        <div className="border-2 border-dashed border-[#C4DCFF] rounded-xl p-8 text-center">
+                            <FileText className="w-12 h-12 text-[#1E5FBF] mx-auto mb-4" />
+                            <h4 className="font-medium text-[#1A1A1A] mb-2">Upload Health Documents</h4>
+                            <p className="text-sm text-[#555555] mb-4">Upload lab reports, test results, or other health documents</p>
                             <label className="cursor-pointer">
                                 <input
                                     type="file"
@@ -834,12 +834,12 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
 
                         {healthDocuments.length > 0 && (
                             <div className="mt-6 space-y-2">
-                                <h4 className="font-medium text-[#333]">Selected Documents:</h4>
+                                <h4 className="font-medium text-[#1A1A1A]">Selected Documents:</h4>
                                 {healthDocuments.map((doc, idx) => (
-                                    <div key={idx} className="flex items-center justify-between p-3 bg-[#F5F3FA] rounded-lg">
+                                    <div key={idx} className="flex items-center justify-between p-3 bg-[#CFE3FF] rounded-lg">
                                         <div className="flex items-center gap-3">
-                                            <FileText className="w-5 h-5 text-[#3F53D9]" />
-                                            <span className="text-sm text-[#333]">{doc.name}</span>
+                                            <FileText className="w-5 h-5 text-[#1E5FBF]" />
+                                            <span className="text-sm text-[#1A1A1A]">{doc.name}</span>
                                         </div>
                                         <button
                                             onClick={() => removeDocument(idx)}
@@ -865,19 +865,19 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
 
                         {uploadedDocuments.length > 0 && (
                             <div className="mt-6">
-                                <h4 className="font-medium text-[#333] mb-4">Uploaded Documents:</h4>
+                                <h4 className="font-medium text-[#1A1A1A] mb-4">Uploaded Documents:</h4>
                                 <div className="space-y-2">
                                     {uploadedDocuments.map((doc, idx) => (
-                                        <div key={idx} className="flex items-center justify-between p-3 bg-white border border-[#E8EAFF] rounded-lg">
+                                        <div key={idx} className="flex items-center justify-between p-3 bg-white border border-[#C4DCFF] rounded-lg">
                                             <div className="flex items-center gap-3">
-                                                <FileText className="w-5 h-5 text-[#3F53D9]" />
-                                                <span className="text-sm text-[#333]">{doc}</span>
+                                                <FileText className="w-5 h-5 text-[#1E5FBF]" />
+                                                <span className="text-sm text-[#1A1A1A]">{doc}</span>
                                             </div>
                                             <a
                                                 href={doc}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-[#3F53D9] hover:underline text-sm"
+                                                className="text-[#1E5FBF] hover:underline text-sm"
                                             >
                                                 View
                                             </a>

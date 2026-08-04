@@ -40,17 +40,17 @@ export function Logo({ variant = 'primary', size = 'md', className = '' }: LogoP
       {/* Medical cross */}
       <path 
         d="M24 8V40M12 24H36" 
-        stroke="#3F53D9" 
+        stroke="#1E5FBF" 
         strokeWidth="3" 
         strokeLinecap="round"
       />
       {/* Connection nodes */}
-      <circle cx="24" cy="12" r="3" fill="#7C74EB" />
-      <circle cx="24" cy="36" r="3" fill="#7C74EB" />
-      <circle cx="16" cy="24" r="3" fill="#34D1BF" />
-      <circle cx="32" cy="24" r="3" fill="#34D1BF" />
+      <circle cx="24" cy="12" r="3" fill="#8A2BE2" />
+      <circle cx="24" cy="36" r="3" fill="#8A2BE2" />
+      <circle cx="16" cy="24" r="3" fill="#008080" />
+      <circle cx="32" cy="24" r="3" fill="#008080" />
       {/* Center circle */}
-      <circle cx="24" cy="24" r="4" fill="#3F53D9" />
+      <circle cx="24" cy="24" r="4" fill="#1E5FBF" />
     </svg>
   );
 
@@ -67,10 +67,10 @@ export function Logo({ variant = 'primary', size = 'md', className = '' }: LogoP
       <div className={`flex items-center gap-3 ${className}`}>
         <IconLogo />
         <div className="flex flex-col">
-          <span className={`${textSizes[size]} font-bold text-[#3F53D9]`}>
+          <span className={`${textSizes[size]} font-bold text-[#1E5FBF]`}>
             Medi-Connect
           </span>
-          <span className="text-xs text-[#6E6E6E]">Healthcare Platform</span>
+          <span className="text-xs text-[#555555]">Healthcare Platform</span>
         </div>
       </div>
     );
@@ -80,7 +80,7 @@ export function Logo({ variant = 'primary', size = 'md', className = '' }: LogoP
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <IconLogo />
-      <span className={`${textSizes[size]} font-bold text-[#3F53D9]`}>
+      <span className={`${textSizes[size]} font-bold text-[#1E5FBF]`}>
         Medi-Connect
       </span>
     </div>

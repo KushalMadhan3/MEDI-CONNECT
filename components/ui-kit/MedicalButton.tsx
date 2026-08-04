@@ -13,13 +13,13 @@ export function MedicalButton({
   className = '',
   ...props 
 }: MedicalButtonProps) {
-  const baseClasses = 'rounded-xl font-medium transition-all duration-300 btn-3d disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden';
+  const baseClasses = 'rounded-lg font-bold transition-all duration-150 btn-3d disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden';
   
   const variants = {
-    primary: 'bg-gradient-to-r from-[#3F53D9] to-[#7C74EB] text-white hover:from-[#3346B8] hover:to-[#6B63D8] shadow-lg shadow-[#3F53D9]/30 hover:shadow-xl hover:shadow-[#3F53D9]/40',
-    secondary: 'bg-gradient-to-r from-[#7C74EB] to-[#9B8FFF] text-white hover:from-[#6B63D8] hover:to-[#8B7FE8] shadow-lg shadow-[#7C74EB]/30 hover:shadow-xl hover:shadow-[#7C74EB]/40',
-    outlined: 'border-2 border-[#3F53D9] text-[#3F53D9] bg-white/80 backdrop-blur-sm hover:bg-gradient-to-r hover:from-[#E8EAFF] hover:to-[#F0EDFF] hover:border-[#7C74EB] hover:text-[#7C74EB] shadow-md hover:shadow-lg',
-    ghost: 'text-[#3F53D9] hover:bg-gradient-to-r hover:from-[#E8EAFF]/50 hover:to-[#F0EDFF]/50 backdrop-blur-sm'
+    primary: 'bg-gradient-to-b from-[#2E7CE0] to-[#1E5FBF] text-white border-2 border-[#0E3D85] shadow-[0_5px_0_#0E3D85] hover:from-[#3A8AF0] hover:to-[#2E63C8] hover:shadow-[0_6px_0_#0E3D85]',
+    secondary: 'bg-gradient-to-b from-[#A14EF0] to-[#8A2BE2] text-white border-2 border-[#5E1FAE] shadow-[0_5px_0_#5E1FAE] hover:from-[#B25FF5] hover:to-[#9B39EC] hover:shadow-[0_6px_0_#5E1FAE]',
+    outlined: 'bg-white text-[#1E5FBF] border-2 border-[#1E5FBF] shadow-[0_4px_0_#1E5FBF] hover:bg-[#E4EFFF] hover:text-[#8A2BE2] hover:border-[#8A2BE2] hover:shadow-[0_4px_0_#8A2BE2]',
+    ghost: 'text-[#1E5FBF] hover:bg-[#E4EFFF] hover:text-[#8A2BE2]'
   };
 
   const sizes = {
@@ -37,7 +37,7 @@ export function MedicalButton({
         {children}
       </span>
       {(variant === 'primary' || variant === 'secondary') && (
-        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
+        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shimmer opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
       )}
     </button>
   );

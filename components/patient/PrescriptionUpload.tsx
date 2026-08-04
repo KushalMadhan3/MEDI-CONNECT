@@ -115,12 +115,12 @@ export function PrescriptionUpload() {
 
     return (
         <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-[#333]">Smart Prescription Reader</h2>
+            <h2 className="text-2xl font-bold text-[#1A1A1A]">Smart Prescription Reader</h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Upload Section */}
                 <div className="space-y-4">
-                    <MedicalCard variant="filled" className="bg-white border-2 border-dashed border-[#E8EAFF] p-8 text-center hover:border-[#3F53D9] transition-colors relative">
+                    <MedicalCard variant="filled" className="bg-white border-2 border-dashed border-[#C4DCFF] p-8 text-center hover:border-[#1E5FBF] transition-colors relative">
                         <input
                             type="file"
                             accept="image/*"
@@ -133,12 +133,12 @@ export function PrescriptionUpload() {
                             </div>
                         ) : (
                             <div className="py-12">
-                                <div className="w-16 h-16 bg-[#F5F3FA] rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <Upload className="w-8 h-8 text-[#3F53D9]" />
+                                <div className="w-16 h-16 bg-[#CFE3FF] rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <Upload className="w-8 h-8 text-[#1E5FBF]" />
                                 </div>
-                                <h3 className="font-bold text-[#333] mb-2">Upload Prescription</h3>
-                                <p className="text-[#6E6E6E] text-sm">Drop your file here or click to browse</p>
-                                <p className="text-xs text-[#6E6E6E] mt-2">Supports JPG, PNG</p>
+                                <h3 className="font-bold text-[#1A1A1A] mb-2">Upload Prescription</h3>
+                                <p className="text-[#555555] text-sm">Drop your file here or click to browse</p>
+                                <p className="text-xs text-[#555555] mt-2">Supports JPG, PNG</p>
                             </div>
                         )}
                     </MedicalCard>
@@ -168,19 +168,19 @@ export function PrescriptionUpload() {
                     {result ? (
                         <MedicalCard variant="filled" className="bg-white border text-left h-full">
                             <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-                                <FileText className="w-5 h-5 text-[#3F53D9]" /> Analysis Result
+                                <FileText className="w-5 h-5 text-[#1E5FBF]" /> Analysis Result
                             </h3>
 
                             <div className="space-y-4">
                                 {result.extractedMedicines && result.extractedMedicines.length > 0 && (
                                     <div>
-                                        <h4 className="text-sm font-bold text-[#6E6E6E] uppercase mb-2 flex items-center gap-2">
+                                        <h4 className="text-sm font-bold text-[#555555] uppercase mb-2 flex items-center gap-2">
                                             <FileText className="w-4 h-4" />
                                             Detected Medicines ({result.extractedMedicines.length})
                                         </h4>
                                         <div className="flex flex-wrap gap-2">
                                             {result.extractedMedicines.map((med: string, i: number) => (
-                                                <span key={i} className="px-3 py-1.5 bg-gradient-to-r from-[#F0EDFF] to-[#E8EAFF] text-[#3F53D9] rounded-full text-sm font-medium border border-[#3F53D9]/20">
+                                                <span key={i} className="px-3 py-1.5 bg-gradient-to-r from-[#E0CFFF] to-[#C4DCFF] text-[#1E5FBF] rounded-full text-sm font-medium border border-[#1E5FBF]/20">
                                                     {med}
                                                 </span>
                                             ))}
@@ -190,7 +190,7 @@ export function PrescriptionUpload() {
 
                                 {result.recommendations && result.recommendations.recommendedMedicines && result.recommendations.recommendedMedicines.length > 0 && (
                                     <div className="mb-6">
-                                        <h4 className="text-sm font-bold text-[#6E6E6E] uppercase mb-3 flex items-center gap-2">
+                                        <h4 className="text-sm font-bold text-[#555555] uppercase mb-3 flex items-center gap-2">
                                             <span className="text-lg">💡</span>
                                             Recommended Medicines ({result.recommendations.detectedKeywords?.length || 0} conditions detected)
                                         </h4>
@@ -205,7 +205,7 @@ export function PrescriptionUpload() {
                                                         <div className="font-bold text-sm text-gray-900 mb-1">{med.name}</div>
                                                         <div className="text-xs text-blue-600 mb-1">{med.reason || `For ${med.recommendedFor}`}</div>
                                                         <div className="flex items-center gap-3">
-                                                            <div className="text-[#3F53D9] font-bold">₹{med.price}</div>
+                                                            <div className="text-[#1E5FBF] font-bold">₹{med.price}</div>
                                                             <MedicalButton
                                                                 variant="primary"
                                                                 size="sm"
@@ -225,18 +225,18 @@ export function PrescriptionUpload() {
 
                                 {result.matches && result.matches.length > 0 ? (
                                     <div>
-                                        <h4 className="text-sm font-bold text-[#6E6E6E] uppercase mb-3 flex items-center gap-2">
+                                        <h4 className="text-sm font-bold text-[#555555] uppercase mb-3 flex items-center gap-2">
                                             <ShoppingCart className="w-4 h-4" />
                                             Available in Store ({result.matches.reduce((sum: number, m: any) => sum + (m.matchedMedicines?.length || 0), 0)})
                                         </h4>
                                         <div className="space-y-3 max-h-96 overflow-y-auto pr-2">
                                             {result.matches.map((match: any, i: number) => (
-                                                <div key={i} className="bg-gradient-to-br from-[#F5F3FA] to-white p-4 rounded-xl border border-[#E8EAFF] hover:border-[#3F53D9]/30 transition-all">
-                                                    <div className="text-xs text-[#6E6E6E] mb-2 font-medium">
-                                                        📋 Detected: <span className="text-[#3F53D9] font-semibold">"{match.extractedName}"</span>
+                                                <div key={i} className="bg-gradient-to-br from-[#CFE3FF] to-white p-4 rounded-xl border border-[#C4DCFF] hover:border-[#1E5FBF]/30 transition-all">
+                                                    <div className="text-xs text-[#555555] mb-2 font-medium">
+                                                        📋 Detected: <span className="text-[#1E5FBF] font-semibold">"{match.extractedName}"</span>
                                                     </div>
                                                     {match.matchedMedicines && match.matchedMedicines.map((med: any) => (
-                                                        <div key={med.id} className="flex gap-3 mt-3 bg-white p-4 rounded-lg border border-[#E8EAFF] hover:shadow-md hover:border-[#3F53D9]/50 transition-all group">
+                                                        <div key={med.id} className="flex gap-3 mt-3 bg-white p-4 rounded-lg border border-[#C4DCFF] hover:shadow-md hover:border-[#1E5FBF]/50 transition-all group">
                                                             <ImageWithFallback
                                                                 src={med.image || `https://via.placeholder.com/200?text=${encodeURIComponent(med.name)}`}
                                                                 className="w-20 h-20 rounded-lg bg-gray-100 object-contain border border-gray-200 group-hover:scale-105 transition-transform"
@@ -244,9 +244,9 @@ export function PrescriptionUpload() {
                                                             <div className="flex-1 flex flex-col justify-between">
                                                                 <div>
                                                                     <div className="font-bold text-sm text-gray-900 mb-1">{med.name}</div>
-                                                                    <div className="text-xs text-[#6E6E6E] mb-2">{med.category || 'General'}</div>
+                                                                    <div className="text-xs text-[#555555] mb-2">{med.category || 'General'}</div>
                                                                     <div className="flex items-center gap-3">
-                                                                        <div className="text-[#3F53D9] font-bold text-lg">₹{med.price}</div>
+                                                                        <div className="text-[#1E5FBF] font-bold text-lg">₹{med.price}</div>
                                                                         {med.stock !== undefined && (
                                                                             <span className={`text-xs px-2 py-1 rounded-full ${med.stock > 10 ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
                                                                                 {med.stock > 10 ? 'In Stock' : `Only ${med.stock} left`}
@@ -271,7 +271,7 @@ export function PrescriptionUpload() {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="text-center py-8 text-[#6E6E6E]">
+                                    <div className="text-center py-8 text-[#555555]">
                                         <p>No matching medicines found in store.</p>
                                         <p className="text-xs mt-2">Try uploading a clearer image or check the medicine names.</p>
                                     </div>
@@ -279,7 +279,7 @@ export function PrescriptionUpload() {
                             </div>
                         </MedicalCard>
                     ) : (
-                        <div className="h-full flex items-center justify-center p-8 text-center text-[#6E6E6E] bg-[#FAFBFF] rounded-2xl border-2 border-dashed border-[#E8EAFF]">
+                        <div className="h-full flex items-center justify-center p-8 text-center text-[#555555] bg-[#F2F6FF] rounded-2xl border-2 border-dashed border-[#C4DCFF]">
                             <div>
                                 <Scan className="w-12 h-12 mx-auto mb-4 opacity-20" />
                                 <p>Upload a prescription to see AI analysis results here.</p>

@@ -9,8 +9,8 @@ import CheckoutPage from './CheckoutPage';
 function generatePlaceholder(text: string, width: number = 400, height: number = 400): string {
     const svg = `
         <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100%" height="100%" fill="#E8EAFF"/>
-            <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="16" fill="#3F53D9" 
+            <rect width="100%" height="100%" fill="#C4DCFF"/>
+            <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="16" fill="#1E5FBF" 
                   text-anchor="middle" dominant-baseline="middle" font-weight="bold">
                 ${text.length > 20 ? text.substring(0, 20) + '...' : text}
             </text>
@@ -412,7 +412,7 @@ export default function MedicineMarketplace() {
                                         <span className="text-xl font-bold text-gray-900">₹{medicine.price}</span>
                                         <button
                                             onClick={() => addToCart(medicine)}
-                                            className="p-3 bg-gradient-to-r from-[#3F53D9] to-[#7C74EB] text-white rounded-xl hover:from-[#3346B8] hover:to-[#6B63D8] transition-colors flex items-center gap-2 shadow-lg shadow-[#3F53D9]/30"
+                                            className="p-3 bg-gradient-to-r from-[#1E5FBF] to-[#8A2BE2] text-white rounded-xl hover:from-[#1B4AA0] hover:to-[#7459D6] transition-colors flex items-center gap-2 shadow-lg shadow-[#1E5FBF]/30"
                                         >
                                             <Plus className="w-4 h-4" /> Add
                                         </button>

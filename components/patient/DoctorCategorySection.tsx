@@ -209,8 +209,8 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <div>
-                    <h2 className="text-2xl font-bold text-[#333]">Find a Specialist</h2>
-                    <p className="text-[#6E6E6E] mt-1">Book appointments with verified doctors</p>
+                    <h2 className="text-2xl font-bold text-[#1A1A1A]">Find a Specialist</h2>
+                    <p className="text-[#555555] mt-1">Book appointments with verified doctors</p>
                 </div>
             </div>
 
@@ -228,15 +228,15 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
                         key={cat.id}
                         onClick={() => setSelectedCategory(cat.id)}
                         className={`flex flex-col items-start gap-1 px-6 py-4 rounded-xl whitespace-nowrap transition-all min-w-[180px] ${selectedCategory === cat.id
-                                ? 'bg-[#3F53D9] text-white shadow-lg shadow-[#3F53D9]/20'
-                                : 'bg-white text-[#6E6E6E] hover:bg-[#F5F3FA] border border-[#E8EAFF]'
+                                ? 'bg-[#1E5FBF] text-white shadow-lg shadow-[#1E5FBF]/20'
+                                : 'bg-white text-[#555555] hover:bg-[#CFE3FF] border border-[#C4DCFF]'
                             }`}
                     >
                         <div className="flex items-center gap-2">
                             <span className="text-2xl">{cat.icon}</span>
                             <span className="font-bold">{cat.label}</span>
                         </div>
-                        <span className={`text-xs ${selectedCategory === cat.id ? 'text-white/80' : 'text-[#6E6E6E]'}`}>
+                        <span className={`text-xs ${selectedCategory === cat.id ? 'text-white/80' : 'text-[#555555]'}`}>
                             {cat.description}
                         </span>
                     </button>
@@ -246,11 +246,11 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
             {/* Doctor List */}
             {loading ? (
                 <div className="flex items-center justify-center py-12">
-                    <Loader2 className="w-8 h-8 text-[#3F53D9] animate-spin" />
-                    <span className="ml-3 text-[#6E6E6E]">Loading doctors...</span>
+                    <Loader2 className="w-8 h-8 text-[#1E5FBF] animate-spin" />
+                    <span className="ml-3 text-[#555555]">Loading doctors...</span>
                 </div>
             ) : doctors.length === 0 ? (
-                <div className="text-center py-12 text-[#6E6E6E] bg-[#F5F3FA] rounded-xl">
+                <div className="text-center py-12 text-[#555555] bg-[#CFE3FF] rounded-xl">
                     No doctors available in this category. Please check back later.
                 </div>
             ) : (
@@ -258,21 +258,21 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
                     {doctors.map(doc => (
                         <MedicalCard key={doc.id} variant="filled" className="bg-white border hover:shadow-md transition-all">
                             <div className="flex flex-col h-full">
-                                <div className="relative h-48 rounded-xl overflow-hidden mb-4 bg-[#F5F3FA]">
+                                <div className="relative h-48 rounded-xl overflow-hidden mb-4 bg-[#CFE3FF]">
                                     <ImageWithFallback
                                         src={doc.image || `https://i.pravatar.cc/400?img=${doc.id}`}
                                         alt={doc.name}
                                         className="w-full h-full object-cover"
                                     />
-                                    <div className="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded-lg text-xs font-bold text-[#3F53D9] flex items-center gap-1">
+                                    <div className="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded-lg text-xs font-bold text-[#1E5FBF] flex items-center gap-1">
                                         <Star className="w-3 h-3 fill-current" /> {doc.rating || 4.5}
                                     </div>
                                 </div>
 
                                 <h3 className="font-bold text-lg mb-1">{doc.name}</h3>
-                                <p className="text-[#3F53D9] text-sm font-medium mb-3">{doc.specialization}</p>
+                                <p className="text-[#1E5FBF] text-sm font-medium mb-3">{doc.specialization}</p>
 
-                                <div className="text-sm text-[#6E6E6E] space-y-2 mb-4">
+                                <div className="text-sm text-[#555555] space-y-2 mb-4">
                                     <div className="flex items-center gap-2">
                                         <Briefcase className="w-4 h-4" /> {doc.experience || '5+ years'} Experience
                                     </div>
@@ -339,7 +339,7 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
                                     }}
                                     min={new Date().toISOString().split('T')[0]} // Prevent past dates
                                     required
-                                    className="w-full p-3.5 rounded-xl border-2 border-[#E8EAFF] focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                    className="w-full p-3.5 rounded-xl border-2 border-[#C4DCFF] focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                 />
                             </div>
 
@@ -352,7 +352,7 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
                                     </label>
                                     {loadingSlots ? (
                                         <div className="flex items-center justify-center py-8">
-                                            <Loader2 className="w-5 h-5 animate-spin text-[#3F53D9]" />
+                                            <Loader2 className="w-5 h-5 animate-spin text-[#1E5FBF]" />
                                             <span className="ml-2 text-gray-500">Loading available slots...</span>
                                         </div>
                                     ) : availableSlots.length > 0 ? (
@@ -365,9 +365,9 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
                                                     disabled={!slot.available}
                                                     className={`p-3 rounded-xl border-2 transition-all text-sm font-medium ${
                                                         selectedSlot === slot.time
-                                                            ? 'bg-[#3F53D9] text-white border-[#3F53D9] shadow-lg'
+                                                            ? 'bg-[#1E5FBF] text-white border-[#1E5FBF] shadow-lg'
                                                             : slot.available
-                                                            ? 'bg-white text-gray-700 border-[#E8EAFF] hover:border-[#3F53D9]/50 hover:bg-[#F5F3FA]'
+                                                            ? 'bg-white text-gray-700 border-[#C4DCFF] hover:border-[#1E5FBF]/50 hover:bg-[#CFE3FF]'
                                                             : 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
                                                     }`}
                                                 >
@@ -391,14 +391,14 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
                                     rows={3}
                                     value={bookingNotes}
                                     onChange={(e) => setBookingNotes(e.target.value)}
-                                    className="w-full p-3.5 rounded-xl border-2 border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all resize-none"
+                                    className="w-full p-3.5 rounded-xl border-2 border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all resize-none"
                                     placeholder="Briefly describe your symptoms or reason for consultation..."
                                 ></textarea>
                             </div>
 
                             {/* Booking Summary */}
                             {selectedDate && selectedSlot && !showPayment && (
-                                <div className="bg-gradient-to-r from-[#F5F3FA] to-white p-4 rounded-xl border border-[#E8EAFF]">
+                                <div className="bg-gradient-to-r from-[#CFE3FF] to-white p-4 rounded-xl border border-[#C4DCFF]">
                                     <h4 className="font-semibold text-gray-900 mb-2">Booking Summary</h4>
                                     <div className="space-y-1 text-sm text-gray-600">
                                         <p><strong>Doctor:</strong> {bookingDoctor.name}</p>
@@ -416,14 +416,14 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
                                         <h4 className="font-semibold text-gray-900 mb-4">Complete Payment to Confirm Booking</h4>
                                         
                                         {/* Payment Summary */}
-                                        <div className="bg-gradient-to-r from-[#F5F3FA] to-white p-4 rounded-xl border border-[#E8EAFF] mb-4">
+                                        <div className="bg-gradient-to-r from-[#CFE3FF] to-white p-4 rounded-xl border border-[#C4DCFF] mb-4">
                                             <div className="flex justify-between py-2">
                                                 <span className="text-gray-600">Consultation Fee</span>
                                                 <span className="font-medium">₹{bookingDoctor.consultationPrice || 500}</span>
                                             </div>
                                             <div className="flex justify-between py-2 font-semibold text-lg border-t border-gray-200 mt-2 pt-2">
                                                 <span>Total Amount</span>
-                                                <span className="text-[#3F53D9]">₹{bookingDoctor.consultationPrice || 500}</span>
+                                                <span className="text-[#1E5FBF]">₹{bookingDoctor.consultationPrice || 500}</span>
                                             </div>
                                         </div>
                                         
@@ -437,12 +437,12 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
                                                     onClick={() => setPaymentMethod('upi')}
                                                     className={`p-4 rounded-xl border-2 transition-all ${
                                                         paymentMethod === 'upi'
-                                                            ? 'bg-[#3F53D9] text-white border-[#3F53D9] shadow-lg'
-                                                            : 'bg-white text-gray-700 border-[#E8EAFF] hover:border-[#3F53D9]/50'
+                                                            ? 'bg-[#1E5FBF] text-white border-[#1E5FBF] shadow-lg'
+                                                            : 'bg-white text-gray-700 border-[#C4DCFF] hover:border-[#1E5FBF]/50'
                                                     }`}
                                                 >
                                                     <div className="flex flex-col items-center text-center">
-                                                        <Smartphone className={`w-6 h-6 mb-2 ${paymentMethod === 'upi' ? 'text-white' : 'text-[#3F53D9]'}`} />
+                                                        <Smartphone className={`w-6 h-6 mb-2 ${paymentMethod === 'upi' ? 'text-white' : 'text-[#1E5FBF]'}`} />
                                                         <span className="font-medium text-sm">UPI</span>
                                                         <span className={`text-xs mt-1 ${paymentMethod === 'upi' ? 'text-white/80' : 'text-gray-500'}`}>GPay, PhonePe</span>
                                                     </div>
@@ -454,12 +454,12 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
                                                     onClick={() => setPaymentMethod('card')}
                                                     className={`p-4 rounded-xl border-2 transition-all ${
                                                         paymentMethod === 'card'
-                                                            ? 'bg-[#3F53D9] text-white border-[#3F53D9] shadow-lg'
-                                                            : 'bg-white text-gray-700 border-[#E8EAFF] hover:border-[#3F53D9]/50'
+                                                            ? 'bg-[#1E5FBF] text-white border-[#1E5FBF] shadow-lg'
+                                                            : 'bg-white text-gray-700 border-[#C4DCFF] hover:border-[#1E5FBF]/50'
                                                     }`}
                                                 >
                                                     <div className="flex flex-col items-center text-center">
-                                                        <CreditCard className={`w-6 h-6 mb-2 ${paymentMethod === 'card' ? 'text-white' : 'text-[#3F53D9]'}`} />
+                                                        <CreditCard className={`w-6 h-6 mb-2 ${paymentMethod === 'card' ? 'text-white' : 'text-[#1E5FBF]'}`} />
                                                         <span className="font-medium text-sm">Card</span>
                                                         <span className={`text-xs mt-1 ${paymentMethod === 'card' ? 'text-white/80' : 'text-gray-500'}`}>Debit/Credit</span>
                                                     </div>
@@ -471,12 +471,12 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
                                                     onClick={() => setPaymentMethod('netbanking')}
                                                     className={`p-4 rounded-xl border-2 transition-all ${
                                                         paymentMethod === 'netbanking'
-                                                            ? 'bg-[#3F53D9] text-white border-[#3F53D9] shadow-lg'
-                                                            : 'bg-white text-gray-700 border-[#E8EAFF] hover:border-[#3F53D9]/50'
+                                                            ? 'bg-[#1E5FBF] text-white border-[#1E5FBF] shadow-lg'
+                                                            : 'bg-white text-gray-700 border-[#C4DCFF] hover:border-[#1E5FBF]/50'
                                                     }`}
                                                 >
                                                     <div className="flex flex-col items-center text-center">
-                                                        <Building className={`w-6 h-6 mb-2 ${paymentMethod === 'netbanking' ? 'text-white' : 'text-[#3F53D9]'}`} />
+                                                        <Building className={`w-6 h-6 mb-2 ${paymentMethod === 'netbanking' ? 'text-white' : 'text-[#1E5FBF]'}`} />
                                                         <span className="font-medium text-sm">Net Banking</span>
                                                         <span className={`text-xs mt-1 ${paymentMethod === 'netbanking' ? 'text-white/80' : 'text-gray-500'}`}>Bank Transfer</span>
                                                     </div>

@@ -138,44 +138,44 @@ export function PrescriptionModal({ appointment, isOpen, onClose, onSuccess }: P
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-white border-b border-[#E8EAFF] p-6 flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-[#333]">Create Prescription</h2>
-          <button onClick={onClose} className="text-[#6E6E6E] hover:text-[#333]">
+        <div className="sticky top-0 bg-white border-b border-[#C4DCFF] p-6 flex justify-between items-center">
+          <h2 className="text-2xl font-bold text-[#1A1A1A]">Create Prescription</h2>
+          <button onClick={onClose} className="text-[#555555] hover:text-[#1A1A1A]">
             <X className="w-6 h-6" />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
           {/* Patient Info */}
-          <div className="bg-[#F5F3FA] p-4 rounded-xl">
-            <div className="text-sm font-medium text-[#6E6E6E] mb-2">Patient Information</div>
+          <div className="bg-[#CFE3FF] p-4 rounded-xl">
+            <div className="text-sm font-medium text-[#555555] mb-2">Patient Information</div>
             <div className="text-lg font-semibold">{appointment.patientName}</div>
-            <div className="text-sm text-[#6E6E6E]">{appointment.patientEmail}</div>
-            <div className="text-sm text-[#6E6E6E]">
+            <div className="text-sm text-[#555555]">{appointment.patientEmail}</div>
+            <div className="text-sm text-[#555555]">
               Appointment: {appointment.date} at {appointment.time}
             </div>
           </div>
 
           {/* Symptoms */}
           <div>
-            <label className="block text-sm font-medium text-[#6E6E6E] mb-2">Symptoms</label>
+            <label className="block text-sm font-medium text-[#555555] mb-2">Symptoms</label>
             <textarea
               value={symptoms}
               onChange={(e) => setSymptoms(e.target.value)}
               rows={3}
-              className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+              className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
               placeholder="Enter patient symptoms..."
             />
           </div>
 
           {/* Diagnosis */}
           <div>
-            <label className="block text-sm font-medium text-[#6E6E6E] mb-2">Diagnosis</label>
+            <label className="block text-sm font-medium text-[#555555] mb-2">Diagnosis</label>
             <input
               type="text"
               value={diagnosis}
               onChange={(e) => setDiagnosis(e.target.value)}
-              className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+              className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
               placeholder="Enter diagnosis..."
             />
           </div>
@@ -183,7 +183,7 @@ export function PrescriptionModal({ appointment, isOpen, onClose, onSuccess }: P
           {/* Medicines */}
           <div>
             <div className="flex justify-between items-center mb-4">
-              <label className="block text-sm font-medium text-[#6E6E6E]">Prescribed Medicines</label>
+              <label className="block text-sm font-medium text-[#555555]">Prescribed Medicines</label>
               <MedicalButton variant="outlined" size="sm" type="button" onClick={addMedicine}>
                 <Plus className="w-4 h-4 mr-2" />
                 Add Medicine
@@ -208,60 +208,60 @@ export function PrescriptionModal({ appointment, isOpen, onClose, onSuccess }: P
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-[#6E6E6E] mb-1">Medicine Name *</label>
+                      <label className="block text-xs font-medium text-[#555555] mb-1">Medicine Name *</label>
                       <input
                         type="text"
                         value={medicine.name}
                         onChange={(e) => updateMedicine(index, 'name', e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                        className="w-full px-3 py-2 rounded-lg border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                         placeholder="e.g., Paracetamol"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-[#6E6E6E] mb-1">Dosage</label>
+                      <label className="block text-xs font-medium text-[#555555] mb-1">Dosage</label>
                       <input
                         type="text"
                         value={medicine.dosage}
                         onChange={(e) => updateMedicine(index, 'dosage', e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                        className="w-full px-3 py-2 rounded-lg border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                         placeholder="e.g., 500mg"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-[#6E6E6E] mb-1">Duration</label>
+                      <label className="block text-xs font-medium text-[#555555] mb-1">Duration</label>
                       <input
                         type="text"
                         value={medicine.duration}
                         onChange={(e) => updateMedicine(index, 'duration', e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                        className="w-full px-3 py-2 rounded-lg border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                         placeholder="e.g., 5 days"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-[#6E6E6E] mb-1">Frequency</label>
+                      <label className="block text-xs font-medium text-[#555555] mb-1">Frequency</label>
                       <input
                         type="text"
                         value={medicine.frequency}
                         onChange={(e) => updateMedicine(index, 'frequency', e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                        className="w-full px-3 py-2 rounded-lg border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                         placeholder="e.g., Twice daily"
                       />
                     </div>
                   </div>
 
                   <div className="mt-4">
-                    <label className="block text-xs font-medium text-[#6E6E6E] mb-2">Timing</label>
+                    <label className="block text-xs font-medium text-[#555555] mb-2">Timing</label>
                     <div className="flex gap-4">
                       <label className="flex items-center gap-2 cursor-pointer">
                         <input
                           type="checkbox"
                           checked={medicine.timing.morning}
                           onChange={(e) => updateMedicine(index, 'timing', { morning: e.target.checked })}
-                          className="w-4 h-4 text-[#3F53D9] rounded"
+                          className="w-4 h-4 text-[#1E5FBF] rounded"
                         />
                         <span className="text-sm">Morning</span>
                       </label>
@@ -270,7 +270,7 @@ export function PrescriptionModal({ appointment, isOpen, onClose, onSuccess }: P
                           type="checkbox"
                           checked={medicine.timing.afternoon}
                           onChange={(e) => updateMedicine(index, 'timing', { afternoon: e.target.checked })}
-                          className="w-4 h-4 text-[#3F53D9] rounded"
+                          className="w-4 h-4 text-[#1E5FBF] rounded"
                         />
                         <span className="text-sm">Afternoon</span>
                       </label>
@@ -279,7 +279,7 @@ export function PrescriptionModal({ appointment, isOpen, onClose, onSuccess }: P
                           type="checkbox"
                           checked={medicine.timing.night}
                           onChange={(e) => updateMedicine(index, 'timing', { night: e.target.checked })}
-                          className="w-4 h-4 text-[#3F53D9] rounded"
+                          className="w-4 h-4 text-[#1E5FBF] rounded"
                         />
                         <span className="text-sm">Night</span>
                       </label>
@@ -287,12 +287,12 @@ export function PrescriptionModal({ appointment, isOpen, onClose, onSuccess }: P
                   </div>
 
                   <div className="mt-4">
-                    <label className="block text-xs font-medium text-[#6E6E6E] mb-1">Instructions</label>
+                    <label className="block text-xs font-medium text-[#555555] mb-1">Instructions</label>
                     <textarea
                       value={medicine.instructions}
                       onChange={(e) => updateMedicine(index, 'instructions', e.target.value)}
                       rows={2}
-                      className="w-full px-3 py-2 rounded-lg border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+                      className="w-full px-3 py-2 rounded-lg border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
                       placeholder="e.g., Take after food"
                     />
                   </div>
@@ -303,23 +303,23 @@ export function PrescriptionModal({ appointment, isOpen, onClose, onSuccess }: P
 
           {/* Follow-up Date */}
           <div>
-            <label className="block text-sm font-medium text-[#6E6E6E] mb-2">Follow-up Date (Optional)</label>
+            <label className="block text-sm font-medium text-[#555555] mb-2">Follow-up Date (Optional)</label>
             <input
               type="date"
               value={followUpDate}
               onChange={(e) => setFollowUpDate(e.target.value)}
-              className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+              className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
             />
           </div>
 
           {/* Notes */}
           <div>
-            <label className="block text-sm font-medium text-[#6E6E6E] mb-2">Additional Notes</label>
+            <label className="block text-sm font-medium text-[#555555] mb-2">Additional Notes</label>
             <textarea
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={3}
-              className="w-full px-4 py-2 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+              className="w-full px-4 py-2 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
               placeholder="Enter any additional notes..."
             />
           </div>
@@ -339,7 +339,7 @@ export function PrescriptionModal({ appointment, isOpen, onClose, onSuccess }: P
           )}
 
           {/* Actions */}
-          <div className="flex justify-end gap-3 pt-4 border-t border-[#E8EAFF]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-[#C4DCFF]">
             <MedicalButton variant="outlined" type="button" onClick={onClose} disabled={saving}>
               Cancel
             </MedicalButton>

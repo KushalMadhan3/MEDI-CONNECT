@@ -119,26 +119,26 @@ export function NotificationDropdown({
   return (
     <div className="relative" ref={dropdownRef}>
       <button
-        className="relative p-2 hover:bg-[#F5F3FA] rounded-lg transition-all"
+        className="relative p-2 hover:bg-[#CFE3FF] rounded-lg transition-all"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <Bell className="w-6 h-6 text-[#6E6E6E]" />
+        <Bell className="w-6 h-6 text-[#555555]" />
         {unreadCount > 0 && (
-          <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-[#E53935] rounded-full ring-2 ring-white"></span>
+          <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-[#CC0000] rounded-full ring-2 ring-white"></span>
         )}
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-96 bg-white rounded-xl shadow-2xl border border-[#E8EAFF] z-50 max-h-[600px] flex flex-col">
+        <div className="absolute right-0 mt-2 w-96 bg-white rounded-xl shadow-2xl border border-[#C4DCFF] z-50 max-h-[600px] flex flex-col">
           {/* Header */}
-          <div className="px-4 py-3 border-b border-[#E8EAFF] flex items-center justify-between">
-            <h3 className="font-semibold text-[#333]">Notifications</h3>
+          <div className="px-4 py-3 border-b border-[#C4DCFF] flex items-center justify-between">
+            <h3 className="font-semibold text-[#1A1A1A]">Notifications</h3>
             <div className="flex items-center gap-2">
               {unreadCount > 0 && onMarkAllAsRead && (
                 <button
                   onClick={handleMarkAllAsRead}
                   disabled={markingAsRead === 'all'}
-                  className="text-xs text-[#3F53D9] hover:text-[#3346B8] font-medium disabled:opacity-50"
+                  className="text-xs text-[#1E5FBF] hover:text-[#1B4AA0] font-medium disabled:opacity-50"
                 >
                   {markingAsRead === 'all' ? (
                     <Loader2 className="w-3 h-3 animate-spin" />
@@ -149,7 +149,7 @@ export function NotificationDropdown({
               )}
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-[#6E6E6E] hover:text-[#333] p-1"
+                className="text-[#555555] hover:text-[#1A1A1A] p-1"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -159,16 +159,16 @@ export function NotificationDropdown({
           {/* Notifications List */}
           <div className="overflow-y-auto flex-1">
             {notifications.length === 0 ? (
-              <div className="px-4 py-8 text-center text-[#6E6E6E]">
+              <div className="px-4 py-8 text-center text-[#555555]">
                 <Bell className="w-12 h-12 mx-auto mb-2 opacity-30" />
                 <p>No notifications</p>
               </div>
             ) : (
-              <div className="divide-y divide-[#E8EAFF]">
+              <div className="divide-y divide-[#C4DCFF]">
                 {notifications.map((notification) => (
                   <div
                     key={notification._id || notification.id}
-                    className={`px-4 py-3 hover:bg-[#F5F3FA] transition-colors ${
+                    className={`px-4 py-3 hover:bg-[#CFE3FF] transition-colors ${
                       !notification.isRead ? 'bg-blue-50/50' : ''
                     }`}
                   >
@@ -179,13 +179,13 @@ export function NotificationDropdown({
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-2">
                           <div className="flex-1">
-                            <p className={`text-sm font-medium ${!notification.isRead ? 'text-[#333]' : 'text-[#6E6E6E]'}`}>
+                            <p className={`text-sm font-medium ${!notification.isRead ? 'text-[#1A1A1A]' : 'text-[#555555]'}`}>
                               {notification.title}
                             </p>
-                            <p className="text-xs text-[#6E6E6E] mt-1 line-clamp-2">
+                            <p className="text-xs text-[#555555] mt-1 line-clamp-2">
                               {notification.message}
                             </p>
-                            <p className="text-xs text-[#6E6E6E] mt-1">
+                            <p className="text-xs text-[#555555] mt-1">
                               {formatTime(notification.createdAt)}
                             </p>
                           </div>
@@ -193,13 +193,13 @@ export function NotificationDropdown({
                             <button
                               onClick={() => handleMarkAsRead(notification._id || notification.id || '')}
                               disabled={markingAsRead === (notification._id || notification.id)}
-                              className="flex-shrink-0 p-1 hover:bg-[#E8EAFF] rounded transition-colors disabled:opacity-50"
+                              className="flex-shrink-0 p-1 hover:bg-[#C4DCFF] rounded transition-colors disabled:opacity-50"
                               title="Mark as read"
                             >
                               {markingAsRead === (notification._id || notification.id) ? (
-                                <Loader2 className="w-3 h-3 animate-spin text-[#3F53D9]" />
+                                <Loader2 className="w-3 h-3 animate-spin text-[#1E5FBF]" />
                               ) : (
-                                <Check className="w-3 h-3 text-[#3F53D9]" />
+                                <Check className="w-3 h-3 text-[#1E5FBF]" />
                               )}
                             </button>
                           )}

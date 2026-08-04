@@ -266,7 +266,7 @@ export default function OrdersPage() {
     if (loading) {
         return (
             <div className="flex flex-col items-center justify-center h-[50vh]">
-                <Loader2 className="w-8 h-8 text-[#3F53D9] animate-spin mb-4" />
+                <Loader2 className="w-8 h-8 text-[#1E5FBF] animate-spin mb-4" />
                 <p className="text-gray-500">Loading your orders...</p>
             </div>
         );
@@ -283,7 +283,7 @@ export default function OrdersPage() {
                 <div className="flex gap-3">
                     <button
                         onClick={fetchOrders}
-                        className="px-6 py-2 bg-[#3F53D9] text-white rounded-xl hover:bg-[#3F53D9]/90 transition-colors"
+                        className="px-6 py-2 bg-[#1E5FBF] text-white rounded-xl hover:bg-[#1E5FBF]/90 transition-colors"
                     >
                         Retry
                     </button>
@@ -319,7 +319,7 @@ export default function OrdersPage() {
                 <button
                     onClick={fetchOrders}
                     disabled={loading}
-                    className="flex items-center gap-2 px-4 py-2 bg-[#3F53D9] text-white rounded-lg hover:bg-[#2E42C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center gap-2 px-4 py-2 bg-[#1E5FBF] text-white rounded-lg hover:bg-[#2242C0] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     <Loader2 className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
                     {loading ? 'Loading...' : 'Refresh'}
@@ -365,7 +365,7 @@ export default function OrdersPage() {
                                     )}
                                 </div>
                                 <div className="text-right">
-                                    <p className="text-2xl font-bold text-[#3F53D9]">₹{Number(totalAmount).toFixed(2)}</p>
+                                    <p className="text-2xl font-bold text-[#1E5FBF]">₹{Number(totalAmount).toFixed(2)}</p>
                                     <p className="text-xs text-gray-500">{items.length} {items.length === 1 ? 'item' : 'items'}</p>
                                 </div>
                             </div>
@@ -380,8 +380,8 @@ export default function OrdersPage() {
                                                     src={item?.image || (() => {
                                                         // Generate local SVG placeholder
                                                         const svg = `<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
-                                                            <rect width="100%" height="100%" fill="#E8EAFF"/>
-                                                            <text x="50%" y="50%" font-family="Arial" font-size="8" fill="#3F53D9" 
+                                                            <rect width="100%" height="100%" fill="#C4DCFF"/>
+                                                            <text x="50%" y="50%" font-family="Arial" font-size="8" fill="#1E5FBF" 
                                                                   text-anchor="middle" dominant-baseline="middle">📦</text>
                                                         </svg>`;
                                                         return `data:image/svg+xml;base64,${btoa(svg)}`;
@@ -392,8 +392,8 @@ export default function OrdersPage() {
                                                         // Use local SVG placeholder
                                                         const target = e.target as HTMLImageElement;
                                                         const svg = `<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
-                                                            <rect width="100%" height="100%" fill="#E8EAFF"/>
-                                                            <text x="50%" y="50%" font-family="Arial" font-size="8" fill="#3F53D9" 
+                                                            <rect width="100%" height="100%" fill="#C4DCFF"/>
+                                                            <text x="50%" y="50%" font-family="Arial" font-size="8" fill="#1E5FBF" 
                                                                   text-anchor="middle" dominant-baseline="middle">📦</text>
                                                         </svg>`;
                                                         target.src = `data:image/svg+xml;base64,${btoa(svg)}`;
@@ -460,7 +460,7 @@ export default function OrdersPage() {
                                 )}
                                 <button 
                                     onClick={() => handleTrackOrder(orderId)}
-                                    className="text-[#3F53D9] hover:text-[#3F53D9]/80 text-sm font-bold flex items-center gap-1 transition-colors"
+                                    className="text-[#1E5FBF] hover:text-[#1E5FBF]/80 text-sm font-bold flex items-center gap-1 transition-colors"
                                 >
                                     Track Order <ChevronRight className="w-4 h-4" />
                                 </button>
@@ -487,16 +487,16 @@ export default function OrdersPage() {
                         {trackingInfo && (
                             <div className="space-y-4">
                                 <div className="flex items-center gap-3">
-                                    <Truck className="w-6 h-6 text-[#3F53D9]" />
+                                    <Truck className="w-6 h-6 text-[#1E5FBF]" />
                                     <div>
                                         <p className="font-medium">Carrier: {trackingInfo.carrier}</p>
                                         <p className="text-sm text-gray-500">Tracking #: {trackingInfo.trackingNumber}</p>
                                     </div>
                                 </div>
                                 
-                                <div className="border-l-2 border-[#3F53D9] pl-4 ml-3 space-y-3">
+                                <div className="border-l-2 border-[#1E5FBF] pl-4 ml-3 space-y-3">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-6 h-6 rounded-full bg-[#3F53D9] flex items-center justify-center">
+                                        <div className="w-6 h-6 rounded-full bg-[#1E5FBF] flex items-center justify-center">
                                             <CheckCircle className="w-4 h-4 text-white" />
                                         </div>
                                         <div>
@@ -506,7 +506,7 @@ export default function OrdersPage() {
                                     </div>
                                     
                                     <div className="flex items-center gap-3">
-                                        <div className={`w-6 h-6 rounded-full ${trackingInfo.status === 'processing' || trackingInfo.status === 'delivered' ? 'bg-[#3F53D9]' : 'bg-gray-300'} flex items-center justify-center`}>
+                                        <div className={`w-6 h-6 rounded-full ${trackingInfo.status === 'processing' || trackingInfo.status === 'delivered' ? 'bg-[#1E5FBF]' : 'bg-gray-300'} flex items-center justify-center`}>
                                             <CheckCircle className="w-4 h-4 text-white" />
                                         </div>
                                         <div>
@@ -516,7 +516,7 @@ export default function OrdersPage() {
                                     </div>
                                     
                                     <div className="flex items-center gap-3">
-                                        <div className={`w-6 h-6 rounded-full ${trackingInfo.status === 'delivered' ? 'bg-[#3F53D9]' : 'bg-gray-300'} flex items-center justify-center`}>
+                                        <div className={`w-6 h-6 rounded-full ${trackingInfo.status === 'delivered' ? 'bg-[#1E5FBF]' : 'bg-gray-300'} flex items-center justify-center`}>
                                             <MapPin className="w-4 h-4 text-white" />
                                         </div>
                                         <div>
@@ -541,7 +541,7 @@ export default function OrdersPage() {
                         <div className="mt-6 flex justify-end">
                             <button
                                 onClick={() => setShowTrackingModal(false)}
-                                className="px-4 py-2 bg-[#3F53D9] text-white rounded-lg hover:bg-[#3F53D9]/90 transition-colors"
+                                className="px-4 py-2 bg-[#1E5FBF] text-white rounded-lg hover:bg-[#1E5FBF]/90 transition-colors"
                             >
                                 Close
                             </button>

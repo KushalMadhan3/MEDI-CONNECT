@@ -352,7 +352,7 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                 <div className="flex gap-4">
                     <button 
                         onClick={onOrderPlaced} 
-                        className="px-8 py-3 bg-gradient-to-r from-[#3F53D9] to-[#7C74EB] text-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all"
+                        className="px-8 py-3 bg-gradient-to-r from-[#1E5FBF] to-[#8A2BE2] text-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all"
                     >
                         View Orders
                     </button>
@@ -394,7 +394,7 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                                     type="text"
                                     placeholder="Street Address *"
                                     required
-                                    className="w-full p-3.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                    className="w-full p-3.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                     value={address.street}
                                     onChange={e => setAddress({ ...address, street: e.target.value })}
                                 />
@@ -403,14 +403,14 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                                         type="text"
                                         placeholder="City *"
                                         required
-                                        className="w-full p-3.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                        className="w-full p-3.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                         value={address.city}
                                         onChange={e => setAddress({ ...address, city: e.target.value })}
                                     />
                                     <input
                                         type="text"
                                         placeholder="State"
-                                        className="w-full p-3.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                        className="w-full p-3.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                         value={address.state}
                                         onChange={e => setAddress({ ...address, state: e.target.value })}
                                     />
@@ -420,7 +420,7 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                                         type="text"
                                         placeholder="ZIP Code *"
                                         required
-                                        className="w-full p-3.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                        className="w-full p-3.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                         value={address.zip}
                                         onChange={e => setAddress({ ...address, zip: e.target.value })}
                                     />
@@ -428,7 +428,7 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                                         type="tel"
                                         placeholder="Phone Number *"
                                         required
-                                        className="w-full p-3.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                        className="w-full p-3.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                         value={address.phone}
                                         onChange={e => setAddress({ ...address, phone: e.target.value })}
                                     />
@@ -436,13 +436,13 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                                 <button
                                     onClick={() => setStep('payment')}
                                     disabled={!address.street || !address.city || !address.zip || !address.phone}
-                                    className="w-full py-3.5 bg-gradient-to-r from-[#3F53D9] to-[#7C74EB] text-white rounded-xl font-semibold hover:shadow-lg hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed transition-all mt-2"
+                                    className="w-full py-3.5 bg-gradient-to-r from-[#1E5FBF] to-[#8A2BE2] text-white rounded-xl font-semibold hover:shadow-lg hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed transition-all mt-2"
                                 >
                                     Continue to Payment →
                                 </button>
                             </div>
                         ) : (
-                            <div className="flex justify-between items-center text-gray-600 bg-gradient-to-r from-[#F5F3FA] to-white p-4 rounded-xl border border-[#E8EAFF]">
+                            <div className="flex justify-between items-center text-gray-600 bg-gradient-to-r from-[#CFE3FF] to-white p-4 rounded-xl border border-[#C4DCFF]">
                                 <div>
                                     <p className="font-medium">{address.street}</p>
                                     <p className="text-sm">{address.city}, {address.state} - {address.zip}</p>
@@ -450,7 +450,7 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                                 </div>
                                 <button 
                                     onClick={() => setStep('address')} 
-                                    className="text-[#3F53D9] text-sm font-medium hover:underline px-3 py-1 hover:bg-[#E8EAFF] rounded-lg transition-colors"
+                                    className="text-[#1E5FBF] text-sm font-medium hover:underline px-3 py-1 hover:bg-[#C4DCFF] rounded-lg transition-colors"
                                 >
                                     Change
                                 </button>
@@ -470,17 +470,17 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                         {step === 'payment' && (
                             <div className="space-y-6">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <label className={`cursor-pointer p-5 border-2 rounded-xl flex items-center gap-3 transition-all group ${paymentMethod === 'mock' ? 'border-[#3F53D9] bg-gradient-to-br from-[#E8EAFF] to-white shadow-md' : 'border-[#E8EAFF] hover:border-[#3F53D9]/50 hover:shadow-sm'}`}>
+                                    <label className={`cursor-pointer p-5 border-2 rounded-xl flex items-center gap-3 transition-all group ${paymentMethod === 'mock' ? 'border-[#1E5FBF] bg-gradient-to-br from-[#C4DCFF] to-white shadow-md' : 'border-[#C4DCFF] hover:border-[#1E5FBF]/50 hover:shadow-sm'}`}>
                                         <input 
                                             type="radio" 
                                             name="payment" 
                                             value="mock" 
                                             checked={paymentMethod === 'mock'} 
                                             onChange={() => setPaymentMethod('mock')} 
-                                            className="text-[#3F53D9] w-5 h-5" 
+                                            className="text-[#1E5FBF] w-5 h-5" 
                                         />
                                         <div className="flex items-center gap-3">
-                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${paymentMethod === 'mock' ? 'bg-[#3F53D9] text-white' : 'bg-[#F5F3FA] text-gray-500 group-hover:bg-[#E8EAFF]'}`}>
+                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${paymentMethod === 'mock' ? 'bg-[#1E5FBF] text-white' : 'bg-[#CFE3FF] text-gray-500 group-hover:bg-[#C4DCFF]'}`}>
                                                 <Wallet className="w-5 h-5" />
                                             </div>
                                             <div>
@@ -489,17 +489,17 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                                             </div>
                                         </div>
                                     </label>
-                                    <label className={`cursor-pointer p-5 border-2 rounded-xl flex items-center gap-3 transition-all group ${paymentMethod === 'upi' ? 'border-[#3F53D9] bg-gradient-to-br from-[#E8EAFF] to-white shadow-md' : 'border-[#E8EAFF] hover:border-[#3F53D9]/50 hover:shadow-sm'}`}>
+                                    <label className={`cursor-pointer p-5 border-2 rounded-xl flex items-center gap-3 transition-all group ${paymentMethod === 'upi' ? 'border-[#1E5FBF] bg-gradient-to-br from-[#C4DCFF] to-white shadow-md' : 'border-[#C4DCFF] hover:border-[#1E5FBF]/50 hover:shadow-sm'}`}>
                                         <input 
                                             type="radio" 
                                             name="payment" 
                                             value="upi" 
                                             checked={paymentMethod === 'upi'} 
                                             onChange={() => setPaymentMethod('upi')} 
-                                            className="text-[#3F53D9] w-5 h-5" 
+                                            className="text-[#1E5FBF] w-5 h-5" 
                                         />
                                         <div className="flex items-center gap-3">
-                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${paymentMethod === 'upi' ? 'bg-[#3F53D9] text-white' : 'bg-[#F5F3FA] text-gray-500 group-hover:bg-[#E8EAFF]'}`}>
+                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${paymentMethod === 'upi' ? 'bg-[#1E5FBF] text-white' : 'bg-[#CFE3FF] text-gray-500 group-hover:bg-[#C4DCFF]'}`}>
                                                 <Smartphone className="w-5 h-5" />
                                             </div>
                                             <div>
@@ -508,17 +508,17 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                                             </div>
                                         </div>
                                     </label>
-                                    <label className={`cursor-pointer p-5 border-2 rounded-xl flex items-center gap-3 transition-all group ${paymentMethod === 'card' ? 'border-[#3F53D9] bg-gradient-to-br from-[#E8EAFF] to-white shadow-md' : 'border-[#E8EAFF] hover:border-[#3F53D9]/50 hover:shadow-sm'}`}>
+                                    <label className={`cursor-pointer p-5 border-2 rounded-xl flex items-center gap-3 transition-all group ${paymentMethod === 'card' ? 'border-[#1E5FBF] bg-gradient-to-br from-[#C4DCFF] to-white shadow-md' : 'border-[#C4DCFF] hover:border-[#1E5FBF]/50 hover:shadow-sm'}`}>
                                         <input 
                                             type="radio" 
                                             name="payment" 
                                             value="card" 
                                             checked={paymentMethod === 'card'} 
                                             onChange={() => setPaymentMethod('card')} 
-                                            className="text-[#3F53D9] w-5 h-5" 
+                                            className="text-[#1E5FBF] w-5 h-5" 
                                         />
                                         <div className="flex items-center gap-3">
-                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${paymentMethod === 'card' ? 'bg-[#3F53D9] text-white' : 'bg-[#F5F3FA] text-gray-500 group-hover:bg-[#E8EAFF]'}`}>
+                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${paymentMethod === 'card' ? 'bg-[#1E5FBF] text-white' : 'bg-[#CFE3FF] text-gray-500 group-hover:bg-[#C4DCFF]'}`}>
                                                 <CreditCard className="w-5 h-5" />
                                             </div>
                                             <div>
@@ -527,17 +527,17 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                                             </div>
                                         </div>
                                     </label>
-                                    <label className={`cursor-pointer p-5 border-2 rounded-xl flex items-center gap-3 transition-all group ${paymentMethod === 'cod' ? 'border-[#3F53D9] bg-gradient-to-br from-[#E8EAFF] to-white shadow-md' : 'border-[#E8EAFF] hover:border-[#3F53D9]/50 hover:shadow-sm'}`}>
+                                    <label className={`cursor-pointer p-5 border-2 rounded-xl flex items-center gap-3 transition-all group ${paymentMethod === 'cod' ? 'border-[#1E5FBF] bg-gradient-to-br from-[#C4DCFF] to-white shadow-md' : 'border-[#C4DCFF] hover:border-[#1E5FBF]/50 hover:shadow-sm'}`}>
                                         <input 
                                             type="radio" 
                                             name="payment" 
                                             value="cod" 
                                             checked={paymentMethod === 'cod'} 
                                             onChange={() => setPaymentMethod('cod')} 
-                                            className="text-[#3F53D9] w-5 h-5" 
+                                            className="text-[#1E5FBF] w-5 h-5" 
                                         />
                                         <div className="flex items-center gap-3">
-                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${paymentMethod === 'cod' ? 'bg-[#3F53D9] text-white' : 'bg-[#F5F3FA] text-gray-500 group-hover:bg-[#E8EAFF]'}`}>
+                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${paymentMethod === 'cod' ? 'bg-[#1E5FBF] text-white' : 'bg-[#CFE3FF] text-gray-500 group-hover:bg-[#C4DCFF]'}`}>
                                                 <Truck className="w-5 h-5" />
                                             </div>
                                             <div>
@@ -629,7 +629,7 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
                                 <button
                                     onClick={handlePlaceOrder}
                                     disabled={loading || (paymentMethod === 'upi' && !paymentDetails.upiId) || (paymentMethod === 'card' && (!paymentDetails.cardNumber || !paymentDetails.cardName || !paymentDetails.expiry || !paymentDetails.cvv))}
-                                    className="w-full py-4 bg-gradient-to-r from-[#3F53D9] to-[#7C74EB] text-white rounded-xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#3F53D9]/30"
+                                    className="w-full py-4 bg-gradient-to-r from-[#1E5FBF] to-[#8A2BE2] text-white rounded-xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#1E5FBF]/30"
                                 >
                                     {loading ? (
                                         <>

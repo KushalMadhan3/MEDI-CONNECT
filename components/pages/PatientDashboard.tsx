@@ -654,9 +654,9 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
       if (recordElement) {
         recordElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
         // Highlight the record briefly
-        recordElement.classList.add('ring-2', 'ring-[#3F53D9]', 'ring-offset-2');
+        recordElement.classList.add('ring-2', 'ring-[#1E5FBF]', 'ring-offset-2');
         setTimeout(() => {
-          recordElement.classList.remove('ring-2', 'ring-[#3F53D9]', 'ring-offset-2');
+          recordElement.classList.remove('ring-2', 'ring-[#1E5FBF]', 'ring-offset-2');
         }, 2000);
       }
     }, 100);
@@ -688,7 +688,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h1 className="mb-2">Medical Records</h1>
-                <p className="text-lg text-[#6E6E6E]">
+                <p className="text-lg text-[#555555]">
                   Your complete treatment history and prescriptions
                 </p>
               </div>
@@ -761,23 +761,23 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
 
             {loadingRecords ? (
               <div className="flex items-center justify-center py-12">
-                <Clock className="w-8 h-8 text-[#3F53D9] animate-pulse" />
-                <span className="ml-3 text-[#6E6E6E]">Loading medical records...</span>
+                <Clock className="w-8 h-8 text-[#1E5FBF] animate-pulse" />
+                <span className="ml-3 text-[#555555]">Loading medical records...</span>
               </div>
             ) : recordsError ? (
               <MedicalCard variant="filled" className="bg-white/80 border border-red-200">
                 <div className="text-center py-8">
                   <FileText className="w-12 h-12 text-red-400 mx-auto mb-4" />
                   <p className="text-red-600 mb-2">Failed to load medical records</p>
-                  <p className="text-sm text-[#6E6E6E]">{recordsError}</p>
+                  <p className="text-sm text-[#555555]">{recordsError}</p>
                 </div>
               </MedicalCard>
             ) : medicalRecords.length === 0 ? (
-              <MedicalCard variant="filled" className="bg-white/80 border-2 border-[#E8EAFF]">
+              <MedicalCard variant="filled" className="bg-white/80 border-2 border-[#C4DCFF]">
                 <div className="text-center py-12">
-                  <FileText className="w-12 h-12 text-[#6E6E6E] mx-auto mb-4 opacity-50" />
-                  <p className="text-[#6E6E6E] mb-4">No medical records found</p>
-                  <p className="text-sm text-[#6E6E6E]">Your medical records will appear here after appointments</p>
+                  <FileText className="w-12 h-12 text-[#555555] mx-auto mb-4 opacity-50" />
+                  <p className="text-[#555555] mb-4">No medical records found</p>
+                  <p className="text-sm text-[#555555]">Your medical records will appear here after appointments</p>
                 </div>
               </MedicalCard>
             ) : (
@@ -785,56 +785,56 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                 {/* Treatment Summary */}
                 {treatmentSummary && (
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                    <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#E8EAFF] to-white">
+                    <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#C4DCFF] to-white">
                       <div className="flex items-center gap-4">
                         <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm">
-                          <FileText className="w-7 h-7 text-[#3F53D9]" />
+                          <FileText className="w-7 h-7 text-[#1E5FBF]" />
                         </div>
                         <div>
-                          <div className="text-3xl font-bold text-[#3F53D9]">{treatmentSummary.totalRecords}</div>
-                          <div className="text-sm text-[#6E6E6E]">Total Records</div>
+                          <div className="text-3xl font-bold text-[#1E5FBF]">{treatmentSummary.totalRecords}</div>
+                          <div className="text-sm text-[#555555]">Total Records</div>
                         </div>
                       </div>
                     </MedicalCard>
 
-                    <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#F0EDFF] to-white">
+                    <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#E0CFFF] to-white">
                       <div className="flex items-center gap-4">
                         <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center">
-                          <Stethoscope className="w-7 h-7 text-[#7C74EB]" />
+                          <Stethoscope className="w-7 h-7 text-[#8A2BE2]" />
                         </div>
                         <div>
-                          <div className="text-3xl font-bold text-[#7C74EB]">{treatmentSummary.doctorsVisited.length}</div>
-                          <div className="text-sm text-[#6E6E6E]">Doctors Visited</div>
+                          <div className="text-3xl font-bold text-[#8A2BE2]">{treatmentSummary.doctorsVisited.length}</div>
+                          <div className="text-sm text-[#555555]">Doctors Visited</div>
                         </div>
                       </div>
                     </MedicalCard>
 
-                    <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#E8F9F7] to-white">
+                    <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#C4E8E4] to-white">
                       <div className="flex items-center gap-4">
                         <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center">
-                          <Pill className="w-7 h-7 text-[#34D1BF]" />
+                          <Pill className="w-7 h-7 text-[#008080]" />
                         </div>
                         <div>
-                          <div className="text-3xl font-bold text-[#34D1BF]">
+                          <div className="text-3xl font-bold text-[#008080]">
                             {medicalRecords.filter(r => r.prescribedMedicines?.length > 0).length}
                           </div>
-                          <div className="text-sm text-[#6E6E6E]">Prescriptions</div>
+                          <div className="text-sm text-[#555555]">Prescriptions</div>
                         </div>
                       </div>
                     </MedicalCard>
 
-                    <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#FFF4E6] to-white">
+                    <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#FFE0B2] to-white">
                       <div className="flex items-center gap-4">
                         <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center">
-                          <Calendar className="w-7 h-7 text-[#FF9800]" />
+                          <Calendar className="w-7 h-7 text-[#FF8C00]" />
                         </div>
                         <div>
-                          <div className="text-sm font-bold text-[#FF9800]">
+                          <div className="text-sm font-bold text-[#FF8C00]">
                             {treatmentSummary.lastVisit
                               ? new Date(treatmentSummary.lastVisit).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
                               : 'N/A'}
                           </div>
-                          <div className="text-sm text-[#6E6E6E]">Last Visit</div>
+                          <div className="text-sm text-[#555555]">Last Visit</div>
                         </div>
                       </div>
                     </MedicalCard>
@@ -844,11 +844,11 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                 {/* Medical Records List */}
                 <div className="space-y-4">
                   <h3 className="flex items-center gap-2 text-lg font-medium">
-                    <FileText className="w-5 h-5 text-[#3F53D9]" /> Treatment History
+                    <FileText className="w-5 h-5 text-[#1E5FBF]" /> Treatment History
                   </h3>
 
                   {medicalRecords.map((record) => (
-                    <MedicalCard key={record.id} id={`record-${record.id}`} variant="filled" className="bg-white/80 border border-[#E8EAFF]">
+                    <MedicalCard key={record.id} id={`record-${record.id}`} variant="filled" className="bg-white/80 border border-[#C4DCFF]">
                       <div className="flex flex-col gap-4">
                         {/* Header */}
                         <div className="flex justify-between items-start">
@@ -857,7 +857,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                               <h4 className="font-medium text-lg">{record.doctorName}</h4>
                               <StatusBadge status="completed">Completed</StatusBadge>
                             </div>
-                            <div className="text-sm text-[#6E6E6E] mt-1">
+                            <div className="text-sm text-[#555555] mt-1">
                               {new Date(record.appointmentDate).toLocaleDateString('en-US', {
                                 year: 'numeric',
                                 month: 'long',
@@ -871,16 +871,16 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
 
                         {/* Symptoms */}
                         {record.symptoms && (
-                          <div className="bg-[#FFF9E6] p-3 rounded-xl">
-                            <div className="text-sm font-medium text-[#6E6E6E] mb-1">Symptoms:</div>
+                          <div className="bg-[#FFFFFF3CD] p-3 rounded-xl">
+                            <div className="text-sm font-medium text-[#555555] mb-1">Symptoms:</div>
                             <div className="text-sm">{record.symptoms}</div>
                           </div>
                         )}
 
                         {/* Diagnosis */}
                         {record.diagnosis && (
-                          <div className="bg-[#E8F9F7] p-3 rounded-xl">
-                            <div className="text-sm font-medium text-[#34D1BF] mb-1 flex items-center gap-2">
+                          <div className="bg-[#C4E8E4] p-3 rounded-xl">
+                            <div className="text-sm font-medium text-[#008080] mb-1 flex items-center gap-2">
                               <Activity className="w-4 h-4" /> Diagnosis:
                             </div>
                             <div className="text-sm">{record.diagnosis}</div>
@@ -889,17 +889,17 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
 
                         {/* Prescribed Medicines */}
                         {record.prescribedMedicines && record.prescribedMedicines.length > 0 && (
-                          <div className="bg-[#F0EDFF] p-4 rounded-xl">
-                            <div className="text-sm font-medium text-[#7C74EB] mb-3 flex items-center gap-2">
+                          <div className="bg-[#E0CFFF] p-4 rounded-xl">
+                            <div className="text-sm font-medium text-[#8A2BE2] mb-3 flex items-center gap-2">
                               <Pill className="w-4 h-4" /> Prescribed Medicines:
                             </div>
                             <div className="space-y-2">
                               {record.prescribedMedicines.map((med: any, idx: number) => (
                                 <div key={idx} className="flex items-start gap-2">
-                                  <div className="w-2 h-2 mt-1.5 rounded-full bg-[#7C74EB] flex-shrink-0"></div>
+                                  <div className="w-2 h-2 mt-1.5 rounded-full bg-[#8A2BE2] flex-shrink-0"></div>
                                   <div className="flex-1">
                                     <div className="font-medium">{med.name}</div>
-                                    <div className="text-xs text-[#6E6E6E] mt-1">
+                                    <div className="text-xs text-[#555555] mt-1">
                                       {med.dosage && <span className="mr-3">Dosage: {med.dosage}</span>}
                                       {med.frequency && <span className="mr-3">Frequency: {med.frequency}</span>}
                                       {med.duration && <span>Duration: {med.duration}</span>}
@@ -909,7 +909,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                               ))}
                             </div>
                             {record.dosageInstructions && (
-                              <div className="mt-3 pt-3 border-t border-[#E8EAFF] text-sm text-[#6E6E6E]">
+                              <div className="mt-3 pt-3 border-t border-[#C4DCFF] text-sm text-[#555555]">
                                 <span className="font-medium">Instructions:</span> {record.dosageInstructions}
                               </div>
                             )}
@@ -918,15 +918,15 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
 
                         {/* Notes */}
                         {record.notes && (
-                          <div className="bg-[#F5F3FA] p-3 rounded-xl">
-                            <div className="text-sm font-medium text-[#6E6E6E] mb-1">Doctor's Notes:</div>
+                          <div className="bg-[#CFE3FF] p-3 rounded-xl">
+                            <div className="text-sm font-medium text-[#555555] mb-1">Doctor's Notes:</div>
                             <div className="text-sm">{record.notes}</div>
                           </div>
                         )}
 
                         {/* Follow-up */}
                         {record.followUpDate && (
-                          <div className="flex items-center gap-2 text-sm text-[#FF9800]">
+                          <div className="flex items-center gap-2 text-sm text-[#FF8C00]">
                             <Calendar className="w-4 h-4" />
                             <span className="font-medium">Follow-up on:</span>
                             {new Date(record.followUpDate).toLocaleDateString('en-US', {
@@ -951,48 +951,48 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
         return (
           <>
             <h1 className="mb-2">Welcome back, {userInfo?.name || 'Patient'}! 👋</h1>
-            <p className="text-lg text-[#6E6E6E] mb-8">Here's your health dashboard overview</p>
+            <p className="text-lg text-[#555555] mb-8">Here's your health dashboard overview</p>
 
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-              <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#E8EAFF] to-white">
+              <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#C4DCFF] to-white">
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm">
-                    <Calendar className="w-7 h-7 text-[#3F53D9]" />
+                    <Calendar className="w-7 h-7 text-[#1E5FBF]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#3F53D9]">
+                    <div className="text-3xl font-bold text-[#1E5FBF]">
                       {loadingAppointment ? '...' : upcomingAppointment ? '1' : '0'}
                     </div>
-                    <div className="text-sm text-[#6E6E6E]">Upcoming</div>
+                    <div className="text-sm text-[#555555]">Upcoming</div>
                   </div>
                 </div>
               </MedicalCard>
 
-              <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#F0EDFF] to-white">
+              <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#E0CFFF] to-white">
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center">
-                    <FileText className="w-7 h-7 text-[#7C74EB]" />
+                    <FileText className="w-7 h-7 text-[#8A2BE2]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#7C74EB]">
+                    <div className="text-3xl font-bold text-[#8A2BE2]">
                       {loadingRecords ? '...' : medicalRecords.length}
                     </div>
-                    <div className="text-sm text-[#6E6E6E]">Records</div>
+                    <div className="text-sm text-[#555555]">Records</div>
                   </div>
                 </div>
               </MedicalCard>
 
-              <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#E8F9F7] to-white">
+              <MedicalCard variant="pastel" className="bg-gradient-to-br from-[#C4E8E4] to-white">
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center">
-                    <Pill className="w-7 h-7 text-[#34D1BF]" />
+                    <Pill className="w-7 h-7 text-[#008080]" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-[#34D1BF]">
+                    <div className="text-3xl font-bold text-[#008080]">
                       {loadingRecords ? '...' : recentPrescriptions.length}
                     </div>
-                    <div className="text-sm text-[#6E6E6E]">Prescriptions</div>
+                    <div className="text-sm text-[#555555]">Prescriptions</div>
                   </div>
                 </div>
               </MedicalCard>
@@ -1004,16 +1004,16 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
               <div className="lg:col-span-2 space-y-6">
                 {/* Appointment */}
                 {loadingAppointment ? (
-                  <MedicalCard variant="filled" className="bg-white/80 border-2 border-[#E8EAFF]">
+                  <MedicalCard variant="filled" className="bg-white/80 border-2 border-[#C4DCFF]">
                     <div className="flex items-center justify-center py-12">
-                      <Clock className="w-8 h-8 text-[#3F53D9] animate-pulse" />
-                      <span className="ml-3 text-[#6E6E6E]">Loading appointments...</span>
+                      <Clock className="w-8 h-8 text-[#1E5FBF] animate-pulse" />
+                      <span className="ml-3 text-[#555555]">Loading appointments...</span>
                     </div>
                   </MedicalCard>
                 ) : upcomingAppointment ? (
-                  <MedicalCard variant="filled" className="bg-white/80 border-2 border-[#E8EAFF]">
+                  <MedicalCard variant="filled" className="bg-white/80 border-2 border-[#C4DCFF]">
                     <div className="flex gap-6">
-                      <div className="w-24 h-24 rounded-2xl overflow-hidden bg-[#E8EAFF]">
+                      <div className="w-24 h-24 rounded-2xl overflow-hidden bg-[#C4DCFF]">
                         <ImageWithFallback
                           src={upcomingAppointment.image}
                           alt={upcomingAppointment.doctor}
@@ -1025,7 +1025,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                         <div className="flex justify-between mb-3">
                           <div>
                             <h4>{upcomingAppointment.doctor}</h4>
-                            <p className="text-sm text-[#7C74EB] flex items-center gap-1">
+                            <p className="text-sm text-[#8A2BE2] flex items-center gap-1">
                               <Stethoscope className="w-4 h-4" />
                               {upcomingAppointment.specialty}
                             </p>
@@ -1036,22 +1036,22 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                         </div>
 
                         <div className="grid grid-cols-3 gap-4 mb-4">
-                          <div className="bg-[#F5F3FA] p-3 rounded-xl">
-                            <div className="text-xs text-[#6E6E6E] flex items-center gap-2">
+                          <div className="bg-[#CFE3FF] p-3 rounded-xl">
+                            <div className="text-xs text-[#555555] flex items-center gap-2">
                               <Calendar className="w-3 h-3" /> Date
                             </div>
                             <div>{upcomingAppointment.date}</div>
                           </div>
 
-                          <div className="bg-[#F5F3FA] p-3 rounded-xl">
-                            <div className="text-xs text-[#6E6E6E] flex items-center gap-2">
+                          <div className="bg-[#CFE3FF] p-3 rounded-xl">
+                            <div className="text-xs text-[#555555] flex items-center gap-2">
                               <Clock className="w-3 h-3" /> Time
                             </div>
                             <div>{upcomingAppointment.time}</div>
                           </div>
 
-                          <div className="bg-[#F5F3FA] p-3 rounded-xl">
-                            <div className="text-xs text-[#6E6E6E] flex items-center gap-2">
+                          <div className="bg-[#CFE3FF] p-3 rounded-xl">
+                            <div className="text-xs text-[#555555] flex items-center gap-2">
                               <MapPin className="w-3 h-3" /> Location
                             </div>
                             <div>{upcomingAppointment.location}</div>
@@ -1092,10 +1092,10 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                     </div>
                   </MedicalCard>
                 ) : (
-                  <MedicalCard variant="filled" className="bg-white/80 border-2 border-[#E8EAFF]">
+                  <MedicalCard variant="filled" className="bg-white/80 border-2 border-[#C4DCFF]">
                     <div className="text-center py-12">
-                      <Calendar className="w-12 h-12 text-[#6E6E6E] mx-auto mb-4 opacity-50" />
-                      <p className="text-[#6E6E6E] mb-4">No upcoming appointments</p>
+                      <Calendar className="w-12 h-12 text-[#555555] mx-auto mb-4 opacity-50" />
+                      <p className="text-[#555555] mb-4">No upcoming appointments</p>
                       <MedicalButton variant="primary" onClick={() => setActiveTab('appointments')}>
                         Book Appointment
                       </MedicalButton>
@@ -1106,29 +1106,29 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                 {/* Prescriptions */}
                 <div>
                   <h3 className="mb-4 flex items-center gap-2">
-                    <Pill className="w-5 h-5 text-[#7C74EB]" /> Recent Prescriptions
+                    <Pill className="w-5 h-5 text-[#8A2BE2]" /> Recent Prescriptions
                   </h3>
 
                   {loadingRecords ? (
-                    <MedicalCard variant="filled" className="bg-white/80 border border-[#E8EAFF]">
+                    <MedicalCard variant="filled" className="bg-white/80 border border-[#C4DCFF]">
                       <div className="flex items-center justify-center py-8">
-                        <Clock className="w-6 h-6 text-[#7C74EB] animate-pulse" />
-                        <span className="ml-2 text-sm text-[#6E6E6E]">Loading prescriptions...</span>
+                        <Clock className="w-6 h-6 text-[#8A2BE2] animate-pulse" />
+                        <span className="ml-2 text-sm text-[#555555]">Loading prescriptions...</span>
                       </div>
                     </MedicalCard>
                   ) : recentPrescriptions.length === 0 ? (
-                    <MedicalCard variant="filled" className="bg-white/80 border border-[#E8EAFF]">
+                    <MedicalCard variant="filled" className="bg-white/80 border border-[#C4DCFF]">
                       <div className="text-center py-8">
-                        <Pill className="w-8 h-8 text-[#6E6E6E] mx-auto mb-2 opacity-50" />
-                        <p className="text-sm text-[#6E6E6E]">No prescriptions yet</p>
+                        <Pill className="w-8 h-8 text-[#555555] mx-auto mb-2 opacity-50" />
+                        <p className="text-sm text-[#555555]">No prescriptions yet</p>
                       </div>
                     </MedicalCard>
                   ) : (
                     recentPrescriptions.map((p) => (
-                      <MedicalCard key={p.id} variant="filled" className="bg-white/80 border border-[#E8EAFF] mb-4">
+                      <MedicalCard key={p.id} variant="filled" className="bg-white/80 border border-[#C4DCFF] mb-4">
                         <div className="flex gap-4">
-                          <div className="w-16 h-16 rounded-2xl bg-[#F0EDFF] flex items-center justify-center">
-                            <Pill className="w-8 h-8 text-[#7C74EB]" />
+                          <div className="w-16 h-16 rounded-2xl bg-[#E0CFFF] flex items-center justify-center">
+                            <Pill className="w-8 h-8 text-[#8A2BE2]" />
                           </div>
 
                           <div className="flex-1">
@@ -1137,19 +1137,19 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                                 <h4 className="font-medium">
                                   {p.medicines.length} Medicine{p.medicines.length > 1 ? 's' : ''} Prescribed
                                 </h4>
-                                <p className="text-sm text-[#6E6E6E]">Prescribed by {p.doctor}</p>
+                                <p className="text-sm text-[#555555]">Prescribed by {p.doctor}</p>
                               </div>
-                              <span className="text-xs bg-[#F5F3FA] px-3 py-1 rounded-full">{p.date}</span>
+                              <span className="text-xs bg-[#CFE3FF] px-3 py-1 rounded-full">{p.date}</span>
                             </div>
 
                             <div className="space-y-1 mb-2">
                               {p.medicines.slice(0, 2).map((med: any, idx: number) => (
-                                <div key={idx} className="text-sm text-[#6E6E6E]">
+                                <div key={idx} className="text-sm text-[#555555]">
                                   • {med.name} - {med.dosage || med.frequency}
                                 </div>
                               ))}
                               {p.medicines.length > 2 && (
-                                <div className="text-xs text-[#7C74EB] cursor-pointer" onClick={() => setActiveTab('records')}>
+                                <div className="text-xs text-[#8A2BE2] cursor-pointer" onClick={() => setActiveTab('records')}>
                                   +{p.medicines.length - 2} more...
                                 </div>
                               )}
@@ -1157,7 +1157,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
 
                             <button 
                               onClick={() => setActiveTab('records')}
-                              className="text-sm text-[#3F53D9] hover:underline flex items-center gap-1"
+                              className="text-sm text-[#1E5FBF] hover:underline flex items-center gap-1"
                             >
                               View Full Details <ChevronRight className="w-4 h-4" />
                             </button>
@@ -1173,7 +1173,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
               <div className="space-y-6">
                 <MedicalCard
                   variant="pastel"
-                  className="bg-gradient-to-br from-[#3F53D9] to-[#7C74EB] text-white cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-gradient-to-br from-[#1E5FBF] to-[#8A2BE2] text-white cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() => setActiveTab('appointments')}
                 >
                   <div className="text-center py-6">
@@ -1190,7 +1190,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
 
                 <MedicalCard
                   variant="pastel"
-                  className="bg-gradient-to-br from-[#34D1BF] to-[#20B2AA] text-white cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-gradient-to-br from-[#008080] to-[#008080] text-white cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() => setActiveTab('marketplace')}
                 >
                   <div className="text-center py-6">
@@ -1208,17 +1208,17 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                 {/* Reports */}
                 <div>
                   <h3 className="mb-4 flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-[#3F53D9]" /> Recent Reports
+                    <FileText className="w-5 h-5 text-[#1E5FBF]" /> Recent Reports
                   </h3>
 
-                  <MedicalCard variant="filled" className="bg-white/80 border border-[#E8EAFF]">
+                  <MedicalCard variant="filled" className="bg-white/80 border border-[#C4DCFF]">
                     {loadingRecords ? (
                       <div className="flex items-center justify-center py-8">
-                        <Activity className="w-5 h-5 animate-spin text-[#3F53D9]" />
-                        <span className="ml-2 text-sm text-[#6E6E6E]">Loading reports...</span>
+                        <Activity className="w-5 h-5 animate-spin text-[#1E5FBF]" />
+                        <span className="ml-2 text-sm text-[#555555]">Loading reports...</span>
                       </div>
                     ) : recentReports.length === 0 ? (
-                      <div className="text-center py-8 text-[#6E6E6E]">
+                      <div className="text-center py-8 text-[#555555]">
                         <FileText className="w-8 h-8 mx-auto mb-2 opacity-50" />
                         <p className="text-sm">No reports available</p>
                         <p className="text-xs mt-1">Your consultation reports will appear here</p>
@@ -1229,15 +1229,15 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                           <div
                             key={r.id}
                             onClick={() => handleViewReport(r)}
-                            className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F5F3FA] cursor-pointer transition-all group"
+                            className="flex items-center justify-between p-3 rounded-xl hover:bg-[#CFE3FF] cursor-pointer transition-all group"
                           >
                             <div className="flex items-center gap-3 flex-1">
-                              <div className="w-10 h-10 bg-[#E8EAFF] rounded-xl flex items-center justify-center group-hover:bg-[#3F53D9] transition-colors">
-                                <FileText className="w-5 h-5 text-[#3F53D9] group-hover:text-white transition-colors" />
+                              <div className="w-10 h-10 bg-[#C4DCFF] rounded-xl flex items-center justify-center group-hover:bg-[#1E5FBF] transition-colors">
+                                <FileText className="w-5 h-5 text-[#1E5FBF] group-hover:text-white transition-colors" />
                               </div>
                               <div className="flex-1">
                                 <div className="text-sm font-medium text-black">{r.name}</div>
-                                <div className="text-xs text-[#6E6E6E]">
+                                <div className="text-xs text-[#555555]">
                                   {r.type} • {r.date}
                                 </div>
                               </div>
@@ -1248,7 +1248,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                                 e.stopPropagation();
                                 handleDownloadReport(r);
                               }}
-                              className="p-2 hover:bg-[#E8EAFF] rounded-lg transition-colors border border-transparent hover:border-[#3F53D9]"
+                              className="p-2 hover:bg-[#C4DCFF] rounded-lg transition-colors border border-transparent hover:border-[#1E5FBF]"
                               title="Download Report"
                             >
                               <Download className="w-4 h-4 text-black" />
@@ -1267,11 +1267,11 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F5F3FA] via-[#FAFBFF] to-[#F0EDFF] relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#CFE3FF] via-[#F2F6FF] to-[#E0CFFF] relative overflow-hidden">
       <MedicalBackground />
 
       {/* Navbar */}
-      <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-[#E8EAFF]">
+      <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-[#C4DCFF]">
         <div className="w-full px-8 py-4 flex items-center justify-between">
           <Logo variant="primary" size="md" />
 
@@ -1321,30 +1321,30 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
             <div className="relative profile-menu-container">
               <button 
                 onClick={() => setShowProfileMenu(!showProfileMenu)}
-                className="flex items-center gap-3 hover:bg-[#F5F3FA] rounded-xl p-2 pr-4 transition-all"
+                className="flex items-center gap-3 hover:bg-[#CFE3FF] rounded-xl p-2 pr-4 transition-all"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3F53D9] to-[#7C74EB] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1E5FBF] to-[#8A2BE2] flex items-center justify-center">
                   <User className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left hidden md:block">
-                  <div className="text-sm font-medium text-[#333]">
+                  <div className="text-sm font-medium text-[#1A1A1A]">
                     {userInfo?.name || 'Patient'}
                   </div>
-                  <div className="text-xs text-[#6E6E6E]">
+                  <div className="text-xs text-[#555555]">
                     {userInfo?.email || 'Patient Account'}
                   </div>
                 </div>
-                <ChevronDown className="w-4 h-4 text-[#6E6E6E] hidden md:block" />
+                <ChevronDown className="w-4 h-4 text-[#555555] hidden md:block" />
               </button>
               {showProfileMenu && (
-                <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-[#E5E5E5] z-50">
+                <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-[#A0A0A0] z-50">
                   <div className="p-2">
                     <button
                       onClick={() => {
                         setShowProfileMenu(false);
                         setActiveTab('settings');
                       }}
-                      className="w-full text-left px-4 py-2 hover:bg-[#F5F3FA] rounded-lg text-sm text-[#333333] flex items-center gap-2"
+                      className="w-full text-left px-4 py-2 hover:bg-[#CFE3FF] rounded-lg text-sm text-[#1A1A1A] flex items-center gap-2"
                     >
                       <Settings className="w-4 h-4" />
                       Profile Settings
@@ -1354,7 +1354,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                         setShowProfileMenu(false);
                         onLogout ? onLogout() : onNavigate('landing');
                       }}
-                      className="w-full text-left px-4 py-2 hover:bg-[#FFEBEE] rounded-lg text-sm text-[#E53935] flex items-center gap-2"
+                      className="w-full text-left px-4 py-2 hover:bg-[#FFCDD2] rounded-lg text-sm text-[#CC0000] flex items-center gap-2"
                     >
                       <LogOut className="w-4 h-4" />
                       Logout
@@ -1369,7 +1369,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-72 bg-white/60 backdrop-blur-sm min-h-screen border-r border-[#E8EAFF] p-6 space-y-2 sticky top-20 h-[calc(100vh-5rem)]">
+        <aside className="w-72 bg-white/60 backdrop-blur-sm min-h-screen border-r border-[#C4DCFF] p-6 space-y-2 sticky top-20 h-[calc(100vh-5rem)]">
           {sidebarItems.map((item, i) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -1378,20 +1378,20 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
                 key={i}
                 onClick={() => setActiveTab(item.id as Tab)}
                 className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all ${isActive
-                  ? 'bg-gradient-to-r from-[#E8EAFF] to-[#F0EDFF] text-[#3F53D9] shadow-sm'
-                  : 'text-[#6E6E6E] hover:bg-[#F5F3FA] hover:text-[#3F53D9]'
+                  ? 'bg-gradient-to-r from-[#C4DCFF] to-[#E0CFFF] text-[#1E5FBF] shadow-sm'
+                  : 'text-[#555555] hover:bg-[#CFE3FF] hover:text-[#1E5FBF]'
                   }`}
               >
                 <Icon className="w-5 h-5" />
                 <span className="flex-1 text-left">{item.label}</span>
-                {isActive && <div className="w-2 h-2 rounded-full bg-[#3F53D9]"></div>}
+                {isActive && <div className="w-2 h-2 rounded-full bg-[#1E5FBF]"></div>}
               </button>
             );
           })}
 
           <button
             onClick={() => (onLogout ? onLogout() : onNavigate('landing'))}
-            className="w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl text-[#E53935] hover:bg-[#FFEBEE]"
+            className="w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl text-[#CC0000] hover:bg-[#FFCDD2]"
           >
             <LogOut className="w-5 h-5" />
             Logout

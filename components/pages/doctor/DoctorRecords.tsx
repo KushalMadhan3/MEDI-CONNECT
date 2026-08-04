@@ -198,8 +198,8 @@ Notes: ${prescription.notes || 'N/A'}
 
             <div className="flex justify-between items-center mb-6">
                 <div>
-                    <h2 className="text-2xl font-bold text-[#333]">Medical Records</h2>
-                    <p className="text-sm text-[#6E6E6E] mt-1">View and manage prescription records</p>
+                    <h2 className="text-2xl font-bold text-[#1A1A1A]">Medical Records</h2>
+                    <p className="text-sm text-[#555555] mt-1">View and manage prescription records</p>
                 </div>
                 <MedicalButton variant="primary" onClick={() => setShowCreateModal(true)}>
                     <Plus className="w-4 h-4 mr-2" />
@@ -208,25 +208,25 @@ Notes: ${prescription.notes || 'N/A'}
             </div>
 
             <div className="relative mb-6">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6E6E6E] w-5 h-5" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#555555] w-5 h-5" />
                 <input
                     type="text"
                     placeholder="Search records by patient, diagnosis, or medicine..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 bg-white border border-[#E8EAFF] rounded-xl focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                    className="w-full pl-10 pr-4 py-3 bg-white border border-[#C4DCFF] rounded-xl focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                 />
             </div>
 
             {loading ? (
                 <MedicalCard variant="filled">
                     <div className="flex justify-center py-12">
-                        <Loader2 className="w-8 h-8 animate-spin text-[#3F53D9]" />
+                        <Loader2 className="w-8 h-8 animate-spin text-[#1E5FBF]" />
                     </div>
                 </MedicalCard>
             ) : filtered.length === 0 ? (
                 <MedicalCard variant="filled">
-                    <div className="text-center py-12 text-[#6E6E6E]">
+                    <div className="text-center py-12 text-[#555555]">
                         <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
                         <p className="text-lg font-medium mb-2">No prescriptions found</p>
                         <p className="text-sm">Create your first prescription to get started</p>
@@ -238,22 +238,22 @@ Notes: ${prescription.notes || 'N/A'}
                         {paginatedPrescriptions.map((prescription) => {
                             const isExpanded = expandedPrescriptions.has(prescription.id);
                             return (
-                                <MedicalCard key={prescription.id} variant="filled" className="hover:shadow-lg transition-all border border-[#E8EAFF]">
+                                <MedicalCard key={prescription.id} variant="filled" className="hover:shadow-lg transition-all border border-[#C4DCFF]">
                                     <div className="flex justify-between items-start">
                                         <div className="flex items-start gap-4 flex-1">
-                                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E8EAFF] to-[#F0EDFF] flex items-center justify-center flex-shrink-0">
-                                                <FileText className="w-6 h-6 text-[#7C74EB]" />
+                                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C4DCFF] to-[#E0CFFF] flex items-center justify-center flex-shrink-0">
+                                                <FileText className="w-6 h-6 text-[#8A2BE2]" />
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center gap-3 mb-2">
-                                                    <h3 className="font-bold text-[#333]">{prescription.patientName}</h3>
-                                                    <span className="px-2 py-1 bg-[#E8F5E9] text-[#2E7D32] text-xs font-medium rounded-full">
+                                                    <h3 className="font-bold text-[#1A1A1A]">{prescription.patientName}</h3>
+                                                    <span className="px-2 py-1 bg-[#C8E6C9] text-[#1B5E20] text-xs font-medium rounded-full">
                                                         {prescription.medications.length} {prescription.medications.length === 1 ? 'medicine' : 'medicines'}
                                                     </span>
                                                 </div>
                                                 
                                                 <div className="space-y-2 mb-3">
-                                                    <div className="flex items-center gap-2 text-sm text-[#6E6E6E]">
+                                                    <div className="flex items-center gap-2 text-sm text-[#555555]">
                                                         <Calendar className="w-4 h-4" />
                                                         <span>{new Date(prescription.createdAt).toLocaleDateString('en-US', { 
                                                             year: 'numeric', 
@@ -263,25 +263,25 @@ Notes: ${prescription.notes || 'N/A'}
                                                     </div>
                                                     {prescription.diagnosis && (
                                                         <div className="text-sm">
-                                                            <span className="text-[#6E6E6E]">Diagnosis: </span>
-                                                            <span className="font-medium text-[#333]">{prescription.diagnosis}</span>
+                                                            <span className="text-[#555555]">Diagnosis: </span>
+                                                            <span className="font-medium text-[#1A1A1A]">{prescription.diagnosis}</span>
                                                         </div>
                                                     )}
                                                 </div>
 
                                                 {/* Expandable Medicine View */}
                                                 {isExpanded && (
-                                                    <div className="mt-4 pt-4 border-t border-[#E8EAFF] animate-in slide-in-from-top">
+                                                    <div className="mt-4 pt-4 border-t border-[#C4DCFF] animate-in slide-in-from-top">
                                                         <div className="space-y-3">
-                                                            <h4 className="text-sm font-semibold text-[#333] flex items-center gap-2">
-                                                                <Pill className="w-4 h-4 text-[#7C74EB]" />
+                                                            <h4 className="text-sm font-semibold text-[#1A1A1A] flex items-center gap-2">
+                                                                <Pill className="w-4 h-4 text-[#8A2BE2]" />
                                                                 Medications
                                                             </h4>
                                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                                                 {prescription.medications.map((med: any, i: number) => (
-                                                                    <div key={i} className="bg-[#F5F3FA] p-3 rounded-xl border border-[#E8EAFF]">
-                                                                        <div className="font-medium text-[#333] mb-1">{med.name}</div>
-                                                                        <div className="text-xs text-[#6E6E6E] space-y-1">
+                                                                    <div key={i} className="bg-[#CFE3FF] p-3 rounded-xl border border-[#C4DCFF]">
+                                                                        <div className="font-medium text-[#1A1A1A] mb-1">{med.name}</div>
+                                                                        <div className="text-xs text-[#555555] space-y-1">
                                                                             {med.dosage && <div>Dosage: {med.dosage}</div>}
                                                                             {med.frequency && <div>Frequency: {med.frequency}</div>}
                                                                             {med.duration && <div>Duration: {med.duration}</div>}
@@ -291,14 +291,14 @@ Notes: ${prescription.notes || 'N/A'}
                                                             </div>
                                                             {prescription.instructions && (
                                                                 <div className="mt-3">
-                                                                    <h5 className="text-xs font-semibold text-[#6E6E6E] uppercase mb-1">Instructions</h5>
-                                                                    <p className="text-sm text-[#333]">{prescription.instructions}</p>
+                                                                    <h5 className="text-xs font-semibold text-[#555555] uppercase mb-1">Instructions</h5>
+                                                                    <p className="text-sm text-[#1A1A1A]">{prescription.instructions}</p>
                                                                 </div>
                                                             )}
                                                             {prescription.notes && (
                                                                 <div className="mt-3">
-                                                                    <h5 className="text-xs font-semibold text-[#6E6E6E] uppercase mb-1">Notes</h5>
-                                                                    <p className="text-sm text-[#333]">{prescription.notes}</p>
+                                                                    <h5 className="text-xs font-semibold text-[#555555] uppercase mb-1">Notes</h5>
+                                                                    <p className="text-sm text-[#1A1A1A]">{prescription.notes}</p>
                                                                 </div>
                                                             )}
                                                         </div>
@@ -309,14 +309,14 @@ Notes: ${prescription.notes || 'N/A'}
                                         <div className="flex items-center gap-2 ml-4">
                                             <button
                                                 onClick={() => toggleExpand(prescription.id)}
-                                                className="p-2 hover:bg-[#F5F3FA] rounded-lg text-[#6E6E6E] hover:text-[#3F53D9] transition-colors"
+                                                className="p-2 hover:bg-[#CFE3FF] rounded-lg text-[#555555] hover:text-[#1E5FBF] transition-colors"
                                                 title={isExpanded ? 'Collapse' : 'Expand'}
                                             >
                                                 {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                                             </button>
                                             <button
                                                 onClick={() => handleDownloadPDF(prescription)}
-                                                className="p-2 hover:bg-[#F5F3FA] rounded-lg text-[#6E6E6E] hover:text-[#3F53D9] transition-colors"
+                                                className="p-2 hover:bg-[#CFE3FF] rounded-lg text-[#555555] hover:text-[#1E5FBF] transition-colors"
                                                 title="Download PDF"
                                             >
                                                 <Download className="w-5 h-5" />
@@ -331,7 +331,7 @@ Notes: ${prescription.notes || 'N/A'}
                     {/* Pagination */}
                     {totalPages > 1 && (
                         <div className="flex justify-between items-center mt-6">
-                            <div className="text-sm text-[#6E6E6E]">
+                            <div className="text-sm text-[#555555]">
                                 Showing {startIndex + 1} to {Math.min(startIndex + itemsPerPage, filtered.length)} of {filtered.length} prescriptions
                             </div>
                             <div className="flex gap-2">
@@ -343,7 +343,7 @@ Notes: ${prescription.notes || 'N/A'}
                                 >
                                     Previous
                                 </MedicalButton>
-                                <span className="flex items-center px-4 text-sm text-[#6E6E6E]">
+                                <span className="flex items-center px-4 text-sm text-[#555555]">
                                     Page {currentPage} of {totalPages}
                                 </span>
                                 <MedicalButton
@@ -364,11 +364,11 @@ Notes: ${prescription.notes || 'N/A'}
             {showCreateModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in">
                     <div className="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl animate-in zoom-in-95">
-                        <div className="p-6 border-b border-[#E8EAFF] sticky top-0 bg-white z-10 flex justify-between items-center backdrop-blur-sm bg-white/95">
-                            <h3 className="text-xl font-bold text-[#333]">Create New Prescription</h3>
+                        <div className="p-6 border-b border-[#C4DCFF] sticky top-0 bg-white z-10 flex justify-between items-center backdrop-blur-sm bg-white/95">
+                            <h3 className="text-xl font-bold text-[#1A1A1A]">Create New Prescription</h3>
                             <button 
                                 onClick={() => setShowCreateModal(false)} 
-                                className="text-[#6E6E6E] hover:text-[#333] hover:bg-[#F5F3FA] rounded-lg p-2 transition-colors"
+                                className="text-[#555555] hover:text-[#1A1A1A] hover:bg-[#CFE3FF] rounded-lg p-2 transition-colors"
                             >
                                 <X className="w-5 h-5" />
                             </button>
@@ -376,10 +376,10 @@ Notes: ${prescription.notes || 'N/A'}
                         <form onSubmit={handleSubmit} className="p-6 space-y-6">
                             {/* Patient Selection */}
                             <div>
-                                <label className="block text-sm font-medium text-[#333] mb-2">Patient ID *</label>
+                                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Patient ID *</label>
                                 <select 
                                     required 
-                                    className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                    className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                     value={formData.patientId} 
                                     onChange={e => setFormData({ ...formData, patientId: e.target.value })}
                                 >
@@ -392,10 +392,10 @@ Notes: ${prescription.notes || 'N/A'}
 
                             {/* Diagnosis */}
                             <div>
-                                <label className="block text-sm font-medium text-[#333] mb-2">Diagnosis</label>
+                                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Diagnosis</label>
                                 <input 
                                     type="text" 
-                                    className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                    className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                     value={formData.diagnosis} 
                                     onChange={e => setFormData({ ...formData, diagnosis: e.target.value })} 
                                 />
@@ -404,41 +404,41 @@ Notes: ${prescription.notes || 'N/A'}
                             {/* Medicines */}
                             <div>
                                 <div className="flex justify-between items-center mb-3">
-                                    <label className="block text-sm font-medium text-[#333]">Medicines *</label>
+                                    <label className="block text-sm font-medium text-[#1A1A1A]">Medicines *</label>
                                     <button 
                                         type="button" 
                                         onClick={handleAddMedication} 
-                                        className="text-sm text-[#3F53D9] font-medium hover:text-[#7C74EB] flex items-center gap-1 transition-colors"
+                                        className="text-sm text-[#1E5FBF] font-medium hover:text-[#8A2BE2] flex items-center gap-1 transition-colors"
                                     >
                                         <Plus className="w-4 h-4" /> Add Medicine
                                     </button>
                                 </div>
                                 <div className="space-y-3">
                                     {formData.medications.map((med, index) => (
-                                        <div key={index} className="flex gap-2 items-start p-3 bg-[#F5F3FA] rounded-xl border border-[#E8EAFF]">
+                                        <div key={index} className="flex gap-2 items-start p-3 bg-[#CFE3FF] rounded-xl border border-[#C4DCFF]">
                                             <div className="grid grid-cols-4 gap-2 flex-1">
                                                 <input 
                                                     placeholder="Medicine Name *" 
                                                     required 
-                                                    className="px-3 py-2 border border-[#E8EAFF] rounded-lg text-sm focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                                    className="px-3 py-2 border border-[#C4DCFF] rounded-lg text-sm focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                                     value={med.name} 
                                                     onChange={e => handleMedicationChange(index, 'name', e.target.value)} 
                                                 />
                                                 <input 
                                                     placeholder="Dosage (e.g. 500mg)" 
-                                                    className="px-3 py-2 border border-[#E8EAFF] rounded-lg text-sm focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                                    className="px-3 py-2 border border-[#C4DCFF] rounded-lg text-sm focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                                     value={med.dosage} 
                                                     onChange={e => handleMedicationChange(index, 'dosage', e.target.value)} 
                                                 />
                                                 <input 
                                                     placeholder="Frequency (e.g. 1-0-1)" 
-                                                    className="px-3 py-2 border border-[#E8EAFF] rounded-lg text-sm focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                                    className="px-3 py-2 border border-[#C4DCFF] rounded-lg text-sm focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                                     value={med.frequency} 
                                                     onChange={e => handleMedicationChange(index, 'frequency', e.target.value)} 
                                                 />
                                                 <input 
                                                     placeholder="Duration (e.g. 5 days)" 
-                                                    className="px-3 py-2 border border-[#E8EAFF] rounded-lg text-sm focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                                    className="px-3 py-2 border border-[#C4DCFF] rounded-lg text-sm focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                                     value={med.duration} 
                                                     onChange={e => handleMedicationChange(index, 'duration', e.target.value)} 
                                                 />
@@ -461,10 +461,10 @@ Notes: ${prescription.notes || 'N/A'}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {/* Symptoms */}
                                 <div>
-                                    <label className="block text-sm font-medium text-[#333] mb-2">Symptoms</label>
+                                    <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Symptoms</label>
                                     <textarea 
                                         rows={2} 
-                                        className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all resize-none"
+                                        className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all resize-none"
                                         value={formData.symptoms || ''} 
                                         onChange={e => setFormData({ ...formData, symptoms: e.target.value })} 
                                         placeholder="Patient symptoms"
@@ -473,10 +473,10 @@ Notes: ${prescription.notes || 'N/A'}
                                 
                                 {/* Follow-up Date */}
                                 <div>
-                                    <label className="block text-sm font-medium text-[#333] mb-2">Follow-up Date</label>
+                                    <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Follow-up Date</label>
                                     <input 
                                         type="date" 
-                                        className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                                        className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                                         value={formData.followUpDate || ''} 
                                         onChange={e => setFormData({ ...formData, followUpDate: e.target.value })} 
                                     />
@@ -486,20 +486,20 @@ Notes: ${prescription.notes || 'N/A'}
                             {/* Instructions & Notes */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-[#333] mb-2">Dosage Instructions</label>
+                                    <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Dosage Instructions</label>
                                     <textarea 
                                         rows={3} 
-                                        className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all resize-none"
+                                        className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all resize-none"
                                         value={formData.dosageInstructions || ''} 
                                         onChange={e => setFormData({ ...formData, dosageInstructions: e.target.value })} 
                                         placeholder="Special instructions for taking medications"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-[#333] mb-2">Notes</label>
+                                    <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Notes</label>
                                     <textarea 
                                         rows={3} 
-                                        className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all resize-none"
+                                        className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all resize-none"
                                         value={formData.notes || ''} 
                                         onChange={e => setFormData({ ...formData, notes: e.target.value })} 
                                         placeholder="Additional notes"
@@ -507,7 +507,7 @@ Notes: ${prescription.notes || 'N/A'}
                                 </div>
                             </div>
 
-                            <div className="flex justify-end gap-3 pt-4 border-t border-[#E8EAFF]">
+                            <div className="flex justify-end gap-3 pt-4 border-t border-[#C4DCFF]">
                                 <MedicalButton variant="outlined" type="button" onClick={() => setShowCreateModal(false)} disabled={saving}>
                                     Cancel
                                 </MedicalButton>

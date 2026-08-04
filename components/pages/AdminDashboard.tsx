@@ -371,10 +371,10 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
   };
 
   const stats = analytics ? [
-    { label: 'Total Patients', value: (analytics.totalPatients || 0).toLocaleString(), change: '+12%', icon: Users, color: '#3F53D9' },
-    { label: 'Active Doctors', value: (analytics.activeDoctors || 0).toLocaleString(), change: '+8%', icon: Activity, color: '#7C74EB' },
-    { label: 'Appointments', value: (analytics.totalAppointments || 0).toLocaleString(), change: '+23%', icon: Calendar, color: '#34D1BF' },
-    { label: 'Revenue', value: formatNumber(analytics.totalRevenue || 0), change: '+18%', icon: DollarSign, color: '#4CAF50' },
+    { label: 'Total Patients', value: (analytics.totalPatients || 0).toLocaleString(), change: '+12%', icon: Users, color: '#1E5FBF' },
+    { label: 'Active Doctors', value: (analytics.activeDoctors || 0).toLocaleString(), change: '+8%', icon: Activity, color: '#8A2BE2' },
+    { label: 'Appointments', value: (analytics.totalAppointments || 0).toLocaleString(), change: '+23%', icon: Calendar, color: '#008080' },
+    { label: 'Revenue', value: formatNumber(analytics.totalRevenue || 0), change: '+18%', icon: DollarSign, color: '#008000' },
   ] : [];
 
   // Generate department data from analytics (users by role)
@@ -394,10 +394,10 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
     { month: 'Nov', patients: 580, revenue: 1120000 },
   ];
 
-  const COLORS = ['#3F53D9', '#7C74EB', '#34D1BF', '#FFB020', '#E53935'];
+  const COLORS = ['#1E5FBF', '#8A2BE2', '#008080', '#FF8C00', '#CC0000'];
 
   return (
-    <div className="min-h-screen bg-[#F5F3FA]">
+    <div className="min-h-screen bg-[#CFE3FF]">
       {/* Top Navigation */}
       <nav className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -437,30 +437,30 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
               <div className="relative">
                 <button 
                   onClick={() => setShowProfileMenu(!showProfileMenu)}
-                  className="flex items-center gap-3 hover:bg-[#F5F3FA] rounded-lg p-2"
+                  className="flex items-center gap-3 hover:bg-[#CFE3FF] rounded-lg p-2"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#E8EAFF] flex items-center justify-center">
-                    <Users className="w-6 h-6 text-[#3F53D9]" />
+                  <div className="w-10 h-10 rounded-full bg-[#C4DCFF] flex items-center justify-center">
+                    <Users className="w-6 h-6 text-[#1E5FBF]" />
                   </div>
                   <div className="text-left hidden md:block">
-                    <div className="text-sm font-medium text-[#333333]">
+                    <div className="text-sm font-medium text-[#1A1A1A]">
                       {userInfo?.name || 'Admin User'}
                     </div>
-                    <div className="text-xs text-[#6E6E6E]">
+                    <div className="text-xs text-[#555555]">
                       {userInfo?.email || 'Administrator'}
                     </div>
                   </div>
-                  <ChevronDown className="w-4 h-4 text-[#6E6E6E] hidden md:block" />
+                  <ChevronDown className="w-4 h-4 text-[#555555] hidden md:block" />
                 </button>
                 {showProfileMenu && (
-                  <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-[#E5E5E5] z-50">
+                  <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-[#A0A0A0] z-50">
                     <div className="p-2">
                       <button
                         onClick={() => {
                           setShowProfileMenu(false);
                           // Navigate to profile settings if available
                         }}
-                        className="w-full text-left px-4 py-2 hover:bg-[#F5F3FA] rounded-lg text-sm text-[#333333]"
+                        className="w-full text-left px-4 py-2 hover:bg-[#CFE3FF] rounded-lg text-sm text-[#1A1A1A]"
                       >
                         View Profile
                       </button>
@@ -469,7 +469,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                           setShowProfileMenu(false);
                           onLogout ? onLogout() : onNavigate('landing');
                         }}
-                        className="w-full text-left px-4 py-2 hover:bg-[#FFEBEE] rounded-lg text-sm text-[#E53935]"
+                        className="w-full text-left px-4 py-2 hover:bg-[#FFCDD2] rounded-lg text-sm text-[#CC0000]"
                       >
                         <LogOut className="w-4 h-4 inline mr-2" />
                         Logout
@@ -489,26 +489,26 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
           <nav className="p-6 space-y-2">
             <button
               onClick={() => setActiveTab('dashboard')}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl ${activeTab === 'dashboard' ? 'bg-[#E8EAFF] text-[#3F53D9] font-medium' : 'hover:bg-[#F5F3FA] text-[#6E6E6E]'}`}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl ${activeTab === 'dashboard' ? 'bg-[#C4DCFF] text-[#1E5FBF] font-medium' : 'hover:bg-[#CFE3FF] text-[#555555]'}`}
             >
               <Activity className="w-5 h-5" />
               Dashboard
             </button>
             <button
               onClick={() => setActiveTab('users')}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl ${activeTab === 'users' ? 'bg-[#E8EAFF] text-[#3F53D9] font-medium' : 'hover:bg-[#F5F3FA] text-[#6E6E6E]'}`}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl ${activeTab === 'users' ? 'bg-[#C4DCFF] text-[#1E5FBF] font-medium' : 'hover:bg-[#CFE3FF] text-[#555555]'}`}
             >
               <Users className="w-5 h-5" />
               Users
               {pendingDoctors.length > 0 && (
-                <span className="ml-auto bg-[#E53935] text-white text-xs px-2 py-0.5 rounded-full">
+                <span className="ml-auto bg-[#CC0000] text-white text-xs px-2 py-0.5 rounded-full">
                   {pendingDoctors.length}
                 </span>
               )}
             </button>
             <button
               onClick={() => setActiveTab('appointments')}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl ${activeTab === 'appointments' ? 'bg-[#E8EAFF] text-[#3F53D9] font-medium' : 'hover:bg-[#F5F3FA] text-[#6E6E6E]'}`}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl ${activeTab === 'appointments' ? 'bg-[#C4DCFF] text-[#1E5FBF] font-medium' : 'hover:bg-[#CFE3FF] text-[#555555]'}`}
             >
               <Calendar className="w-5 h-5" />
               Appointments
@@ -516,22 +516,22 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
 
             <button
               onClick={() => setActiveTab('reports')}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl ${activeTab === 'reports' ? 'bg-[#E8EAFF] text-[#3F53D9] font-medium' : 'hover:bg-[#F5F3FA] text-[#6E6E6E]'}`}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl ${activeTab === 'reports' ? 'bg-[#C4DCFF] text-[#1E5FBF] font-medium' : 'hover:bg-[#CFE3FF] text-[#555555]'}`}
             >
               <TrendingUp className="w-5 h-5" />
               Reports
             </button>
             <button
               onClick={() => setActiveTab('settings')}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl ${activeTab === 'settings' ? 'bg-[#E8EAFF] text-[#3F53D9] font-medium' : 'hover:bg-[#F5F3FA] text-[#6E6E6E]'}`}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl ${activeTab === 'settings' ? 'bg-[#C4DCFF] text-[#1E5FBF] font-medium' : 'hover:bg-[#CFE3FF] text-[#555555]'}`}
             >
               <Settings className="w-5 h-5" />
               Settings
             </button>
-            <div className="pt-4 border-t border-[#E5E5E5]">
+            <div className="pt-4 border-t border-[#A0A0A0]">
               <button
                 onClick={() => onLogout ? onLogout() : onNavigate('landing')}
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-[#FFEBEE] text-[#E53935]"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-[#FFCDD2] text-[#CC0000]"
               >
                 <LogOut className="w-5 h-5" />
                 Logout
@@ -551,7 +551,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
               {activeTab === 'reports' && 'Reports & Analytics'}
               {activeTab === 'settings' && 'System Settings'}
             </h2>
-            <p className="text-[#6E6E6E]">
+            <p className="text-[#555555]">
               {activeTab === 'dashboard' && 'System Overview & Analytics'}
               {activeTab === 'users' && 'Manage all user accounts'}
               {activeTab === 'appointments' && 'View and manage appointments'}
@@ -567,21 +567,21 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
               <MedicalCard variant="filled" hover={false}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">Search</label>
+                    <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Search</label>
                     <input
                       type="text"
                       placeholder="Search by name or email..."
                       value={userSearch}
                       onChange={(e) => setUserSearch(e.target.value)}
-                      className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                      className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">Role</label>
+                    <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Role</label>
                     <select
                       value={userRoleFilter}
                       onChange={(e) => setUserRoleFilter(e.target.value)}
-                      className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                      className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                     >
                       <option value="">All Roles</option>
                       <option value="patient">Patient</option>
@@ -590,11 +590,11 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">Status</label>
+                    <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Status</label>
                     <select
                       value={userStatusFilter}
                       onChange={(e) => setUserStatusFilter(e.target.value)}
-                      className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                      className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                     >
                       <option value="">All Status</option>
                       <option value="active">Active</option>
@@ -610,39 +610,39 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-[#E5E5E5]">
-                        <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Name</th>
-                        <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Email</th>
-                        <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Role</th>
-                        <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Mobile</th>
-                        <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Status</th>
-                        <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Actions</th>
+                      <tr className="border-b border-[#A0A0A0]">
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Name</th>
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Email</th>
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Role</th>
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Mobile</th>
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Status</th>
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {loading ? (
                         <tr>
                           <td colSpan={6} className="py-8 text-center">
-                            <Loader2 className="w-6 h-6 animate-spin text-[#3F53D9] mx-auto" />
+                            <Loader2 className="w-6 h-6 animate-spin text-[#1E5FBF] mx-auto" />
                           </td>
                         </tr>
                       ) : allUsers.length === 0 ? (
                         <tr>
-                          <td colSpan={6} className="py-8 text-center text-[#6E6E6E]">
+                          <td colSpan={6} className="py-8 text-center text-[#555555]">
                             No users found
                           </td>
                         </tr>
                       ) : (
                         allUsers.map((user) => (
-                          <tr key={user.id} className="border-b border-[#E5E5E5] last:border-0 hover:bg-[#F5F3FA] transition-colors">
-                            <td className="py-3 px-4 text-[#333333] font-medium">{user.name}</td>
-                            <td className="py-3 px-4 text-[#6E6E6E] text-sm">{user.email}</td>
+                          <tr key={user.id} className="border-b border-[#A0A0A0] last:border-0 hover:bg-[#CFE3FF] transition-colors">
+                            <td className="py-3 px-4 text-[#1A1A1A] font-medium">{user.name}</td>
+                            <td className="py-3 px-4 text-[#555555] text-sm">{user.email}</td>
                             <td className="py-3 px-4">
-                              <span className={`text-sm font-medium ${user.role === 'doctor' ? 'text-[#3F53D9]' : user.role === 'admin' ? 'text-[#7C74EB]' : 'text-[#6E6E6E]'}`}>
+                              <span className={`text-sm font-medium ${user.role === 'doctor' ? 'text-[#1E5FBF]' : user.role === 'admin' ? 'text-[#8A2BE2]' : 'text-[#555555]'}`}>
                                 {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
                               </span>
                             </td>
-                            <td className="py-3 px-4 text-[#6E6E6E] text-sm">{user.mobile || 'N/A'}</td>
+                            <td className="py-3 px-4 text-[#555555] text-sm">{user.mobile || 'N/A'}</td>
                             <td className="py-3 px-4">
                               <StatusBadge status={user.status === 'active' ? 'completed' : user.status === 'pending_approval' ? 'pending' : 'pending'}>
                                 {user.status === 'active' ? 'Active' : user.status === 'pending_approval' ? 'Pending' : user.status}
@@ -652,14 +652,14 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                               <div className="flex items-center gap-3">
                                 <button
                                   onClick={() => handleEditUser(user)}
-                                  className="text-[#3F53D9] hover:text-[#3346B8] transition-colors p-1 rounded hover:bg-[#E8EAFF]"
+                                  className="text-[#1E5FBF] hover:text-[#1B4AA0] transition-colors p-1 rounded hover:bg-[#C4DCFF]"
                                   title="Edit user"
                                 >
                                   <Edit className="w-4 h-4" />
                                 </button>
                                 <button
                                   onClick={() => setDeleteUser(user)}
-                                  className="text-[#E53935] hover:text-[#C62828] transition-colors p-1 rounded hover:bg-[#FFEBEE]"
+                                  className="text-[#CC0000] hover:text-[#B71C1C] transition-colors p-1 rounded hover:bg-[#FFCDD2]"
                                   title="Delete user"
                                 >
                                   <Trash2 className="w-4 h-4" />
@@ -673,7 +673,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                   </table>
                 </div>
                 {!loading && allUsers.length > 0 && (
-                  <div className="mt-4 pt-4 border-t border-[#E5E5E5] text-sm text-[#6E6E6E]">
+                  <div className="mt-4 pt-4 border-t border-[#A0A0A0] text-sm text-[#555555]">
                     Total Users: {allUsers.length}
                   </div>
                 )}
@@ -688,48 +688,48 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-[#E5E5E5]">
-                        <th className="text-left py-3 px-4 font-medium text-[#333333]">Patient</th>
-                        <th className="text-left py-3 px-4 font-medium text-[#333333]">Doctor</th>
-                        <th className="text-left py-3 px-4 font-medium text-[#333333]">Date & Time</th>
-                        <th className="text-left py-3 px-4 font-medium text-[#333333]">Status</th>
-                        <th className="text-left py-3 px-4 font-medium text-[#333333]">Payment</th>
-                        <th className="text-left py-3 px-4 font-medium text-[#333333]">Contact</th>
-                        <th className="text-left py-3 px-4 font-medium text-[#333333]">Actions</th>
+                      <tr className="border-b border-[#A0A0A0]">
+                        <th className="text-left py-3 px-4 font-medium text-[#1A1A1A]">Patient</th>
+                        <th className="text-left py-3 px-4 font-medium text-[#1A1A1A]">Doctor</th>
+                        <th className="text-left py-3 px-4 font-medium text-[#1A1A1A]">Date & Time</th>
+                        <th className="text-left py-3 px-4 font-medium text-[#1A1A1A]">Status</th>
+                        <th className="text-left py-3 px-4 font-medium text-[#1A1A1A]">Payment</th>
+                        <th className="text-left py-3 px-4 font-medium text-[#1A1A1A]">Contact</th>
+                        <th className="text-left py-3 px-4 font-medium text-[#1A1A1A]">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {loading ? (
                         <tr>
                           <td colSpan={7} className="py-12 text-center">
-                            <Loader2 className="w-8 h-8 animate-spin text-[#3F53D9] mx-auto" />
+                            <Loader2 className="w-8 h-8 animate-spin text-[#1E5FBF] mx-auto" />
                           </td>
                         </tr>
                       ) : allAppointments.length === 0 ? (
                         <tr>
-                          <td colSpan={7} className="py-12 text-center text-[#6E6E6E]">
+                          <td colSpan={7} className="py-12 text-center text-[#555555]">
                             No appointments found
                           </td>
                         </tr>
                       ) : (
                         allAppointments.map((appointment) => (
-                          <tr key={appointment.id || appointment._id} className="border-b border-[#E5E5E5] hover:bg-[#F5F3FA] transition-colors">
+                          <tr key={appointment.id || appointment._id} className="border-b border-[#A0A0A0] hover:bg-[#CFE3FF] transition-colors">
                             <td className="py-3 px-4">
                               <div>
-                                <div className="font-medium text-[#333333]">{appointment.patientName}</div>
-                                <div className="text-sm text-[#6E6E6E]">{appointment.patientEmail}</div>
+                                <div className="font-medium text-[#1A1A1A]">{appointment.patientName}</div>
+                                <div className="text-sm text-[#555555]">{appointment.patientEmail}</div>
                               </div>
                             </td>
                             <td className="py-3 px-4">
                               <div>
-                                <div className="font-medium text-[#333333]">{appointment.doctorName}</div>
-                                <div className="text-sm text-[#7C74EB]">{appointment.doctorSpecialization || 'General'}</div>
+                                <div className="font-medium text-[#1A1A1A]">{appointment.doctorName}</div>
+                                <div className="text-sm text-[#8A2BE2]">{appointment.doctorSpecialization || 'General'}</div>
                               </div>
                             </td>
                             <td className="py-3 px-4">
                               <div>
-                                <div className="font-medium text-[#333333]">{appointment.date}</div>
-                                <div className="text-sm text-[#6E6E6E]">{appointment.time}</div>
+                                <div className="font-medium text-[#1A1A1A]">{appointment.date}</div>
+                                <div className="text-sm text-[#555555]">{appointment.time}</div>
                               </div>
                             </td>
                             <td className="py-3 px-4">
@@ -739,10 +739,10 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                             </td>
                             <td className="py-3 px-4">
                               <div>
-                                <div className="text-sm font-medium text-[#333333]">
+                                <div className="text-sm font-medium text-[#1A1A1A]">
                                   {appointment.paymentStatus === 'paid' ? '✅ Paid' : '⏳ Pending'}
                                 </div>
-                                <div className="text-xs text-[#6E6E6E]">
+                                <div className="text-xs text-[#555555]">
                                   {appointment.paymentMethod && appointment.paymentMethod !== 'N/A' 
                                     ? appointment.paymentMethod.toUpperCase() 
                                     : 'N/A'}
@@ -750,7 +750,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                               </div>
                             </td>
                             <td className="py-3 px-4">
-                              <div className="text-sm text-[#6E6E6E]">
+                              <div className="text-sm text-[#555555]">
                                 {appointment.patientPhone || 'N/A'}
                               </div>
                             </td>
@@ -761,7 +761,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                                     setEditingAppointment(appointment);
                                     setAppointmentStatus(appointment.status);
                                   }}
-                                  className="text-[#3F53D9] hover:text-[#3346B8] transition-colors p-1 rounded hover:bg-[#E8EAFF]"
+                                  className="text-[#1E5FBF] hover:text-[#1B4AA0] transition-colors p-1 rounded hover:bg-[#C4DCFF]"
                                   title="Edit appointment"
                                 >
                                   <Edit className="w-4 h-4" />
@@ -773,8 +773,8 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                                   }}
                                   className={`transition-colors p-1 rounded ${
                                     appointment.status === 'cancelled' 
-                                      ? 'text-[#4CAF50] hover:text-[#388E3C] hover:bg-[#E8F5E9]' 
-                                      : 'text-[#E53935] hover:text-[#C62828] hover:bg-[#FFEBEE]'
+                                      ? 'text-[#008000] hover:text-[#1B5E20] hover:bg-[#C8E6C9]' 
+                                      : 'text-[#CC0000] hover:text-[#B71C1C] hover:bg-[#FFCDD2]'
                                   }`}
                                   title={appointment.status === 'cancelled' ? 'Restore appointment' : 'Cancel appointment'}
                                 >
@@ -793,7 +793,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                   </table>
                 </div>
                 {!loading && allAppointments.length > 0 && (
-                  <div className="mt-4 pt-4 border-t border-[#E5E5E5] text-sm text-[#6E6E6E]">
+                  <div className="mt-4 pt-4 border-t border-[#A0A0A0] text-sm text-[#555555]">
                     Total Appointments: {allAppointments.length}
                   </div>
                 )}
@@ -808,7 +808,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
               {/* Stats Grid */}
               {loading ? (
                 <div className="flex items-center justify-center py-12">
-                  <Loader2 className="w-8 h-8 animate-spin text-[#3F53D9]" />
+                  <Loader2 className="w-8 h-8 animate-spin text-[#1E5FBF]" />
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -818,9 +818,9 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                       <MedicalCard key={index} variant="filled" hover={false}>
                         <div className="flex items-start justify-between">
                           <div>
-                            <p className="text-sm text-[#6E6E6E] mb-2">{stat.label}</p>
+                            <p className="text-sm text-[#555555] mb-2">{stat.label}</p>
                             <h3 className="mb-2" style={{ color: stat.color }}>{stat.value}</h3>
-                            <span className="text-xs text-[#4CAF50] bg-[#E8F5E9] px-2 py-1 rounded-full">
+                            <span className="text-xs text-[#008000] bg-[#C8E6C9] px-2 py-1 rounded-full">
                               {stat.change} this month
                             </span>
                           </div>
@@ -845,13 +845,13 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                     <h3 className="mb-4">Monthly Trends</h3>
                     <ResponsiveContainer width="100%" height={300}>
                       <LineChart data={monthlyData}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#E5E5E5" />
-                        <XAxis dataKey="month" stroke="#6E6E6E" />
-                        <YAxis stroke="#6E6E6E" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="#A0A0A0" />
+                        <XAxis dataKey="month" stroke="#555555" />
+                        <YAxis stroke="#555555" />
                         <Tooltip
                           contentStyle={{
-                            backgroundColor: '#fff',
-                            border: '2px solid #E8EAFF',
+                            backgroundColor: '#FFFFFF',
+                            border: '2px solid #C4DCFF',
                             borderRadius: '12px'
                           }}
                         />
@@ -859,18 +859,18 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                         <Line
                           type="monotone"
                           dataKey="patients"
-                          stroke="#3F53D9"
+                          stroke="#1E5FBF"
                           strokeWidth={3}
                           name="Patients"
-                          dot={{ fill: '#3F53D9', r: 4 }}
+                          dot={{ fill: '#1E5FBF', r: 4 }}
                         />
                         <Line
                           type="monotone"
                           dataKey="revenue"
-                          stroke="#34D1BF"
+                          stroke="#008080"
                           strokeWidth={3}
                           name="Revenue (₹)"
-                          dot={{ fill: '#34D1BF', r: 4 }}
+                          dot={{ fill: '#008080', r: 4 }}
                         />
                       </LineChart>
                     </ResponsiveContainer>
@@ -889,7 +889,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                         labelLine={false}
                         label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
                         outerRadius={80}
-                        fill="#8884d8"
+                        fill="#8A72E0"
                         dataKey="value"
                       >
                         {departmentData.map((entry, index) => (
@@ -922,37 +922,37 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                     <div className="overflow-x-auto">
                       <table className="w-full">
                         <thead>
-                          <tr className="border-b border-[#E5E5E5]">
-                            <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Name</th>
-                            <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Role</th>
-                            <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Email</th>
-                            <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Status</th>
-                            <th className="text-left py-3 px-4 text-sm font-medium text-[#6E6E6E]">Action</th>
+                          <tr className="border-b border-[#A0A0A0]">
+                            <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Name</th>
+                            <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Role</th>
+                            <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Email</th>
+                            <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Status</th>
+                            <th className="text-left py-3 px-4 text-sm font-medium text-[#555555]">Action</th>
                           </tr>
                         </thead>
                         <tbody>
                           {loading ? (
                             <tr>
                               <td colSpan={5} className="py-8 text-center">
-                                <Loader2 className="w-6 h-6 animate-spin text-[#3F53D9] mx-auto" />
+                                <Loader2 className="w-6 h-6 animate-spin text-[#1E5FBF] mx-auto" />
                               </td>
                             </tr>
                           ) : recentUsers.length === 0 ? (
                             <tr>
-                              <td colSpan={5} className="py-8 text-center text-[#6E6E6E]">
+                              <td colSpan={5} className="py-8 text-center text-[#555555]">
                                 No users found
                               </td>
                             </tr>
                           ) : (
                             recentUsers.map((user) => (
-                              <tr key={user.id} className="border-b border-[#E5E5E5] last:border-0">
-                                <td className="py-3 px-4 text-[#333333]">{user.name}</td>
+                              <tr key={user.id} className="border-b border-[#A0A0A0] last:border-0">
+                                <td className="py-3 px-4 text-[#1A1A1A]">{user.name}</td>
                                 <td className="py-3 px-4">
-                                  <span className={`text-sm ${user.role === 'doctor' ? 'text-[#3F53D9]' : 'text-[#6E6E6E]'}`}>
+                                  <span className={`text-sm ${user.role === 'doctor' ? 'text-[#1E5FBF]' : 'text-[#555555]'}`}>
                                     {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
                                   </span>
                                 </td>
-                                <td className="py-3 px-4 text-[#6E6E6E] text-sm">{user.email}</td>
+                                <td className="py-3 px-4 text-[#555555] text-sm">{user.email}</td>
                                 <td className="py-3 px-4">
                                   <StatusBadge status={user.status === 'active' ? 'completed' : user.status === 'pending_approval' ? 'pending' : 'pending'}>
                                     {user.status === 'active' ? 'Active' : user.status === 'pending_approval' ? 'Pending' : user.status}
@@ -962,14 +962,14 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                                   <div className="flex items-center gap-3">
                                     <button
                                       onClick={() => handleEditUser(user)}
-                                      className="text-[#3F53D9] hover:text-[#3346B8] transition-colors"
+                                      className="text-[#1E5FBF] hover:text-[#1B4AA0] transition-colors"
                                       title="Edit user"
                                     >
                                       <Edit className="w-4 h-4" />
                                     </button>
                                     <button
                                       onClick={() => setDeleteUser(user)}
-                                      className="text-[#E53935] hover:text-[#C62828] transition-colors"
+                                      className="text-[#CC0000] hover:text-[#B71C1C] transition-colors"
                                       title="Delete user"
                                     >
                                       <Trash2 className="w-4 h-4" />
@@ -991,22 +991,22 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                   <div className="space-y-3">
                     <MedicalCard variant="pastel" hover={false}>
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-[#3F53D9] mb-1">94%</div>
-                        <div className="text-sm text-[#6E6E6E]">System Uptime</div>
+                        <div className="text-3xl font-bold text-[#1E5FBF] mb-1">94%</div>
+                        <div className="text-sm text-[#555555]">System Uptime</div>
                       </div>
                     </MedicalCard>
 
                     <MedicalCard variant="outlined" hover={false}>
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-[#34D1BF] mb-1">156</div>
-                        <div className="text-sm text-[#6E6E6E]">Active Sessions</div>
+                        <div className="text-3xl font-bold text-[#008080] mb-1">156</div>
+                        <div className="text-sm text-[#555555]">Active Sessions</div>
                       </div>
                     </MedicalCard>
 
                     <MedicalCard variant="outlined" hover={false}>
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-[#7C74EB] mb-1">2.4TB</div>
-                        <div className="text-sm text-[#6E6E6E]">Storage Used</div>
+                        <div className="text-3xl font-bold text-[#8A2BE2] mb-1">2.4TB</div>
+                        <div className="text-sm text-[#555555]">Storage Used</div>
                       </div>
                     </MedicalCard>
 
@@ -1030,49 +1030,49 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
             <div className="space-y-6">
               <MedicalCard variant="filled" hover={false}>
                 <h3 className="mb-4">Export Reports</h3>
-                <p className="text-[#6E6E6E] mb-6">Generate and download reports in CSV or PDF format</p>
+                <p className="text-[#555555] mb-6">Generate and download reports in CSV or PDF format</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <MedicalCard variant="outlined" hover={true} className="cursor-pointer" onClick={() => { setExportResource('users'); setShowExportModal(true); }}>
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#E8EAFF] flex items-center justify-center">
-                        <Users className="w-6 h-6 text-[#3F53D9]" />
+                      <div className="w-12 h-12 rounded-xl bg-[#C4DCFF] flex items-center justify-center">
+                        <Users className="w-6 h-6 text-[#1E5FBF]" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#333333]">Users Report</h4>
-                        <p className="text-sm text-[#6E6E6E]">Export all user data</p>
+                        <h4 className="font-semibold text-[#1A1A1A]">Users Report</h4>
+                        <p className="text-sm text-[#555555]">Export all user data</p>
                       </div>
                     </div>
                   </MedicalCard>
                   <MedicalCard variant="outlined" hover={true} className="cursor-pointer" onClick={() => { setExportResource('appointments'); setShowExportModal(true); }}>
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#E8F5E9] flex items-center justify-center">
-                        <Calendar className="w-6 h-6 text-[#4CAF50]" />
+                      <div className="w-12 h-12 rounded-xl bg-[#C8E6C9] flex items-center justify-center">
+                        <Calendar className="w-6 h-6 text-[#008000]" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#333333]">Appointments Report</h4>
-                        <p className="text-sm text-[#6E6E6E]">Export appointment records</p>
+                        <h4 className="font-semibold text-[#1A1A1A]">Appointments Report</h4>
+                        <p className="text-sm text-[#555555]">Export appointment records</p>
                       </div>
                     </div>
                   </MedicalCard>
                   <MedicalCard variant="outlined" hover={true} className="cursor-pointer" onClick={() => { setExportResource('payments'); setShowExportModal(true); }}>
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#FFF3E0] flex items-center justify-center">
-                        <DollarSign className="w-6 h-6 text-[#FF9800]" />
+                      <div className="w-12 h-12 rounded-xl bg-[#FFE0B2] flex items-center justify-center">
+                        <DollarSign className="w-6 h-6 text-[#FF8C00]" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#333333]">Payments Report</h4>
-                        <p className="text-sm text-[#6E6E6E]">Export payment transactions</p>
+                        <h4 className="font-semibold text-[#1A1A1A]">Payments Report</h4>
+                        <p className="text-sm text-[#555555]">Export payment transactions</p>
                       </div>
                     </div>
                   </MedicalCard>
                   <MedicalCard variant="outlined" hover={true} className="cursor-pointer" onClick={() => { setExportResource('analytics'); setShowExportModal(true); }}>
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#F3E5F5] flex items-center justify-center">
-                        <TrendingUp className="w-6 h-6 text-[#9C27B0]" />
+                      <div className="w-12 h-12 rounded-xl bg-[#E1BEE7] flex items-center justify-center">
+                        <TrendingUp className="w-6 h-6 text-[#8E24AA]" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#333333]">Analytics Report</h4>
-                        <p className="text-sm text-[#6E6E6E]">Export system analytics</p>
+                        <h4 className="font-semibold text-[#1A1A1A]">Analytics Report</h4>
+                        <p className="text-sm text-[#555555]">Export system analytics</p>
                       </div>
                     </div>
                   </MedicalCard>
@@ -1083,17 +1083,17 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                 <h3 className="mb-4">System Analytics</h3>
                 {analytics && (
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="p-4 bg-[#E8EAFF] rounded-xl">
-                      <div className="text-2xl font-bold text-[#3F53D9] mb-1">{analytics.totalUsers || 0}</div>
-                      <div className="text-sm text-[#6E6E6E]">Total Users</div>
+                    <div className="p-4 bg-[#C4DCFF] rounded-xl">
+                      <div className="text-2xl font-bold text-[#1E5FBF] mb-1">{analytics.totalUsers || 0}</div>
+                      <div className="text-sm text-[#555555]">Total Users</div>
                     </div>
-                    <div className="p-4 bg-[#E8F5E9] rounded-xl">
-                      <div className="text-2xl font-bold text-[#4CAF50] mb-1">{analytics.totalAppointments || 0}</div>
-                      <div className="text-sm text-[#6E6E6E]">Total Appointments</div>
+                    <div className="p-4 bg-[#C8E6C9] rounded-xl">
+                      <div className="text-2xl font-bold text-[#008000] mb-1">{analytics.totalAppointments || 0}</div>
+                      <div className="text-sm text-[#555555]">Total Appointments</div>
                     </div>
-                    <div className="p-4 bg-[#FFF3E0] rounded-xl">
-                      <div className="text-2xl font-bold text-[#FF9800] mb-1">{formatNumber(analytics.totalRevenue || 0)}</div>
-                      <div className="text-sm text-[#6E6E6E]">Total Revenue</div>
+                    <div className="p-4 bg-[#FFE0B2] rounded-xl">
+                      <div className="text-2xl font-bold text-[#FF8C00] mb-1">{formatNumber(analytics.totalRevenue || 0)}</div>
+                      <div className="text-sm text-[#555555]">Total Revenue</div>
                     </div>
                   </div>
                 )}
@@ -1113,15 +1113,15 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                 )}
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">Low Stock Threshold</label>
+                    <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Low Stock Threshold</label>
                     <input
                       type="number"
                       value={systemConfig.lowStockThreshold}
                       onChange={(e) => setSystemConfig({ ...systemConfig, lowStockThreshold: parseInt(e.target.value) || 10 })}
-                      className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                      className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                       min="1"
                     />
-                    <p className="text-xs text-[#6E6E6E] mt-1">Items below this quantity will be marked as low stock</p>
+                    <p className="text-xs text-[#555555] mt-1">Items below this quantity will be marked as low stock</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <input
@@ -1129,9 +1129,9 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                       id="maintenanceMode"
                       checked={systemConfig.maintenanceMode}
                       onChange={(e) => setSystemConfig({ ...systemConfig, maintenanceMode: e.target.checked })}
-                      className="w-5 h-5 rounded border-2 border-[#E5E5E5] text-[#3F53D9] focus:ring-2 focus:ring-[#3F53D9]"
+                      className="w-5 h-5 rounded border-2 border-[#A0A0A0] text-[#1E5FBF] focus:ring-2 focus:ring-[#1E5FBF]"
                     />
-                    <label htmlFor="maintenanceMode" className="text-sm font-medium text-[#333333]">
+                    <label htmlFor="maintenanceMode" className="text-sm font-medium text-[#1A1A1A]">
                       Maintenance Mode
                     </label>
                   </div>
@@ -1170,7 +1170,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
               <h3 className="text-xl font-semibold">Edit User</h3>
               <button
                 onClick={handleCancelEdit}
-                className="text-[#6E6E6E] hover:text-[#333333] transition-colors"
+                className="text-[#555555] hover:text-[#1A1A1A] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1184,42 +1184,42 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Name</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Name</label>
                 <input
                   type="text"
                   value={editFormData.name || ''}
                   onChange={(e) => setEditFormData({ ...editFormData, name: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Email</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Email</label>
                 <input
                   type="email"
                   value={editFormData.email || ''}
                   onChange={(e) => setEditFormData({ ...editFormData, email: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Mobile</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Mobile</label>
                 <input
                   type="tel"
                   value={editFormData.mobile || ''}
                   onChange={(e) => setEditFormData({ ...editFormData, mobile: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                   placeholder="Optional"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Gender</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Gender</label>
                 <select
                   value={editFormData.gender || ''}
                   onChange={(e) => setEditFormData({ ...editFormData, gender: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 >
                   <option value="">Select</option>
                   <option value="male">Male</option>
@@ -1229,11 +1229,11 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Role</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Role</label>
                 <select
                   value={editFormData.role || ''}
                   onChange={(e) => setEditFormData({ ...editFormData, role: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 >
                   <option value="patient">Patient</option>
                   <option value="doctor">Doctor</option>
@@ -1242,11 +1242,11 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Status</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Status</label>
                 <select
                   value={editFormData.status || ''}
                   onChange={(e) => setEditFormData({ ...editFormData, status: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 >
                   <option value="active">Active</option>
                   <option value="pending_approval">Pending Approval</option>
@@ -1293,10 +1293,10 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <MedicalCard className="w-full max-w-md glass-strong shadow-2xl">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold text-[#E53935]">Delete User</h3>
+              <h3 className="text-xl font-semibold text-[#CC0000]">Delete User</h3>
               <button
                 onClick={handleCancelDelete}
-                className="text-[#6E6E6E] hover:text-[#333333] transition-colors"
+                className="text-[#555555] hover:text-[#1A1A1A] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1309,7 +1309,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
             )}
 
             <div className="space-y-4">
-              <p className="text-[#333333]">
+              <p className="text-[#1A1A1A]">
                 Are you sure you want to delete the user <strong>{deleteUser.name}</strong>?
               </p>
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
@@ -1317,9 +1317,9 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                   <strong>Warning:</strong> This action cannot be undone. All user data will be permanently deleted from the database.
                 </p>
               </div>
-              <div className="bg-[#F5F3FA] rounded-lg p-3 text-sm">
-                <p className="text-[#6E6E6E]"><strong>Email:</strong> {deleteUser.email}</p>
-                <p className="text-[#6E6E6E]"><strong>Role:</strong> {deleteUser.role.charAt(0).toUpperCase() + deleteUser.role.slice(1)}</p>
+              <div className="bg-[#CFE3FF] rounded-lg p-3 text-sm">
+                <p className="text-[#555555]"><strong>Email:</strong> {deleteUser.email}</p>
+                <p className="text-[#555555]"><strong>Role:</strong> {deleteUser.role.charAt(0).toUpperCase() + deleteUser.role.slice(1)}</p>
               </div>
 
               <div className="flex gap-3 pt-4">
@@ -1328,7 +1328,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                   size="md"
                   onClick={handleDeleteUser}
                   disabled={isDeleting}
-                  className="flex-1 bg-[#E53935] hover:bg-[#C62828]"
+                  className="flex-1 bg-[#CC0000] hover:bg-[#B71C1C]"
                 >
                   {isDeleting ? (
                     <>
@@ -1368,7 +1368,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                   setNewUserData({ name: '', email: '', mobile: '', gender: '', role: 'patient', status: 'active' });
                   setErrorMessage(null);
                 }}
-                className="text-[#6E6E6E] hover:text-[#333333] transition-colors"
+                className="text-[#555555] hover:text-[#1A1A1A] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1382,44 +1382,44 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Name *</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Name *</label>
                 <input
                   type="text"
                   value={newUserData.name || ''}
                   onChange={(e) => setNewUserData({ ...newUserData, name: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Email *</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Email *</label>
                 <input
                   type="email"
                   value={newUserData.email || ''}
                   onChange={(e) => setNewUserData({ ...newUserData, email: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Mobile</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Mobile</label>
                 <input
                   type="tel"
                   value={newUserData.mobile || ''}
                   onChange={(e) => setNewUserData({ ...newUserData, mobile: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                   placeholder="Optional"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Gender</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Gender</label>
                 <select
                   value={newUserData.gender || ''}
                   onChange={(e) => setNewUserData({ ...newUserData, gender: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 >
                   <option value="">Select</option>
                   <option value="male">Male</option>
@@ -1429,11 +1429,11 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Role *</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Role *</label>
                 <select
                   value={newUserData.role || 'patient'}
                   onChange={(e) => setNewUserData({ ...newUserData, role: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 >
                   <option value="patient">Patient</option>
                   <option value="doctor">Doctor</option>
@@ -1442,11 +1442,11 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Status *</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Status *</label>
                 <select
                   value={newUserData.status || 'active'}
                   onChange={(e) => setNewUserData({ ...newUserData, status: e.target.value })}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 >
                   <option value="active">Active</option>
                   <option value="pending_approval">Pending Approval</option>
@@ -1503,7 +1503,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                   setShowExportModal(false);
                   setErrorMessage(null);
                 }}
-                className="text-[#6E6E6E] hover:text-[#333333] transition-colors"
+                className="text-[#555555] hover:text-[#1A1A1A] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1517,11 +1517,11 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Resource</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Resource</label>
                 <select
                   value={exportResource}
                   onChange={(e) => setExportResource(e.target.value as any)}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 >
                   <option value="users">Users</option>
                   <option value="appointments">Appointments</option>
@@ -1532,11 +1532,11 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Format</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Format</label>
                 <select
                   value={exportFormat}
                   onChange={(e) => setExportFormat(e.target.value as 'csv' | 'pdf')}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 >
                   <option value="csv">CSV</option>
                   <option value="pdf">PDF</option>
@@ -1592,7 +1592,7 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
                   setAppointmentStatus('');
                   setErrorMessage(null);
                 }}
-                className="text-[#6E6E6E] hover:text-[#333333] transition-colors"
+                className="text-[#555555] hover:text-[#1A1A1A] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1605,18 +1605,18 @@ export function AdminDashboard({ onNavigate, onLogout, userInfo }: AdminDashboar
             )}
 
             <div className="space-y-4">
-              <div className="bg-[#F5F3FA] rounded-lg p-4">
-                <p className="text-sm text-[#6E6E6E] mb-1"><strong>Patient:</strong> {editingAppointment.patientName}</p>
-                <p className="text-sm text-[#6E6E6E] mb-1"><strong>Doctor:</strong> {editingAppointment.doctorName}</p>
-                <p className="text-sm text-[#6E6E6E]"><strong>Date:</strong> {editingAppointment.date} at {editingAppointment.time}</p>
+              <div className="bg-[#CFE3FF] rounded-lg p-4">
+                <p className="text-sm text-[#555555] mb-1"><strong>Patient:</strong> {editingAppointment.patientName}</p>
+                <p className="text-sm text-[#555555] mb-1"><strong>Doctor:</strong> {editingAppointment.doctorName}</p>
+                <p className="text-sm text-[#555555]"><strong>Date:</strong> {editingAppointment.date} at {editingAppointment.time}</p>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#333333] mb-2">Status</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Status</label>
                 <select
                   value={appointmentStatus}
                   onChange={(e) => setAppointmentStatus(e.target.value)}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-2 text-black focus:border-[#3F53D9] focus:outline-none"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-2 text-black focus:border-[#1E5FBF] focus:outline-none"
                 >
                   <option value="scheduled">Scheduled</option>
                   <option value="confirmed">Confirmed</option>

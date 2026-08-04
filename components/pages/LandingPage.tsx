@@ -55,10 +55,10 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
   const servicesDrift = scrollY > 400 ? Math.min((scrollY - 400) * 0.04, 45) : 0;
   const statsTilt = scrollY > 900 ? Math.min((scrollY - 900) * 0.03, 30) : 0;
   const specialities = [
-    { icon: Heart, name: 'Cardiology', description: 'Heart specialists', color: '#FF6B9D' },
-    { icon: UserRound, name: 'Dermatology', description: 'Skin and hair care', color: '#7C74EB' },
-    { icon: Bone, name: 'Orthopedics', description: 'Bone & joint care', color: '#34D1BF' },
-    { icon: Activity, name: 'General Health checkup', description: 'All common illnesses', color: '#3F53D9' }
+    { icon: Heart, name: 'Cardiology', description: 'Heart specialists', color: '#FF69B4' },
+    { icon: UserRound, name: 'Dermatology', description: 'Skin and hair care', color: '#8A2BE2' },
+    { icon: Bone, name: 'Orthopedics', description: 'Bone & joint care', color: '#008080' },
+    { icon: Activity, name: 'General Health checkup', description: 'All common illnesses', color: '#1E5FBF' }
   ];
 
   const locations = [
@@ -73,7 +73,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
       icon: Pill, 
       title: 'Online Pharmacy', 
       description: 'Order medicines online with doorstep delivery and electronic bills', 
-      color: '#7C74EB', 
+      color: '#8A2BE2', 
       target: 'patient-dashboard' as Page, 
       requireAuth: false,
       serviceType: 'pharmacy',
@@ -90,7 +90,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
       icon: FlaskConical, 
       title: 'Lab Test Booking', 
       description: 'Book blood tests, scans, and diagnostics with sample pickup support', 
-      color: '#34D1BF', 
+      color: '#008080', 
       target: 'patient-dashboard' as Page, 
       requireAuth: false,
       serviceType: 'lab-tests',
@@ -107,7 +107,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
       icon: Ambulance, 
       title: 'Emergency Assistance', 
       description: 'Locate the nearest emergency care instantly with real-time status', 
-      color: '#FF6B9D', 
+      color: '#FF69B4', 
       target: 'patient-dashboard' as Page, 
       requireAuth: false,
       serviceType: 'emergency',
@@ -124,7 +124,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
       icon: Video, 
       title: 'Teleconsultation', 
       description: 'Speak with doctors via video or chat for quick medical help without visiting hospitals', 
-      color: '#3F53D9', 
+      color: '#1E5FBF', 
       target: 'appointment' as Page, 
       requireAuth: false,
       serviceType: 'teleconsultation',
@@ -141,7 +141,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
       icon: Shield, 
       title: 'Insurance Support', 
       description: 'Find hospitals that accept your insurance and get cashless treatment support', 
-      color: '#7C74EB', 
+      color: '#8A2BE2', 
       target: 'patient-dashboard' as Page, 
       requireAuth: false,
       serviceType: 'insurance',
@@ -158,7 +158,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
       icon: Heart, 
       title: 'Health Packages', 
       description: 'Annual health check-ups, preventive care packages, and wellness programs', 
-      color: '#34D1BF', 
+      color: '#008080', 
       target: 'patient-dashboard' as Page, 
       requireAuth: false,
       serviceType: 'health-packages',
@@ -257,13 +257,13 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F3FA] particle-bg relative overflow-hidden">
+    <div className="min-h-screen bg-[#CFE3FF] particle-bg relative overflow-hidden">
       {/* Animated Background Particles */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-[#3F53D9]/30 rounded-full animate-float-3d" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-[#7C74EB]/30 rounded-full animate-float-3d" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-40 left-1/4 w-2 h-2 bg-[#34D1BF]/30 rounded-full animate-float-3d" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-20 right-1/3 w-3 h-3 bg-[#3F53D9]/20 rounded-full animate-float-3d" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-20 left-10 w-2 h-2 bg-[#1E5FBF]/30 rounded-full animate-float-3d" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute top-40 right-20 w-3 h-3 bg-[#8A2BE2]/30 rounded-full animate-float-3d" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-40 left-1/4 w-2 h-2 bg-[#008080]/30 rounded-full animate-float-3d" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 right-1/3 w-3 h-3 bg-[#1E5FBF]/20 rounded-full animate-float-3d" style={{ animationDelay: '3s' }}></div>
       </div>
 
       {/* Navigation */}
@@ -275,7 +275,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
             </button>
             <div className="flex items-center gap-6">
               <button 
-                className="text-[#333333] hover:text-[#3F53D9] transition-all duration-300 hover:scale-110" 
+                className="text-[#1A1A1A] hover:text-[#1E5FBF] transition-all duration-300 hover:scale-110" 
                 onClick={() => {
                   const servicesSection = document.getElementById('services-section');
                   if (servicesSection) {
@@ -286,7 +286,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
                 Services
               </button>
               <button 
-                className="text-[#333333] hover:text-[#3F53D9] transition-all duration-300 hover:scale-110" 
+                className="text-[#1A1A1A] hover:text-[#1E5FBF] transition-all duration-300 hover:scale-110" 
                 onClick={() => {
                   const aboutSection = document.getElementById('about-section');
                   if (aboutSection) {
@@ -297,7 +297,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
                 About Us
               </button>
               <button 
-                className="text-[#333333] hover:text-[#3F53D9] transition-all duration-300 hover:scale-110" 
+                className="text-[#1A1A1A] hover:text-[#1E5FBF] transition-all duration-300 hover:scale-110" 
                 onClick={() => {
                   const contactSection = document.getElementById('contact-section');
                   if (contactSection) {
@@ -321,20 +321,14 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative max-w-[1500px] mx-auto px-4 sm:px-8 py-16 overflow-hidden rounded-[40px] bg-[#F5F3FA] perspective-1000 mt-6">
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          src="/hero-bg.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
+      <section className="relative max-w-[1500px] mx-auto px-4 sm:px-8 py-16 overflow-hidden rounded-[40px] bg-[#CFE3FF] perspective-1000 mt-6">
+        <div className="absolute inset-0 w-full h-full retro-hero-bg" aria-hidden="true"></div>
+        <div className="absolute inset-0 scanlines opacity-40 pointer-events-none" aria-hidden="true"></div>
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/70 via-[#0f172a]/40 to-transparent backdrop-blur-[1px] pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-r from-[#0E3D85]/80 via-[#1E5FBF]/50 to-[#8A2BE2]/20 pointer-events-none"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 holographic opacity-30 pointer-events-none" aria-hidden="true"></div>
+        <div className="absolute inset-0 holographic opacity-20 pointer-events-none" aria-hidden="true"></div>
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
           {/* Left content */}
           <div
@@ -342,7 +336,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
             style={{ transform: `translateY(-${heroParallax}px) translateZ(0)` }}
           >
             <div className="inline-block perspective-1000">
-              <span className="glass bg-gradient-to-r from-[#E8EAFF]/90 to-[#F0EDFF]/90 text-[#3F53D9] px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:scale-105 transition-transform duration-300 inline-block">
+              <span className="glass bg-gradient-to-r from-[#C4DCFF]/90 to-[#E0CFFF]/90 text-[#1E5FBF] px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:scale-105 transition-transform duration-300 inline-block">
                 Healthcare Made Simple
               </span>
             </div>
@@ -355,7 +349,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
             {/* Top Specialities */}
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-[#7C74EB]" />
+                <MapPin className="w-5 h-5 text-[#8A2BE2]" />
                 <span className="text-white/90">Multiple locations across the city</span>
               </div>
               <div className="flex items-center gap-3 mt-4">
@@ -374,7 +368,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
                         // Navigate to login
                         handleNavClick('login');
                       }}
-                      className="glass bg-white/80 rounded-xl p-4 border-2 border-white/40 hover:border-[#7C74EB]/60 transition-all cursor-pointer group backdrop-blur-lg card-3d hover:shadow-xl hover:shadow-[#7C74EB]/20 active:scale-95"
+                      className="glass bg-white/80 rounded-xl p-4 border-2 border-white/40 hover:border-[#8A2BE2]/60 transition-all cursor-pointer group backdrop-blur-lg card-3d hover:shadow-xl hover:shadow-[#8A2BE2]/20 active:scale-95"
                       style={{ transformStyle: 'preserve-3d' }}
                     >
                       <div className="flex items-start gap-3" style={{ transform: 'translateZ(10px)' }}>
@@ -388,7 +382,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
                           />
                         </div>
                         <div>
-                          <div className="font-medium text-white mb-1 group-hover:text-[#7C74EB] transition-colors">{speciality.name}</div>
+                          <div className="font-medium text-white mb-1 group-hover:text-[#8A2BE2] transition-colors">{speciality.name}</div>
                           <div className="text-sm text-white/80">{speciality.description}</div>
                         </div>
                       </div>
@@ -429,7 +423,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
               style={{ transform: `translateY(${heroImageParallax}px) translateZ(0)` }}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#3F53D9]/20 to-[#7C74EB]/20 rounded-3xl blur-3xl -z-10 animate-glow"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1E5FBF]/20 to-[#8A2BE2]/20 rounded-3xl blur-3xl -z-10 animate-glow"></div>
                 <ImageWithFallback
                   src={doctorTeamImage}
                   alt="Doctor Team"
@@ -446,7 +440,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
       <section id="services-section" className="max-w-[1500px] mx-auto px-4 sm:px-6 py-16 relative z-10">
         <div className="text-center mb-12 perspective-1000">
           <h2 className="mb-4 animate-fade-in-up neon-glow">Our Services</h2>
-          <p className="text-lg text-[#6E6E6E] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-lg text-[#555555] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Comprehensive healthcare services at your fingertips
           </p>
         </div>
@@ -478,8 +472,8 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
                       style={{ color: service.color }}
                     />
                   </div>
-                  <h3 className="text-[#333333] font-semibold group-hover:text-[#3F53D9] transition-colors">{service.title}</h3>
-                  <p className="text-[#6E6E6E] text-sm">{service.description}</p>
+                  <h3 className="text-[#1A1A1A] font-semibold group-hover:text-[#1E5FBF] transition-colors">{service.title}</h3>
+                  <p className="text-[#555555] text-sm">{service.description}</p>
                 </div>
               </MedicalCard>
             );
@@ -491,7 +485,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
       <section id="about-section" className="max-w-[1500px] mx-auto px-4 sm:px-6 py-16 relative z-10">
         <div className="text-center mb-12 perspective-1000">
           <h2 className="mb-4 animate-fade-in-up neon-glow">About Us</h2>
-          <p className="text-lg text-[#6E6E6E] animate-fade-in-up max-w-4xl mx-auto" style={{ animationDelay: '0.2s' }}>
+          <p className="text-lg text-[#555555] animate-fade-in-up max-w-4xl mx-auto" style={{ animationDelay: '0.2s' }}>
             MediConnect is a comprehensive digital healthcare platform designed to make quality medical care accessible, convenient, and affordable for everyone. We bridge the gap between patients and healthcare providers through innovative technology and seamless service delivery.
           </p>
         </div>
@@ -502,11 +496,11 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
             className="p-6 hover:shadow-xl transition-all duration-300"
           >
             <div className="flex flex-col items-center gap-4 text-center">
-              <div className="w-16 h-16 rounded-full bg-[#E8EAFF] flex items-center justify-center">
-                <Stethoscope className="w-8 h-8 text-[#3F53D9]" />
+              <div className="w-16 h-16 rounded-full bg-[#C4DCFF] flex items-center justify-center">
+                <Stethoscope className="w-8 h-8 text-[#1E5FBF]" />
               </div>
-              <h3 className="font-semibold text-[#333333] text-lg">Our Mission</h3>
-              <p className="text-sm text-[#6E6E6E]">
+              <h3 className="font-semibold text-[#1A1A1A] text-lg">Our Mission</h3>
+              <p className="text-sm text-[#555555]">
                 To revolutionize healthcare delivery by providing easy access to quality medical services, expert doctors, and essential medicines through a single, user-friendly platform.
               </p>
             </div>
@@ -517,11 +511,11 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
             className="p-6 hover:shadow-xl transition-all duration-300"
           >
             <div className="flex flex-col items-center gap-4 text-center">
-              <div className="w-16 h-16 rounded-full bg-[#E8EAFF] flex items-center justify-center">
-                <Heart className="w-8 h-8 text-[#3F53D9]" />
+              <div className="w-16 h-16 rounded-full bg-[#C4DCFF] flex items-center justify-center">
+                <Heart className="w-8 h-8 text-[#1E5FBF]" />
               </div>
-              <h3 className="font-semibold text-[#333333] text-lg">What We Offer</h3>
-              <p className="text-sm text-[#6E6E6E]">
+              <h3 className="font-semibold text-[#1A1A1A] text-lg">What We Offer</h3>
+              <p className="text-sm text-[#555555]">
                 From online pharmacy and lab test bookings to teleconsultations and emergency assistance, we provide end-to-end healthcare solutions that fit your lifestyle and needs.
               </p>
             </div>
@@ -532,11 +526,11 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
             className="p-6 hover:shadow-xl transition-all duration-300"
           >
             <div className="flex flex-col items-center gap-4 text-center">
-              <div className="w-16 h-16 rounded-full bg-[#E8EAFF] flex items-center justify-center">
-                <Shield className="w-8 h-8 text-[#3F53D9]" />
+              <div className="w-16 h-16 rounded-full bg-[#C4DCFF] flex items-center justify-center">
+                <Shield className="w-8 h-8 text-[#1E5FBF]" />
               </div>
-              <h3 className="font-semibold text-[#333333] text-lg">Why Choose Us</h3>
-              <p className="text-sm text-[#6E6E6E]">
+              <h3 className="font-semibold text-[#1A1A1A] text-lg">Why Choose Us</h3>
+              <p className="text-sm text-[#555555]">
                 We prioritize your health and privacy with secure medical records, verified healthcare providers, and reliable service delivery backed by cutting-edge technology.
               </p>
             </div>
@@ -577,7 +571,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#333333] text-white py-12">
+      <footer className="bg-[#1A1A1A] text-white py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
@@ -653,8 +647,14 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-600 mt-8 pt-8 text-center text-sm opacity-80">
-            © 2024 Medi-Connect. All rights reserved. | Privacy Policy | Terms of Service
+          <div className="border-t border-gray-600 mt-8 pt-8 text-center text-sm opacity-90">
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
+              <span className="retro-badge">NEW!</span>
+              <span className="text-sm">You are visitor&nbsp;</span>
+              <span className="visitor-counter">0001337</span>
+            </div>
+            © 2005 Medi-Connect. All rights reserved. | Privacy Policy | Terms of Service | Made with <span className="text-[#FF69B4]">♥</span> in the 2000s
+            <div className="mt-2 font-mono text-xs">Best experienced in Internet Explorer 6.0 · Netscape Navigator 7</div>
           </div>
         </div>
       </footer>
@@ -693,7 +693,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
                 </div>
                 <button
                   onClick={handleCloseModal}
-                  className="text-black/60 hover:text-black transition-colors p-2 hover:bg-[#E8EAFF] rounded-lg flex-shrink-0 ml-4"
+                  className="text-black/60 hover:text-black transition-colors p-2 hover:bg-[#C4DCFF] rounded-lg flex-shrink-0 ml-4"
                   aria-label="Close"
                 >
                   <X className="w-6 h-6" />
@@ -717,7 +717,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
                     {selectedService.features.map((feature, index) => (
                       <div
                         key={index}
-                        className="flex items-center gap-2 p-3 rounded-lg bg-[#F5F3FA] hover:bg-[#E8EAFF] transition-colors"
+                        className="flex items-center gap-2 p-3 rounded-lg bg-[#CFE3FF] hover:bg-[#C4DCFF] transition-colors"
                       >
                         <CheckCircle2
                           className="w-5 h-5 flex-shrink-0"
@@ -731,7 +731,7 @@ export function LandingPage({ onNavigate }: { onNavigate: NavigateFn }) {
               )}
 
               {/* Action Buttons */}
-              <div className="flex gap-3 pt-4 border-t border-[#E8EAFF]">
+              <div className="flex gap-3 pt-4 border-t border-[#C4DCFF]">
                 <MedicalButton
                   variant="primary"
                   size="md"

@@ -82,7 +82,7 @@ export function PharmacyPage({ onNavigate }: PharmacyPageProps) {
   const cartTotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
   return (
-    <div className="min-h-screen bg-[#F5F3FA]">
+    <div className="min-h-screen bg-[#CFE3FF]">
       {/* Navigation */}
       <nav className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -91,15 +91,15 @@ export function PharmacyPage({ onNavigate }: PharmacyPageProps) {
             <div className="flex items-center gap-4">
               <button 
                 onClick={() => onNavigate('patient-dashboard')}
-                className="flex items-center gap-2 text-[#6E6E6E] hover:text-[#3F53D9]"
+                className="flex items-center gap-2 text-[#555555] hover:text-[#1E5FBF]"
               >
                 <ArrowLeft className="w-5 h-5" />
                 Back to Dashboard
               </button>
               <div className="relative">
-                <ShoppingCart className="w-6 h-6 text-[#3F53D9]" />
+                <ShoppingCart className="w-6 h-6 text-[#1E5FBF]" />
                 {cartItems.length > 0 && (
-                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-[#E53935] text-white text-xs rounded-full flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-[#CC0000] text-white text-xs rounded-full flex items-center justify-center">
                     {cartItems.length}
                   </span>
                 )}
@@ -119,10 +119,10 @@ export function PharmacyPage({ onNavigate }: PharmacyPageProps) {
             <MedicalCard variant="pastel">
               <div className="text-center py-8">
                 <div className="w-16 h-16 rounded-full bg-white mx-auto mb-4 flex items-center justify-center">
-                  <Upload className="w-8 h-8 text-[#7C74EB]" />
+                  <Upload className="w-8 h-8 text-[#8A2BE2]" />
                 </div>
                 <h3 className="mb-2">Upload Prescription</h3>
-                <p className="text-[#6E6E6E] mb-4">
+                <p className="text-[#555555] mb-4">
                   Upload your prescription to get medicines delivered to your doorstep
                 </p>
                 <MedicalButton variant="primary" size="md">
@@ -148,15 +148,15 @@ export function PharmacyPage({ onNavigate }: PharmacyPageProps) {
                 {medicines.map((medicine) => (
                   <MedicalCard key={medicine.id} variant="filled">
                     <div className="flex items-start gap-4">
-                      <div className="w-16 h-16 rounded-xl bg-[#E8EAFF] flex items-center justify-center flex-shrink-0">
-                        <Pill className="w-8 h-8 text-[#7C74EB]" />
+                      <div className="w-16 h-16 rounded-xl bg-[#C4DCFF] flex items-center justify-center flex-shrink-0">
+                        <Pill className="w-8 h-8 text-[#8A2BE2]" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-[#333333] mb-1">{medicine.name}</h4>
-                        <p className="text-sm text-[#6E6E6E] mb-2">{medicine.type}</p>
+                        <h4 className="text-[#1A1A1A] mb-1">{medicine.name}</h4>
+                        <p className="text-sm text-[#555555] mb-2">{medicine.type}</p>
                         <div className="flex items-center justify-between">
-                          <span className="text-lg font-medium text-[#3F53D9]">₹{medicine.price}</span>
-                          <span className="text-xs text-[#4CAF50] bg-[#E8F5E9] px-2 py-1 rounded-full">
+                          <span className="text-lg font-medium text-[#1E5FBF]">₹{medicine.price}</span>
+                          <span className="text-xs text-[#008000] bg-[#C8E6C9] px-2 py-1 rounded-full">
                             {medicine.stock}
                           </span>
                         </div>
@@ -183,12 +183,12 @@ export function PharmacyPage({ onNavigate }: PharmacyPageProps) {
                   <MedicalCard key={order.id} variant="outlined">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-[#F0EDFF] flex items-center justify-center">
-                          <Package className="w-6 h-6 text-[#7C74EB]" />
+                        <div className="w-12 h-12 rounded-xl bg-[#E0CFFF] flex items-center justify-center">
+                          <Package className="w-6 h-6 text-[#8A2BE2]" />
                         </div>
                         <div>
-                          <h4 className="text-[#333333]">{order.orderNumber}</h4>
-                          <div className="flex gap-3 text-sm text-[#6E6E6E] mt-1">
+                          <h4 className="text-[#1A1A1A]">{order.orderNumber}</h4>
+                          <div className="flex gap-3 text-sm text-[#555555] mt-1">
                             <span>{order.date}</span>
                             <span>•</span>
                             <span>{order.items} items</span>
@@ -217,7 +217,7 @@ export function PharmacyPage({ onNavigate }: PharmacyPageProps) {
                 </h3>
 
                 {cartItems.length === 0 ? (
-                  <div className="text-center py-8 text-[#6E6E6E]">
+                  <div className="text-center py-8 text-[#555555]">
                     <ShoppingCart className="w-12 h-12 mx-auto mb-3 opacity-30" />
                     <p>Your cart is empty</p>
                   </div>
@@ -226,17 +226,17 @@ export function PharmacyPage({ onNavigate }: PharmacyPageProps) {
                     {/* Cart Items */}
                     <div className="space-y-3 max-h-96 overflow-y-auto">
                       {cartItems.map((item) => (
-                        <div key={item.id} className="bg-[#F5F3FA] rounded-xl p-3">
+                        <div key={item.id} className="bg-[#CFE3FF] rounded-xl p-3">
                           <div className="flex items-start justify-between mb-2">
                             <div className="flex-1">
-                              <div className="font-medium text-[#333333] text-sm mb-1">
+                              <div className="font-medium text-[#1A1A1A] text-sm mb-1">
                                 {item.name}
                               </div>
-                              <div className="text-sm text-[#3F53D9]">₹{item.price}</div>
+                              <div className="text-sm text-[#1E5FBF]">₹{item.price}</div>
                             </div>
                             <button
                               onClick={() => removeFromCart(item.id)}
-                              className="text-[#E53935] hover:bg-[#FFEBEE] p-1 rounded"
+                              className="text-[#CC0000] hover:bg-[#FFCDD2] p-1 rounded"
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>
@@ -245,14 +245,14 @@ export function PharmacyPage({ onNavigate }: PharmacyPageProps) {
                             <div className="flex items-center gap-2">
                               <button
                                 onClick={() => updateQuantity(item.id, -1)}
-                                className="w-7 h-7 rounded-lg bg-white flex items-center justify-center hover:bg-[#E8EAFF]"
+                                className="w-7 h-7 rounded-lg bg-white flex items-center justify-center hover:bg-[#C4DCFF]"
                               >
                                 <Minus className="w-4 h-4" />
                               </button>
                               <span className="w-8 text-center font-medium">{item.quantity}</span>
                               <button
                                 onClick={() => updateQuantity(item.id, 1)}
-                                className="w-7 h-7 rounded-lg bg-white flex items-center justify-center hover:bg-[#E8EAFF]"
+                                className="w-7 h-7 rounded-lg bg-white flex items-center justify-center hover:bg-[#C4DCFF]"
                               >
                                 <Plus className="w-4 h-4" />
                               </button>
@@ -264,18 +264,18 @@ export function PharmacyPage({ onNavigate }: PharmacyPageProps) {
                     </div>
 
                     {/* Cart Summary */}
-                    <div className="border-t border-[#E5E5E5] pt-4 space-y-2">
-                      <div className="flex justify-between text-[#6E6E6E]">
+                    <div className="border-t border-[#A0A0A0] pt-4 space-y-2">
+                      <div className="flex justify-between text-[#555555]">
                         <span>Subtotal</span>
                         <span>₹{cartTotal}</span>
                       </div>
-                      <div className="flex justify-between text-[#6E6E6E]">
+                      <div className="flex justify-between text-[#555555]">
                         <span>Delivery</span>
-                        <span className="text-[#4CAF50]">Free</span>
+                        <span className="text-[#008000]">Free</span>
                       </div>
-                      <div className="flex justify-between font-medium text-lg pt-2 border-t border-[#E5E5E5]">
+                      <div className="flex justify-between font-medium text-lg pt-2 border-t border-[#A0A0A0]">
                         <span>Total</span>
-                        <span className="text-[#3F53D9]">₹{cartTotal}</span>
+                        <span className="text-[#1E5FBF]">₹{cartTotal}</span>
                       </div>
                     </div>
 
@@ -289,19 +289,19 @@ export function PharmacyPage({ onNavigate }: PharmacyPageProps) {
               {/* Quick Info */}
               <MedicalCard variant="pastel" className="mt-4" hover={false}>
                 <div className="space-y-3 text-sm">
-                  <div className="flex items-center gap-2 text-[#333333]">
+                  <div className="flex items-center gap-2 text-[#1A1A1A]">
                     <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
                       ✓
                     </div>
                     <span>Free delivery on orders above ₹500</span>
                   </div>
-                  <div className="flex items-center gap-2 text-[#333333]">
+                  <div className="flex items-center gap-2 text-[#1A1A1A]">
                     <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
                       ✓
                     </div>
                     <span>100% genuine medicines</span>
                   </div>
-                  <div className="flex items-center gap-2 text-[#333333]">
+                  <div className="flex items-center gap-2 text-[#1A1A1A]">
                     <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
                       ✓
                     </div>

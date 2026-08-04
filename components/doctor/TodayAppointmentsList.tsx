@@ -79,10 +79,10 @@ export function TodayAppointmentsList({
 
   if (appointments.length === 0) {
     return (
-      <MedicalCard variant="filled" className="bg-white/80 border-2 border-[#E8EAFF]">
+      <MedicalCard variant="filled" className="bg-white/80 border-2 border-[#C4DCFF]">
         <div className="text-center py-12">
-          <Calendar className="w-12 h-12 text-[#6E6E6E] mx-auto mb-4 opacity-50" />
-          <p className="text-[#6E6E6E] mb-4">No appointments scheduled for today</p>
+          <Calendar className="w-12 h-12 text-[#555555] mx-auto mb-4 opacity-50" />
+          <p className="text-[#555555] mb-4">No appointments scheduled for today</p>
         </div>
       </MedicalCard>
     );
@@ -97,7 +97,7 @@ export function TodayAppointmentsList({
       )}
 
       {appointments.map((appointment) => (
-        <MedicalCard key={appointment.id} variant="filled" className="bg-white/80 border border-[#E8EAFF]">
+        <MedicalCard key={appointment.id} variant="filled" className="bg-white/80 border border-[#C4DCFF]">
           <div className="flex flex-col gap-4">
             {/* Header */}
             <div className="flex justify-between items-start">
@@ -108,7 +108,7 @@ export function TodayAppointmentsList({
                     {appointment.status}
                   </StatusBadge>
                 </div>
-                <div className="text-sm text-[#6E6E6E] space-y-1">
+                <div className="text-sm text-[#555555] space-y-1">
                   <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4" />
                     {appointment.patientEmail}
@@ -126,7 +126,7 @@ export function TodayAppointmentsList({
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-sm text-[#6E6E6E] mb-1">Payment</div>
+                <div className="text-sm text-[#555555] mb-1">Payment</div>
                 <div className={`text-sm font-semibold ${
                   appointment.payment?.status === 'paid' ? 'text-green-600' : 'text-yellow-600'
                 }`}>
@@ -139,14 +139,14 @@ export function TodayAppointmentsList({
 
             {/* Reason */}
             {appointment.reason && (
-              <div className="bg-[#F5F3FA] p-3 rounded-xl">
-                <div className="text-sm font-medium text-[#6E6E6E] mb-1">Reason for visit:</div>
+              <div className="bg-[#CFE3FF] p-3 rounded-xl">
+                <div className="text-sm font-medium text-[#555555] mb-1">Reason for visit:</div>
                 <div className="text-sm">{appointment.reason}</div>
               </div>
             )}
 
             {/* Actions */}
-            <div className="flex flex-wrap gap-2 pt-2 border-t border-[#E8EAFF]">
+            <div className="flex flex-wrap gap-2 pt-2 border-t border-[#C4DCFF]">
               <MedicalButton
                 variant="outlined"
                 size="sm"

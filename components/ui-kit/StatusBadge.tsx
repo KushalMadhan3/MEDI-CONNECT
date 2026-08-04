@@ -7,18 +7,18 @@ interface StatusBadgeProps {
 
 export function StatusBadge({ status, children }: StatusBadgeProps) {
   const variants = {
-    completed: 'bg-[#E8F5E9] text-[#4CAF50] border-[#4CAF50]',
-    scheduled: 'bg-[#E8EAFF] text-[#3F53D9] border-[#3F53D9]',
-    pending: 'bg-[#FFF4E5] text-[#FFB020] border-[#FFB020]',
-    cancelled: 'bg-[#FFEBEE] text-[#E53935] border-[#E53935]',
-    rescheduled: 'bg-[#E8EAFF] text-[#3F53D9] border-[#3F53D9]',
-    confirmed: 'bg-[#E8F5E9] text-[#4CAF50] border-[#4CAF50]' // Green like completed
+    completed: 'bg-[#C8E6C9] text-[#008000] border-[#008000]',
+    scheduled: 'bg-[#C4DCFF] text-[#1E5FBF] border-[#1E5FBF]',
+    pending: 'bg-[#FFE0B2] text-[#FF8C00] border-[#FF8C00]',
+    cancelled: 'bg-[#FFCDD2] text-[#CC0000] border-[#CC0000]',
+    rescheduled: 'bg-[#C4DCFF] text-[#1E5FBF] border-[#1E5FBF]',
+    confirmed: 'bg-[#C8E6C9] text-[#008000] border-[#008000]' // Green like completed
   };
 
   return (
     <span className={`
       inline-flex items-center px-3 py-1 rounded-full 
-      border text-sm font-medium
+      border-2 text-xs font-bold
       ${variants[status]}
     `}>
       {children}

@@ -313,12 +313,12 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,#f1f4ff,#f7f5ff)] particle-bg flex items-start justify-center px-3 py-3 sm:px-8 sm:py-4 lg:py-6 relative overflow-hidden">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,#E4ECFF,#EDE9FF)] particle-bg flex items-start justify-center px-3 py-3 sm:px-8 sm:py-4 lg:py-6 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#3F53D9]/10 rounded-full blur-3xl animate-float-3d"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#7C74EB]/10 rounded-full blur-3xl animate-float-3d" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-[#34D1BF]/10 rounded-full blur-3xl animate-float-3d" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#1E5FBF]/10 rounded-full blur-3xl animate-float-3d"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#8A2BE2]/10 rounded-full blur-3xl animate-float-3d" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-[#008080]/10 rounded-full blur-3xl animate-float-3d" style={{ animationDelay: '4s' }}></div>
       </div>
 
       <div className="w-full max-w-6xl relative z-10">
@@ -327,22 +327,22 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
           <div className="flex flex-col justify-start space-y-8 animate-fade-in-up perspective-1000">
             <button
               onClick={() => onNavigate('landing')}
-              className="w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-[#bfc6ff] rounded-lg"
+              className="w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-[#AFC2FF] rounded-lg"
             >
               <Logo variant="horizontal" size="lg" />
             </button>
 
             <div className="space-y-4">
               <h2>Welcome Back!</h2>
-              <p className="text-lg text-[#6E6E6E]">
+              <p className="text-lg text-[#555555]">
                 Access your healthcare dashboard and manage your medical needs with ease.
               </p>
             </div>
 
             <div className="hidden lg:flex justify-center perspective-1000">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#3F53D9]/20 to-[#7C74EB]/20 rounded-full blur-3xl -z-10 animate-glow"></div>
-                <div className="relative z-10 animate-float-3d" style={{ filter: 'drop-shadow(0 10px 30px rgba(63, 83, 217, 0.3))' }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1E5FBF]/20 to-[#8A2BE2]/20 rounded-full blur-3xl -z-10 animate-glow"></div>
+                <div className="relative z-10 animate-float-3d" style={{ filter: 'drop-shadow(0 10px 30px rgba(30, 95, 191, 0.3))' }}>
                   <DoctorIcon className="w-64 h-64" />
                 </div>
               </div>
@@ -354,13 +354,13 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                 { label: '24/7 Access', description: 'Any device, any timezone' },
                 { label: 'HIPAA Compliant', description: 'Audited & monitored' }
               ].map((badge) => (
-                <div key={badge.label} className="flex items-start gap-3 text-[#333333]">
-                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#E8EAFF] to-[#F4F0FF] flex items-center justify-center text-[#3F53D9] shadow-inner">
+                <div key={badge.label} className="flex items-start gap-3 text-[#1A1A1A]">
+                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#C4DCFF] to-[#E6DAFF] flex items-center justify-center text-[#1E5FBF] shadow-inner">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="font-semibold">{badge.label}</p>
-                    <p className="text-sm text-[#6E6E6E]">{badge.description}</p>
+                    <p className="text-sm text-[#555555]">{badge.description}</p>
                   </div>
                 </div>
               ))}
@@ -378,22 +378,22 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
             <div className="relative z-10">
               <div className="space-y-8">
                 <div className="text-center space-y-2">
-                  <h3 className="text-3xl font-semibold text-[#1F1F2C]">
+                  <h3 className="text-3xl font-semibold text-[#14141E]">
                     {isNewUser ? 'Create Account' : 'Sign In'}
                   </h3>
-                  <p className="text-[#6E6E6E]">
+                  <p className="text-[#555555]">
                     {isNewUser
                       ? 'Tell us a few details to set up your account'
                       : 'Enter your credentials to continue'}
                   </p>
                   <div className="mt-3 flex justify-center gap-2 text-sm">
-                    <span className="text-[#6E6E6E]">
+                    <span className="text-[#555555]">
                       {isNewUser ? 'Already have an account?' : 'New to Medi-Connect?'}
                     </span>
                     <button
                       type="button"
                       onClick={() => setIsNewUser((prev) => !prev)}
-                      className="text-[#3F53D9] font-medium hover:underline"
+                      className="text-[#1E5FBF] font-medium hover:underline"
                     >
                       {isNewUser ? 'Sign in' : 'Create account'}
                     </button>
@@ -403,10 +403,10 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                 {/* Role Selection */}
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <label className="text-sm font-medium text-[#333333]">
+                    <label className="text-sm font-medium text-[#1A1A1A]">
                       Select Your Role
                     </label>
-                    {errors.role && <span className="text-xs text-[#E53935]">{errors.role}</span>}
+                    {errors.role && <span className="text-xs text-[#CC0000]">{errors.role}</span>}
                   </div>
                   <div className="flex gap-4 overflow-x-auto pb-2 role-scroll sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:pb-0">
                     {roles.map((role, index) => {
@@ -424,20 +424,20 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                           aria-pressed={isActive}
                           className={`min-w-[170px] sm:min-w-0 flex-1 rounded-2xl border transition-all duration-300 px-5 py-4 text-left shadow-sm card-3d
                           ${isActive
-                              ? 'glass bg-gradient-to-br from-[#E8EAFF]/90 to-[#F0EDFF]/90 border-[#3F53D9] ring-2 ring-[#bfc6ff] shadow-lg scale-105'
-                              : 'bg-white/80 backdrop-blur-sm border-[#EAECFF] hover:border-[#C3C9FF] hover:shadow-md'
+                              ? 'glass bg-gradient-to-br from-[#C4DCFF]/90 to-[#E0CFFF]/90 border-[#1E5FBF] ring-2 ring-[#AFC2FF] shadow-lg scale-105'
+                              : 'bg-white/80 backdrop-blur-sm border-[#CFDBFF] hover:border-[#AFC2FF] hover:shadow-md'
                             } ${isLast ? 'sm:col-span-2 sm:w-2/3 sm:mx-auto' : ''}`}
                           style={{ transformStyle: 'preserve-3d' }}
                         >
                           <div className="flex items-center gap-4" style={{ transform: 'translateZ(10px)' }}>
-                            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-inner transition-all duration-300 ${isActive ? 'bg-white text-[#3F53D9] scale-110 rotate-12 shadow-lg' : 'bg-[#F5F6FF] text-[#6E6E6E] group-hover:scale-105'}`}>
+                            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-inner transition-all duration-300 ${isActive ? 'bg-white text-[#1E5FBF] scale-110 rotate-12 shadow-lg' : 'bg-[#EAEFFF] text-[#555555] group-hover:scale-105'}`}>
                               <IconComponent className="w-6 h-6 transition-transform duration-300" />
                             </div>
                             <div>
-                              <p className={`font-semibold ${isActive ? 'text-[#1F1F2C]' : 'text-[#333333]'}`}>
+                              <p className={`font-semibold ${isActive ? 'text-[#14141E]' : 'text-[#1A1A1A]'}`}>
                                 {role.label}
                               </p>
-                              <p className="text-sm text-[#6E6E6E]">{role.description}</p>
+                              <p className="text-sm text-[#555555]">{role.description}</p>
                             </div>
                           </div>
                         </button>
@@ -464,39 +464,39 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                     <>
                       {/* Full Name */}
                       <div className="flex flex-col gap-2">
-                        <label className="text-sm font-medium text-[#333333]">Full Name</label>
+                        <label className="text-sm font-medium text-[#1A1A1A]">Full Name</label>
                         <input
                           type="text"
                           value={formData.name}
                           onChange={handleInputChange('name')}
                           placeholder="John Doe"
-                          className={`w-full rounded-2xl border-2 bg-white px-4 py-3 text-black placeholder:text-[#8A8A8A] focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#dfe5ff] ${errors.name ? 'border-[#E53935]' : 'border-[#E5E5E5]'
+                          className={`w-full rounded-2xl border-2 bg-white px-4 py-3 text-black placeholder:text-[#6B6B6B] focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C7DBFF] ${errors.name ? 'border-[#CC0000]' : 'border-[#A0A0A0]'
                             }`}
                         />
-                        {errors.name && <span className="text-sm text-[#E53935]">{errors.name}</span>}
+                        {errors.name && <span className="text-sm text-[#CC0000]">{errors.name}</span>}
                       </div>
 
                       {/* Mobile */}
                       <div className="flex flex-col gap-2">
-                        <label className="text-sm font-medium text-[#333333]">Mobile Number</label>
+                        <label className="text-sm font-medium text-[#1A1A1A]">Mobile Number</label>
                         <input
                           type="tel"
                           value={formData.mobile}
                           onChange={handleInputChange('mobile')}
                           placeholder="9876543210"
-                          className={`w-full rounded-2xl border-2 bg-white px-4 py-3 text-black placeholder:text-[#8A8A8A] focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#dfe5ff] ${errors.mobile ? 'border-[#E53935]' : 'border-[#E5E5E5]'
+                          className={`w-full rounded-2xl border-2 bg-white px-4 py-3 text-black placeholder:text-[#6B6B6B] focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C7DBFF] ${errors.mobile ? 'border-[#CC0000]' : 'border-[#A0A0A0]'
                             }`}
                         />
-                        {errors.mobile && <span className="text-sm text-[#E53935]">{errors.mobile}</span>}
+                        {errors.mobile && <span className="text-sm text-[#CC0000]">{errors.mobile}</span>}
                       </div>
 
                       {/* Gender */}
                       <div className="flex flex-col gap-2">
-                        <label className="text-sm font-medium text-[#333333]">Gender</label>
+                        <label className="text-sm font-medium text-[#1A1A1A]">Gender</label>
                         <select
                           value={formData.gender}
                           onChange={handleInputChange('gender')}
-                          className={`w-full rounded-2xl border-2 bg-white px-4 py-3 text-black focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#dfe5ff] ${errors.gender ? 'border-[#E53935]' : 'border-[#E5E5E5]'
+                          className={`w-full rounded-2xl border-2 bg-white px-4 py-3 text-black focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C7DBFF] ${errors.gender ? 'border-[#CC0000]' : 'border-[#A0A0A0]'
                             }`}
                         >
                           <option value="">Select</option>
@@ -504,15 +504,15 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                           <option value="male">Male</option>
                           <option value="other">Other</option>
                         </select>
-                        {errors.gender && <span className="text-sm text-[#E53935]">{errors.gender}</span>}
+                        {errors.gender && <span className="text-sm text-[#CC0000]">{errors.gender}</span>}
                       </div>
                     </>
                   )}
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium text-[#333333]">Email Address</label>
+                    <label className="text-sm font-medium text-[#1A1A1A]">Email Address</label>
                     <div className="relative">
-                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6E6E6E]">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#555555]">
                         <Mail className="w-5 h-5" />
                       </div>
                       <input
@@ -520,16 +520,16 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                         value={formData.email}
                         onChange={handleInputChange('email')}
                         placeholder="you@example.com"
-                        className={`w-full rounded-2xl border-2 glass bg-white px-4 py-3 pl-12 pr-4 text-black placeholder:text-[#8A8A8A] focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#dfe5ff] focus:scale-[1.02] transition-all duration-300 ${errors.email ? 'border-[#E53935]' : 'border-[#E5E5E5]'}`}
+                        className={`w-full rounded-2xl border-2 glass bg-white px-4 py-3 pl-12 pr-4 text-black placeholder:text-[#6B6B6B] focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C7DBFF] focus:scale-[1.02] transition-all duration-300 ${errors.email ? 'border-[#CC0000]' : 'border-[#A0A0A0]'}`}
                       />
                     </div>
-                    {errors.email && <span className="text-sm text-[#E53935]">{errors.email}</span>}
+                    {errors.email && <span className="text-sm text-[#CC0000]">{errors.email}</span>}
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium text-[#333333]">Password</label>
+                    <label className="text-sm font-medium text-[#1A1A1A]">Password</label>
                     <div className="relative">
-                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6E6E6E]">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#555555]">
                         <Lock className="w-5 h-5" />
                       </div>
                       <input
@@ -537,44 +537,44 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                         value={formData.password}
                         onChange={handleInputChange('password')}
                         placeholder="Enter your password"
-                        className={`w-full rounded-2xl border-2 glass bg-white px-4 py-3 pl-12 pr-12 text-black placeholder:text-[#8A8A8A] focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#dfe5ff] focus:scale-[1.02] transition-all duration-300 ${errors.password ? 'border-[#E53935]' : 'border-[#E5E5E5]'}`}
+                        className={`w-full rounded-2xl border-2 glass bg-white px-4 py-3 pl-12 pr-12 text-black placeholder:text-[#6B6B6B] focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C7DBFF] focus:scale-[1.02] transition-all duration-300 ${errors.password ? 'border-[#CC0000]' : 'border-[#A0A0A0]'}`}
                       />
                       <button
                         type="button"
                         onClick={() => setShowPassword((prev) => !prev)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-[#6E6E6E] hover:text-[#3F53D9]"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-[#555555] hover:text-[#1E5FBF]"
                         aria-label={showPassword ? 'Hide password' : 'Show password'}
                       >
                         {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                       </button>
                     </div>
-                    {errors.password && <span className="text-sm text-[#E53935]">{errors.password}</span>}
+                    {errors.password && <span className="text-sm text-[#CC0000]">{errors.password}</span>}
                   </div>
 
                   {isNewUser && (
                     <div className="flex flex-col gap-2">
-                      <label className="text-sm font-medium text-[#333333]">Confirm Password</label>
+                      <label className="text-sm font-medium text-[#1A1A1A]">Confirm Password</label>
                       <input
                         type={showPassword ? 'text' : 'password'}
                         value={formData.confirmPassword}
                         onChange={handleInputChange('confirmPassword')}
                         placeholder="Re-enter your password"
-                          className={`w-full rounded-2xl border-2 bg-white px-4 py-3 text-black placeholder:text-[#8A8A8A] focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#dfe5ff] ${errors.confirmPassword ? 'border-[#E53935]' : 'border-[#E5E5E5]'
+                          className={`w-full rounded-2xl border-2 bg-white px-4 py-3 text-black placeholder:text-[#6B6B6B] focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C7DBFF] ${errors.confirmPassword ? 'border-[#CC0000]' : 'border-[#A0A0A0]'
                           }`}
                       />
                       {errors.confirmPassword && (
-                        <span className="text-sm text-[#E53935]">{errors.confirmPassword}</span>
+                        <span className="text-sm text-[#CC0000]">{errors.confirmPassword}</span>
                       )}
                     </div>
                   )}
 
                   <div className="flex items-center justify-between text-sm flex-wrap gap-3">
-                    <label className="flex items-center gap-2 text-[#333333] cursor-pointer select-none">
+                    <label className="flex items-center gap-2 text-[#1A1A1A] cursor-pointer select-none">
                       <input
                         type="checkbox"
                         checked={formData.rememberMe}
                         onChange={handleInputChange('rememberMe')}
-                        className="rounded border-[#C3C9FF] text-[#3F53D9] focus:ring-[#3F53D9]"
+                        className="rounded border-[#AFC2FF] text-[#1E5FBF] focus:ring-[#1E5FBF]"
                       />
                       Remember me
                     </label>
@@ -586,7 +586,7 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                           setForgotPasswordEmail(formData.email);
                           setForgotPasswordRole(selectedRole);
                         }}
-                        className="text-[#3F53D9] hover:underline font-medium transition-colors"
+                        className="text-[#1E5FBF] hover:underline font-medium transition-colors"
                       >
                         Forgot Password?
                       </button>
@@ -597,7 +597,7 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                     type="submit"
                     variant="primary"
                     size="lg"
-                    className="w-full flex items-center justify-center gap-2 rounded-2xl shadow-lg shadow-[#3F53D9]/30 disabled:opacity-70 animate-glow"
+                    className="w-full flex items-center justify-center gap-2 rounded-2xl shadow-lg shadow-[#1E5FBF]/30 disabled:opacity-70 animate-glow"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -610,18 +610,18 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                     )}
                   </MedicalButton>
 
-                  <p className="text-xs text-center text-[#6E6E6E]">
-                    By signing in, you agree to our <button type="button" className="text-[#3F53D9] underline-offset-2 hover:underline">Terms</button> &{' '}
-                    <button type="button" className="text-[#3F53D9] underline-offset-2 hover:underline">Privacy Policy</button>.
+                  <p className="text-xs text-center text-[#555555]">
+                    By signing in, you agree to our <button type="button" className="text-[#1E5FBF] underline-offset-2 hover:underline">Terms</button> &{' '}
+                    <button type="button" className="text-[#1E5FBF] underline-offset-2 hover:underline">Privacy Policy</button>.
                   </p>
                 </form>
 
                 <div className="relative">
                   <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-[#E5E5E5]"></div>
+                    <div className="w-full border-t border-[#A0A0A0]"></div>
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-4 bg-white text-[#6E6E6E]">Or continue with</span>
+                    <span className="px-4 bg-white text-[#555555]">Or continue with</span>
                   </div>
                 </div>
 
@@ -635,7 +635,7 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                       type="button"
                       onClick={() => handleOAuthLogin(provider.provider)}
                       disabled={isOAuthLoading !== null}
-                      className="rounded-2xl border border-[#E5E5E5] bg-white py-3 font-semibold text-[#333333] shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C3C9FF] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                      className="rounded-2xl border border-[#A0A0A0] bg-white py-3 font-semibold text-[#1A1A1A] shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#AFC2FF] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                     >
                       <span className="flex flex-col items-center gap-1 text-sm">
                         {isOAuthLoading === provider.provider ? (
@@ -657,7 +657,7 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                   ))}
                 </div>
 
-                <p className="text-center text-sm text-[#6E6E6E]">
+                <p className="text-center text-sm text-[#555555]">
                   © 2025 Medi-Connect Healthcare System
                 </p>
               </div>
@@ -684,7 +684,7 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                 </h3>
                 <button
                   onClick={() => setShowOAuthModal(null)}
-                  className="text-black/60 hover:text-black transition-colors p-2 hover:bg-[#E8EAFF] rounded-lg"
+                  className="text-black/60 hover:text-black transition-colors p-2 hover:bg-[#C4DCFF] rounded-lg"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -703,7 +703,7 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                   value={showOAuthModal.email}
                   onChange={(e) => setShowOAuthModal({ ...showOAuthModal, email: e.target.value })}
                   placeholder={`your.email@${showOAuthModal.provider === 'google' ? 'gmail.com' : 'outlook.com'}`}
-                  className="w-full px-4 py-3 rounded-xl border border-[#E5E5E5] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9] focus:border-transparent"
+                  className="w-full px-4 py-3 rounded-xl border border-[#A0A0A0] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF] focus:border-transparent"
                   autoFocus
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
@@ -753,7 +753,7 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
           >
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-[#333333]">Reset Password</h2>
+                <h2 className="text-2xl font-bold text-[#1A1A1A]">Reset Password</h2>
                 <button
                   onClick={() => {
                     setShowForgotPassword(false);
@@ -774,7 +774,7 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
 
                   <div className="space-y-4">
                     <div>
-                      <label className="text-sm font-medium text-[#333333] mb-2 block">
+                      <label className="text-sm font-medium text-[#1A1A1A] mb-2 block">
                         Email Address
                       </label>
                       <input
@@ -782,19 +782,19 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                         value={forgotPasswordEmail}
                         onChange={(e) => setForgotPasswordEmail(e.target.value)}
                         placeholder="Enter your email"
-                        className="w-full rounded-2xl border-2 bg-white px-4 py-3 text-black placeholder:text-[#8A8A8A] focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#dfe5ff] border-[#E5E5E5]"
+                        className="w-full rounded-2xl border-2 bg-white px-4 py-3 text-black placeholder:text-[#6B6B6B] focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C7DBFF] border-[#A0A0A0]"
                         autoFocus
                       />
                     </div>
 
                     <div>
-                      <label className="text-sm font-medium text-[#333333] mb-2 block">
+                      <label className="text-sm font-medium text-[#1A1A1A] mb-2 block">
                         Account Type
                       </label>
                       <select
                         value={forgotPasswordRole}
                         onChange={(e) => setForgotPasswordRole(e.target.value as UserRole)}
-                        className="w-full rounded-2xl border-2 bg-white px-4 py-3 text-black focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#dfe5ff] border-[#E5E5E5]"
+                        className="w-full rounded-2xl border-2 bg-white px-4 py-3 text-black focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C7DBFF] border-[#A0A0A0]"
                       >
                         <option value="patient">Patient</option>
                         <option value="doctor">Doctor</option>

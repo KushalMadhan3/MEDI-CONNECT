@@ -53,7 +53,7 @@ export function PatientQuickLookup({ onSelectPatient, className = '' }: PatientQ
   return (
     <div className={`relative ${className}`}>
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6E6E6E] w-5 h-5" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#555555] w-5 h-5" />
         <input
           type="text"
           placeholder="Search patients by name, email, or phone..."
@@ -62,7 +62,7 @@ export function PatientQuickLookup({ onSelectPatient, className = '' }: PatientQ
           onFocus={() => {
             if (patients.length > 0) setShowResults(true);
           }}
-          className="w-full pl-10 pr-10 py-3 rounded-xl border border-[#E8EAFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#3F53D9]/20"
+          className="w-full pl-10 pr-10 py-3 rounded-xl border border-[#C4DCFF] bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#1E5FBF]/20"
         />
         {searchTerm && (
           <button
@@ -70,7 +70,7 @@ export function PatientQuickLookup({ onSelectPatient, className = '' }: PatientQ
               setSearchTerm('');
               setShowResults(false);
             }}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6E6E6E] hover:text-[#333]"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#555555] hover:text-[#1A1A1A]"
           >
             <X className="w-4 h-4" />
           </button>
@@ -79,30 +79,30 @@ export function PatientQuickLookup({ onSelectPatient, className = '' }: PatientQ
 
       {/* Search Results */}
       {showResults && (
-        <div className="absolute z-50 w-full mt-2 bg-white border border-[#E8EAFF] rounded-xl shadow-lg max-h-96 overflow-y-auto">
+        <div className="absolute z-50 w-full mt-2 bg-white border border-[#C4DCFF] rounded-xl shadow-lg max-h-96 overflow-y-auto">
           {loading ? (
             <div className="flex items-center justify-center py-8">
-              <Loader2 className="w-6 h-6 text-[#3F53D9] animate-spin" />
+              <Loader2 className="w-6 h-6 text-[#1E5FBF] animate-spin" />
             </div>
           ) : patients.length === 0 ? (
-            <div className="p-4 text-center text-[#6E6E6E]">
+            <div className="p-4 text-center text-[#555555]">
               No patients found
             </div>
           ) : (
-            <div className="divide-y divide-[#E8EAFF]">
+            <div className="divide-y divide-[#C4DCFF]">
               {patients.map((patient) => (
                 <button
                   key={patient.id}
                   onClick={() => handleSelectPatient(patient)}
-                  className="w-full p-4 text-left hover:bg-[#F5F3FA] transition-colors"
+                  className="w-full p-4 text-left hover:bg-[#CFE3FF] transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#E8EAFF] flex items-center justify-center flex-shrink-0">
-                      <User className="w-5 h-5 text-[#3F53D9]" />
+                    <div className="w-10 h-10 rounded-full bg-[#C4DCFF] flex items-center justify-center flex-shrink-0">
+                      <User className="w-5 h-5 text-[#1E5FBF]" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="font-medium text-[#333] truncate">{patient.name}</div>
-                      <div className="text-sm text-[#6E6E6E] space-y-1">
+                      <div className="font-medium text-[#1A1A1A] truncate">{patient.name}</div>
+                      <div className="text-sm text-[#555555] space-y-1">
                         {patient.email && (
                           <div className="flex items-center gap-1 truncate">
                             <Mail className="w-3 h-3 flex-shrink-0" />

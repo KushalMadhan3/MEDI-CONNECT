@@ -61,11 +61,11 @@ export function AddPatientModal({ isOpen, onClose, onSuccess }: AddPatientModalP
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in duration-200">
-        <div className="sticky top-0 bg-white border-b border-[#E8EAFF] px-6 py-4 flex items-center justify-between">
-          <h3 className="text-xl font-bold text-[#333]">Add New Patient</h3>
+        <div className="sticky top-0 bg-white border-b border-[#C4DCFF] px-6 py-4 flex items-center justify-between">
+          <h3 className="text-xl font-bold text-[#1A1A1A]">Add New Patient</h3>
           <button
             onClick={onClose}
-            className="text-[#6E6E6E] hover:text-[#333] hover:bg-[#F5F3FA] rounded-lg p-2 transition-colors"
+            className="text-[#555555] hover:text-[#1A1A1A] hover:bg-[#CFE3FF] rounded-lg p-2 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -86,48 +86,48 @@ export function AddPatientModal({ isOpen, onClose, onSuccess }: AddPatientModalP
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-[#333] mb-2">Full Name *</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Full Name *</label>
                 <input
                   required
                   type="text"
-                  className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                  className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                   value={formData.name}
                   onChange={e => setFormData({ ...formData, name: e.target.value })}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#333] mb-2">Email *</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Email *</label>
                 <input
                   required
                   type="email"
-                  className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                  className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                   value={formData.email}
                   onChange={e => setFormData({ ...formData, email: e.target.value })}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#333] mb-2">Mobile</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Mobile</label>
                 <input
                   type="tel"
-                  className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                  className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                   value={formData.mobile}
                   onChange={e => setFormData({ ...formData, mobile: e.target.value })}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#333] mb-2">Age</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Age</label>
                 <input
                   type="number"
                   min="0"
-                  className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                  className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                   value={formData.age}
                   onChange={e => setFormData({ ...formData, age: e.target.value })}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#333] mb-2">Gender</label>
+                <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Gender</label>
                 <select
-                  className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                  className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                   value={formData.gender}
                   onChange={e => setFormData({ ...formData, gender: e.target.value })}
                 >
@@ -138,36 +138,36 @@ export function AddPatientModal({ isOpen, onClose, onSuccess }: AddPatientModalP
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#333] mb-2">Address</label>
+              <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Address</label>
               <textarea
                 rows={2}
-                className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all resize-none"
+                className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all resize-none"
                 value={formData.address}
                 onChange={e => setFormData({ ...formData, address: e.target.value })}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#333] mb-2">Medical History (comma separated)</label>
+              <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Medical History (comma separated)</label>
               <input
                 type="text"
-                className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                 placeholder="Diabetes, Hypertension..."
                 value={formData.medicalHistory}
                 onChange={e => setFormData({ ...formData, medicalHistory: e.target.value })}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#333] mb-2">Allergies (comma separated)</label>
+              <label className="block text-sm font-medium text-[#1A1A1A] mb-2">Allergies (comma separated)</label>
               <input
                 type="text"
-                className="w-full px-4 py-2.5 border border-[#E8EAFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#3F53D9]/20 focus:border-[#3F53D9] transition-all"
+                className="w-full px-4 py-2.5 border border-[#C4DCFF] rounded-xl bg-white text-black focus:ring-2 focus:ring-[#1E5FBF]/20 focus:border-[#1E5FBF] transition-all"
                 placeholder="Peanuts, Penicillin..."
                 value={formData.allergies}
                 onChange={e => setFormData({ ...formData, allergies: e.target.value })}
               />
             </div>
 
-            <div className="flex justify-end gap-3 pt-4 border-t border-[#E8EAFF]">
+            <div className="flex justify-end gap-3 pt-4 border-t border-[#C4DCFF]">
               <MedicalButton variant="outlined" type="button" onClick={onClose} disabled={saving}>
                 Cancel
               </MedicalButton>

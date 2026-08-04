@@ -62,8 +62,8 @@ export default function CartDrawer({ isOpen, onClose, items, onUpdateQuantity, t
                                         // Generate local SVG placeholder if no image
                                         const generatePlaceholder = (text: string) => {
                                             const svg = `<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="100%" height="100%" fill="#E8EAFF"/>
-                                                <text x="50%" y="50%" font-family="Arial" font-size="10" fill="#3F53D9" 
+                                                <rect width="100%" height="100%" fill="#C4DCFF"/>
+                                                <text x="50%" y="50%" font-family="Arial" font-size="10" fill="#1E5FBF" 
                                                       text-anchor="middle" dominant-baseline="middle" font-weight="bold">
                                                     ${text.length > 8 ? text.substring(0, 8) + '...' : text}
                                                 </text>
@@ -87,8 +87,8 @@ export default function CartDrawer({ isOpen, onClose, items, onUpdateQuantity, t
                                         const target = e.target as HTMLImageElement;
                                         // Use local SVG placeholder
                                         const svg = `<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="100%" height="100%" fill="#E8EAFF"/>
-                                            <text x="50%" y="50%" font-family="Arial" font-size="10" fill="#3F53D9" 
+                                            <rect width="100%" height="100%" fill="#C4DCFF"/>
+                                            <text x="50%" y="50%" font-family="Arial" font-size="10" fill="#1E5FBF" 
                                                   text-anchor="middle" dominant-baseline="middle" font-weight="bold">
                                                 ${(item.name || 'Medicine').length > 8 ? (item.name || 'Medicine').substring(0, 8) + '...' : (item.name || 'Medicine')}
                                             </text>

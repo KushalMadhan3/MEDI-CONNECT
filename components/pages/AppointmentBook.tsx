@@ -225,7 +225,7 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F3FA]">
+    <div className="min-h-screen bg-[#CFE3FF]">
       {/* Navigation */}
       <nav className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -233,7 +233,7 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
             <Logo variant="primary" size="md" />
             <button 
               onClick={() => onNavigate('patient-dashboard')}
-              className="flex items-center gap-2 text-[#6E6E6E] hover:text-[#3F53D9]"
+              className="flex items-center gap-2 text-[#555555] hover:text-[#1E5FBF]"
             >
               <ArrowLeft className="w-5 h-5" />
               Back to Dashboard
@@ -251,15 +251,15 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
                 <div className="flex items-center gap-2">
                   <div className={`
                     w-10 h-10 rounded-full flex items-center justify-center font-medium
-                    ${step >= s ? 'bg-[#3F53D9] text-white' : 'bg-[#E5E5E5] text-[#6E6E6E]'}
+                    ${step >= s ? 'bg-[#1E5FBF] text-white' : 'bg-[#A0A0A0] text-[#555555]'}
                   `}>
                     {s}
                   </div>
-                  <span className={`hidden md:block ${step >= s ? 'text-[#3F53D9]' : 'text-[#6E6E6E]'}`}>
+                  <span className={`hidden md:block ${step >= s ? 'text-[#1E5FBF]' : 'text-[#555555]'}`}>
                     {s === 1 ? 'Select Doctor' : s === 2 ? 'Choose Time' : 'Payment & Booking'}
                   </span>
                 </div>
-                {s < 3 && <div className={`w-12 h-1 ${step > s ? 'bg-[#3F53D9]' : 'bg-[#E5E5E5]'}`} />}
+                {s < 3 && <div className={`w-12 h-1 ${step > s ? 'bg-[#1E5FBF]' : 'bg-[#A0A0A0]'}`} />}
               </React.Fragment>
             ))}
           </div>
@@ -283,7 +283,7 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
               <select 
                 value={selectedSpecialty}
                 onChange={(e) => setSelectedSpecialty(e.target.value)}
-                className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-3 text-black focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#E8EAFF]"
+                className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-3 text-black focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C4DCFF]"
               >
                 <option value="">All Specialties</option>
                 {specialties.map((specialty) => (
@@ -297,7 +297,7 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
               <select 
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
-                className="w-full md:w-auto rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-3 text-black focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#E8EAFF]"
+                className="w-full md:w-auto rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-3 text-black focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C4DCFF]"
               >
                 <option value="">All Locations</option>
                 <option value="Malakpet">Malakpet</option>
@@ -310,35 +310,35 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
             {/* Active Filters */}
             {(selectedSpecialty || selectedLocation || searchQuery) && (
               <div className="mb-6 flex flex-wrap items-center gap-2">
-                <span className="text-sm text-[#6E6E6E]">Active filters:</span>
+                <span className="text-sm text-[#555555]">Active filters:</span>
                 {selectedSpecialty && (
-                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#E8EAFF] text-[#3F53D9] rounded-full text-sm">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#C4DCFF] text-[#1E5FBF] rounded-full text-sm">
                     {selectedSpecialty}
                     <button
                       onClick={() => setSelectedSpecialty('')}
-                      className="hover:bg-[#3F53D9] hover:text-white rounded-full p-0.5 transition-colors"
+                      className="hover:bg-[#1E5FBF] hover:text-white rounded-full p-0.5 transition-colors"
                     >
                       <X className="w-3 h-3" />
                     </button>
                   </span>
                 )}
                 {selectedLocation && (
-                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#E8F5E9] text-[#4CAF50] rounded-full text-sm">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#C8E6C9] text-[#008000] rounded-full text-sm">
                     {selectedLocation}
                     <button
                       onClick={() => setSelectedLocation('')}
-                      className="hover:bg-[#4CAF50] hover:text-white rounded-full p-0.5 transition-colors"
+                      className="hover:bg-[#008000] hover:text-white rounded-full p-0.5 transition-colors"
                     >
                       <X className="w-3 h-3" />
                     </button>
                   </span>
                 )}
                 {searchQuery && (
-                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#FFF3E0] text-[#FF9800] rounded-full text-sm">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#FFE0B2] text-[#FF8C00] rounded-full text-sm">
                     "{searchQuery}"
                     <button
                       onClick={() => setSearchQuery('')}
-                      className="hover:bg-[#FF9800] hover:text-white rounded-full p-0.5 transition-colors"
+                      className="hover:bg-[#FF8C00] hover:text-white rounded-full p-0.5 transition-colors"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -350,7 +350,7 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
                     setSelectedLocation('');
                     setSearchQuery('');
                   }}
-                  className="text-sm text-[#E53935] hover:underline"
+                  className="text-sm text-[#CC0000] hover:underline"
                 >
                   Clear all
                 </button>
@@ -360,7 +360,7 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
             {/* Doctors Grid */}
             {doctors.length === 0 ? (
               <MedicalCard variant="filled" className="text-center py-12">
-                <p className="text-[#6E6E6E] mb-4">No doctors found matching your filters.</p>
+                <p className="text-[#555555] mb-4">No doctors found matching your filters.</p>
                 <MedicalButton
                   variant="outlined"
                   size="sm"
@@ -379,7 +379,7 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
                 <MedicalCard 
                   key={doctor.id} 
                   variant={selectedDoctor === doctor.id ? 'pastel' : 'filled'}
-                  className={selectedDoctor === doctor.id ? 'border-2 border-[#3F53D9]' : ''}
+                  className={selectedDoctor === doctor.id ? 'border-2 border-[#1E5FBF]' : ''}
                 >
                   <div className="flex flex-col items-center text-center">
                     <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
@@ -389,19 +389,19 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h4 className="text-[#333333] mb-1">{doctor.name}</h4>
-                    <p className="text-sm text-[#7C74EB] mb-2">{doctor.specialty}</p>
+                    <h4 className="text-[#1A1A1A] mb-1">{doctor.name}</h4>
+                    <p className="text-sm text-[#8A2BE2] mb-2">{doctor.specialty}</p>
                     <div className="flex items-center gap-1 mb-2">
-                      <Star className="w-4 h-4 fill-[#FFB020] text-[#FFB020]" />
+                      <Star className="w-4 h-4 fill-[#FF8C00] text-[#FF8C00]" />
                       <span className="text-sm font-medium">{doctor.rating}</span>
-                      <span className="text-sm text-[#6E6E6E]">({doctor.reviews})</span>
+                      <span className="text-sm text-[#555555]">({doctor.reviews})</span>
                     </div>
-                    <div className="text-sm text-[#6E6E6E] mb-2">{doctor.experience} experience</div>
-                    <div className="flex items-center gap-1 text-sm text-[#6E6E6E] mb-4">
+                    <div className="text-sm text-[#555555] mb-2">{doctor.experience} experience</div>
+                    <div className="flex items-center gap-1 text-sm text-[#555555] mb-4">
                       <MapPin className="w-4 h-4" />
                       {doctor.location}
                     </div>
-                    <div className="text-lg font-medium text-[#3F53D9] mb-4">₹{doctor.fee}</div>
+                    <div className="text-lg font-medium text-[#1E5FBF] mb-4">₹{doctor.fee}</div>
                     <MedicalButton
                       variant={selectedDoctor === doctor.id ? 'primary' : 'outlined'}
                       size="sm"
@@ -419,7 +419,7 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
               </div>
             )}
             {doctors.length > 0 && (
-              <div className="mt-4 text-sm text-[#6E6E6E] text-center">
+              <div className="mt-4 text-sm text-[#555555] text-center">
                 Showing {doctors.length} doctor{doctors.length !== 1 ? 's' : ''}
               </div>
             )}
@@ -435,14 +435,14 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
               {/* Date Selection */}
               <MedicalCard variant="filled" hover={false}>
                 <h3 className="mb-4 flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-[#3F53D9]" />
+                  <Calendar className="w-5 h-5 text-[#1E5FBF]" />
                   Select Date
                 </h3>
                 <input
                   type="date"
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
-                  className="w-full rounded-xl border-2 border-[#E5E5E5] bg-white px-4 py-3 text-black focus:border-[#3F53D9] focus:outline-none focus:ring-2 focus:ring-[#E8EAFF]"
+                  className="w-full rounded-xl border-2 border-[#A0A0A0] bg-white px-4 py-3 text-black focus:border-[#1E5FBF] focus:outline-none focus:ring-2 focus:ring-[#C4DCFF]"
                 />
               </MedicalCard>
 
@@ -460,7 +460,7 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
                     </div>
                     <div>
                       <h4>{doctors.find(d => d.id === selectedDoctor)?.name}</h4>
-                      <p className="text-sm text-[#6E6E6E]">
+                      <p className="text-sm text-[#555555]">
                         {doctors.find(d => d.id === selectedDoctor)?.specialty}
                       </p>
                     </div>
@@ -472,7 +472,7 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
             {/* Time Slots */}
             <MedicalCard variant="filled" hover={false} className="mt-6">
               <h3 className="mb-4 flex items-center gap-2">
-                <Clock className="w-5 h-5 text-[#3F53D9]" />
+                <Clock className="w-5 h-5 text-[#1E5FBF]" />
                 Available Time Slots
               </h3>
               <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -483,8 +483,8 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
                     className={`
                       py-3 px-2 rounded-xl border-2 text-sm font-medium transition-all
                       ${selectedTime === time 
-                        ? 'border-[#3F53D9] bg-[#E8EAFF] text-[#3F53D9]' 
-                        : 'border-[#E5E5E5] hover:border-[#7C74EB]'
+                        ? 'border-[#1E5FBF] bg-[#C4DCFF] text-[#1E5FBF]' 
+                        : 'border-[#A0A0A0] hover:border-[#8A2BE2]'
                       }
                     `}
                   >
@@ -519,15 +519,15 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
             <MedicalCard variant="filled" hover={false}>
               <div className="space-y-6">
                 {/* Payment Summary */}
-                <div className="pb-6 border-b border-[#E5E5E5]">
+                <div className="pb-6 border-b border-[#A0A0A0]">
                   <h3 className="mb-4">Payment Summary</h3>
                   <div className="flex justify-between py-3">
-                    <span className="text-[#6E6E6E]">Consultation Fee</span>
+                    <span className="text-[#555555]">Consultation Fee</span>
                     <span className="font-medium">₹{doctors.find(d => d.id === selectedDoctor)?.fee}</span>
                   </div>
                   <div className="flex justify-between py-3 font-medium">
                     <span>Total Amount</span>
-                    <span className="text-xl text-[#3F53D9]">₹{doctors.find(d => d.id === selectedDoctor)?.fee}</span>
+                    <span className="text-xl text-[#1E5FBF]">₹{doctors.find(d => d.id === selectedDoctor)?.fee}</span>
                   </div>
                 </div>
                 
@@ -538,39 +538,39 @@ export function AppointmentBooking({ onNavigate }: AppointmentBookingProps) {
                     {/* UPI Option */}
                     <MedicalCard 
                       variant={paymentMethod === 'upi' ? 'pastel' : 'filled'}
-                      className={`cursor-pointer transition-all ${paymentMethod === 'upi' ? 'border-2 border-[#3F53D9]' : 'hover:border-[#7C74EB]'}`}
+                      className={`cursor-pointer transition-all ${paymentMethod === 'upi' ? 'border-2 border-[#1E5FBF]' : 'hover:border-[#8A2BE2]'}`}
                       onClick={() => setPaymentMethod('upi')}
                     >
                       <div className="flex flex-col items-center text-center p-4">
-                        <Smartphone className="w-8 h-8 text-[#3F53D9] mb-2" />
+                        <Smartphone className="w-8 h-8 text-[#1E5FBF] mb-2" />
                         <h4 className="font-medium mb-1">UPI</h4>
-                        <p className="text-xs text-[#6E6E6E]">Google Pay, PhonePe</p>
+                        <p className="text-xs text-[#555555]">Google Pay, PhonePe</p>
                       </div>
                     </MedicalCard>
                     
                     {/* Card Option */}
                     <MedicalCard 
                       variant={paymentMethod === 'card' ? 'pastel' : 'filled'}
-                      className={`cursor-pointer transition-all ${paymentMethod === 'card' ? 'border-2 border-[#3F53D9]' : 'hover:border-[#7C74EB]'}`}
+                      className={`cursor-pointer transition-all ${paymentMethod === 'card' ? 'border-2 border-[#1E5FBF]' : 'hover:border-[#8A2BE2]'}`}
                       onClick={() => setPaymentMethod('card')}
                     >
                       <div className="flex flex-col items-center text-center p-4">
-                        <CreditCard className="w-8 h-8 text-[#3F53D9] mb-2" />
+                        <CreditCard className="w-8 h-8 text-[#1E5FBF] mb-2" />
                         <h4 className="font-medium mb-1">Card</h4>
-                        <p className="text-xs text-[#6E6E6E]">Credit/Debit Card</p>
+                        <p className="text-xs text-[#555555]">Credit/Debit Card</p>
                       </div>
                     </MedicalCard>
                     
                     {/* Net Banking Option */}
                     <MedicalCard 
                       variant={paymentMethod === 'netbanking' ? 'pastel' : 'filled'}
-                      className={`cursor-pointer transition-all ${paymentMethod === 'netbanking' ? 'border-2 border-[#3F53D9]' : 'hover:border-[#7C74EB]'}`}
+                      className={`cursor-pointer transition-all ${paymentMethod === 'netbanking' ? 'border-2 border-[#1E5FBF]' : 'hover:border-[#8A2BE2]'}`}
                       onClick={() => setPaymentMethod('netbanking')}
                     >
                       <div className="flex flex-col items-center text-center p-4">
-                        <Building className="w-8 h-8 text-[#3F53D9] mb-2" />
+                        <Building className="w-8 h-8 text-[#1E5FBF] mb-2" />
                         <h4 className="font-medium mb-1">Net Banking</h4>
-                        <p className="text-xs text-[#6E6E6E]">Bank Transfer</p>
+                        <p className="text-xs text-[#555555]">Bank Transfer</p>
                       </div>
                     </MedicalCard>
                   </div>
