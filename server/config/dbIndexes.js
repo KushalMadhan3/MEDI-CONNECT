@@ -5,18 +5,20 @@ export async function createAppointmentIndexes() {
     const db = getDB();
     const collection = db.collection('appointments');
     
-    // Create a compound index for doctor scheduling conflicts
+    // Create a UNIQUE compound index to prevent double-booking.
+    // The database itself refuses a second insert into the same (doctorId, date, time),
+    // closing the check-then-insert race condition.
     await collection.createIndex(
       { 
         doctorId: 1,
         date: 1,
-        time: 1,
-        status: 1 
+        time: 1 
       },
       { 
-        name: 'doctor_appointment_slot',
+        name: 'unique_doctor_appointment_slot',
+        unique: true,
         partialFilterExpression: {
-          status: { $in: ['scheduled', 'pending', 'rescheduled'] }
+          status: { $in: ['confirmed', 'scheduled', 'pending', 'rescheduled'] }
         }
       }
     );

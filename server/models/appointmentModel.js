@@ -144,7 +144,19 @@ export async function createAppointment(appointmentData) {
     updatedAt: new Date().toISOString()
   };
   
-  await collection.insertOne(appointment);
+  try {
+    await collection.insertOne(appointment);
+  } catch (error) {
+    // Duplicate key error (code 11000) means another booking already took this slot.
+    // The unique index is the real guard; this turns the DB error into a clean conflict.
+    if (error.code === 11000) {
+      const conflictError = new Error('This slot is already booked. Please choose another slot.');
+      conflictError.code = 'SLOT_CONFLICT';
+      conflictError.conflict = appointment;
+      throw conflictError;
+    }
+    throw error;
+  }
   return appointment;
 }
 

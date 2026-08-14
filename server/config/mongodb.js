@@ -1,5 +1,6 @@
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
+import { createAppointmentIndexes } from './dbIndexes.js';
 
 dotenv.config();
 
@@ -65,7 +66,8 @@ export async function connectMongoDB() {
         await Promise.all([
           usersCollection.createIndex({ email: 1 }, { unique: true, background: true }),
           usersCollection.createIndex({ id: 1 }, { unique: true, background: true }),
-          usersCollection.createIndex({ role: 1 }, { background: true })
+          usersCollection.createIndex({ role: 1 }, { background: true }),
+          createAppointmentIndexes()
         ]);
         
         console.log('✅ MongoDB indexes created/verified');
