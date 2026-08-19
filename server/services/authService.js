@@ -98,6 +98,12 @@ export async function signupUser(userData) {
     throw new Error('Email already registered');
   }
   
+  // Only allow patient or doctor — admin must be created through a protected mechanism
+  const allowedRoles = ['patient', 'doctor'];
+  if (!allowedRoles.includes(role)) {
+    throw new Error('Invalid role. Only patient and doctor accounts can be created.');
+  }
+  
   // Hash password
   const hashedPassword = await hashPassword(password);
   

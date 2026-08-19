@@ -1,5 +1,7 @@
 import express from 'express';
 import { signupUser, loginUser, approveDoctor, getPendingDoctors } from '../services/authService.js';
+import { authenticateToken, requireRole } from '../middleware/authMiddleware.js';
+import crypto from 'crypto';
 
 const router = express.Router();
 
@@ -12,6 +14,15 @@ router.post('/signup', async (req, res) => {
       return res.status(400).json({ 
         success: false, 
         message: 'Missing required fields: name, email, password, role' 
+      });
+    }
+    
+    // Only allow patient or doctor — admin accounts must be created through a protected mechanism
+    const allowedRoles = ['patient', 'doctor'];
+    if (!allowedRoles.includes(role)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid role. Only patient and doctor accounts can be created.'
       });
     }
     
@@ -78,8 +89,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Get pending doctors (admin only)
-router.get('/pending-doctors', async (req, res) => {
+// Get pending doctors (admin only — requires login + admin role)
+router.get('/pending-doctors', authenticateToken, requireRole('admin'), async (req, res) => {
   try {
     const doctors = await getPendingDoctors();
     res.json({
@@ -95,8 +106,8 @@ router.get('/pending-doctors', async (req, res) => {
   }
 });
 
-// Approve doctor (admin only)
-router.post('/approve-doctor', async (req, res) => {
+// Approve doctor (admin only — requires login + admin role)
+router.post('/approve-doctor', authenticateToken, requireRole('admin'), async (req, res) => {
   try {
     const { doctorId } = req.body;
     
@@ -153,8 +164,8 @@ router.post('/forgot-password', async (req, res) => {
       });
     }
 
-    // Generate a simple reset token (in production, use crypto.randomBytes)
-    const resetToken = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    // Generate a cryptographically secure reset token
+    const resetToken = crypto.randomBytes(32).toString('hex');
     const resetTokenExpiry = new Date();
     resetTokenExpiry.setHours(resetTokenExpiry.getHours() + 1); // Token expires in 1 hour
 
