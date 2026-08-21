@@ -43,6 +43,16 @@ export async function createOrder(req, res) {
             return res.status(400).json({ success: false, message: 'Cart is empty' });
         }
 
+        // Validate quantities are positive integers (prevents negative quantity exploits)
+        for (const item of items) {
+            if (!Number.isInteger(item.quantity) || item.quantity <= 0) {
+                return res.status(400).json({
+                    success: false,
+                    message: `Invalid quantity for ${item.name || item.medicineId}. Must be a positive whole number.`
+                });
+            }
+        }
+
         const db = getDB();
 
         // 1. Validate Stock, Prescription Requirements & Calculate Total (Security check)
@@ -201,51 +211,60 @@ export async function createOrder(req, res) {
 
         // 2. Lock Inventory (Atomic operation to prevent race conditions)
         const medicinesCollection = db.collection('medicines');
-        for (const item of finalItems) {
-            // Try to update by id field first
-            let lockResult = await medicinesCollection.updateOne(
-                { 
-                    id: item.medicineId,
-                    stock: { $gte: item.quantity } // Only update if stock is sufficient
-                },
-                { 
-                    $inc: { stock: -item.quantity } // Lock by reducing stock
-                }
-            );
-            
-            // If not found by id, try by _id
-            if (lockResult.matchedCount === 0) {
-                try {
-                    const { ObjectId } = await import('mongodb');
-                    if (ObjectId.isValid(item.medicineId)) {
-                        lockResult = await medicinesCollection.updateOne(
-                            { 
-                                _id: new ObjectId(item.medicineId),
-                                stock: { $gte: item.quantity }
-                            },
-                            { 
-                                $inc: { stock: -item.quantity }
-                            }
-                        );
+        const lockedItems = []; // Track decremented items for rollback
+        try {
+            for (const item of finalItems) {
+                // Try to update by id field first
+                let lockResult = await medicinesCollection.updateOne(
+                    { 
+                        id: item.medicineId,
+                        stock: { $gte: item.quantity } // Only update if stock is sufficient
+                    },
+                    { 
+                        $inc: { stock: -item.quantity } // Lock by reducing stock
                     }
-                } catch (e) {
-                    // Ignore ObjectId errors
+                );
+                
+                // If not found by id, try by _id
+                if (lockResult.matchedCount === 0) {
+                    try {
+                        const { ObjectId } = await import('mongodb');
+                        if (ObjectId.isValid(item.medicineId)) {
+                            lockResult = await medicinesCollection.updateOne(
+                                { 
+                                    _id: new ObjectId(item.medicineId),
+                                    stock: { $gte: item.quantity }
+                                },
+                                { 
+                                    $inc: { stock: -item.quantity }
+                                }
+                            );
+                        }
+                    } catch (e) {
+                        // Ignore ObjectId errors
+                    }
                 }
+                
+                if (lockResult.matchedCount === 0) {
+                    throw new Error(`Stock changed for ${item.name}. Please refresh and try again.`);
+                }
+                
+                lockedItems.push(item); // Track successful decrement
+            }
+        } catch (error) {
+            // Rollback: restore stock for all items we already decremented
+            for (const item of lockedItems) {
+                await medicinesCollection.updateOne(
+                    { id: item.medicineId },
+                    { $inc: { stock: item.quantity } }
+                );
             }
             
-            if (lockResult.matchedCount === 0) {
-                // Stock was insufficient or changed during checkout
-                console.error('Stock update failed:', {
-                    medicineId: item.medicineId,
-                    medicineName: item.name,
-                    requestedQuantity: item.quantity
-                });
-                return res.status(409).json({
-                    success: false,
-                    message: `Stock changed for ${item.name}. Please refresh and try again.`,
-                    conflict: true
-                });
-            }
+            return res.status(409).json({
+                success: false,
+                message: error.message || 'Stock changed. Please refresh and try again.',
+                conflict: true
+            });
         }
 
         // 3. Create Order with Enhanced Tracking
@@ -288,11 +307,31 @@ export async function createOrder(req, res) {
             itemsCount: finalItems.length
         });
         
-        const insertResult = await ordersCollection.insertOne(order);
+        let insertResult;
+        try {
+            insertResult = await ordersCollection.insertOne(order);
+        } catch (insertError) {
+            // Order insert failed — restore stock we already decremented
+            for (const item of finalItems) {
+                await medicinesCollection.updateOne(
+                    { id: item.medicineId },
+                    { $inc: { stock: item.quantity } }
+                );
+            }
+            console.error('❌ Order insert failed, stock restored:', insertError.message);
+            throw new Error('Failed to save order. Stock has been restored.');
+        }
         
         // Verify order was saved
         if (!insertResult.insertedId) {
             console.error('❌ Failed to save order to database');
+            // Restore stock before throwing
+            for (const item of finalItems) {
+                await medicinesCollection.updateOne(
+                    { id: item.medicineId },
+                    { $inc: { stock: item.quantity } }
+                );
+            }
             throw new Error('Failed to save order to database');
         }
         
@@ -573,12 +612,24 @@ export async function cancelOrder(req, res) {
             return res.status(400).json({ success: false, message: 'Order is already cancelled' });
         }
         
+        // Restore stock for each item in the cancelled order
+        const medicinesCollection = db.collection('medicines');
+        for (const item of order.items) {
+            if (item.medicineId && item.quantity) {
+                await medicinesCollection.updateOne(
+                    { id: item.medicineId },
+                    { $inc: { stock: item.quantity } }
+                );
+            }
+        }
+        
         // Update order status to cancelled
         const result = await db.collection('orders').updateOne(
             { id: orderId },
             {
                 $set: {
                     status: 'cancelled',
+                    paymentStatus: order.paymentStatus === 'paid' ? 'refunded' : order.paymentStatus,
                     updatedAt: new Date().toISOString()
                 }
             }
