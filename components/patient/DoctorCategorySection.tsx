@@ -4,6 +4,7 @@ import { MedicalButton } from '../ui-kit/MedicalButton';
 import { Stethoscope, Star, Clock, MapPin, Calendar, Check, Briefcase, DollarSign, Loader2, X, CreditCard, Smartphone, Building } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { patientAPI, type Doctor, type Appointment } from '../../src/services/patientService';
+import { API_BASE_URL } from '../../utils/config';
 
 // Local Doctor interface extending the imported one
 interface LocalDoctor extends Doctor {
@@ -69,7 +70,7 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
         setLoadingSlots(true);
         setSelectedSlot(''); // Reset selected slot when fetching new slots
         try {
-            const res = await fetch(`http://localhost:3001/api/patient/doctors/${doctorId}/slots?date=${date}`, {
+            const res = await fetch(`${API_BASE_URL}/api/patient/doctors/${doctorId}/slots?date=${date}`, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
             
@@ -135,7 +136,7 @@ export function DoctorCategorySection({ onNavigateToHome }: DoctorCategorySectio
     const createAppointmentWithPayment = async (paymentId: string, transactionTime: string) => {
         try {
             // API call to create appointment with payment
-            const response = await fetch('http://localhost:3001/api/patient/appointments', {
+            const response = await fetch(`${API_BASE_URL}/api/patient/appointments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -4,6 +4,7 @@ import { MedicalButton } from '../ui-kit/MedicalButton';
 import { Upload, Scan, FileText, Check, AlertCircle, Loader2, ShoppingCart } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { searchAPI, marketplaceAPI, type Medicine } from '../../src/services/patientService';
+import { API_BASE_URL } from '../../utils/config';
 
 export function PrescriptionUpload() {
     const [image, setImage] = useState<string | null>(null);
@@ -43,7 +44,7 @@ export function PrescriptionUpload() {
                 // Poll for result (fallback for async processing)
                 const pollInterval = setInterval(async () => {
                     try {
-                        const result = await fetch(`http://localhost:3001/api/search/prescription/${uploadData.id}`, {
+                        const result = await fetch(`${API_BASE_URL}/api/search/prescription/${uploadData.id}`, {
                             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
                         });
                         const data = await result.json();
@@ -92,7 +93,7 @@ export function PrescriptionUpload() {
     const handleBuyMedicine = async (medicine: Medicine) => {
         try {
             // Add directly to cart
-            const res = await fetch('http://localhost:3001/api/store/cart', {
+            const res = await fetch(`${API_BASE_URL}/api/store/cart`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

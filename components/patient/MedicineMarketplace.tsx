@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Search, ShoppingCart, Plus, Star, Loader2, Filter, X, SlidersHorizontal } from 'lucide-react';
 import { marketplaceAPI } from '../../src/services/patientService';
+import { API_BASE_URL } from '../../utils/config';
 import CartDrawer from './CartDrawer';
 import CheckoutPage from './CheckoutPage';
 
@@ -128,7 +129,7 @@ export default function MedicineMarketplace() {
 
     const fetchCart = async () => {
         try {
-            const res = await fetch('http://localhost:3001/api/store/cart', {
+            const res = await fetch(`${API_BASE_URL}/api/store/cart`, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
             const data = await res.json();
@@ -148,7 +149,7 @@ export default function MedicineMarketplace() {
             const existing = cart.find(i => i.medicineId === medicine.id);
             const qty = existing ? existing.quantity + 1 : 1;
 
-            const res = await fetch('http://localhost:3001/api/store/cart', {
+            const res = await fetch(`${API_BASE_URL}/api/store/cart`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -176,7 +177,7 @@ export default function MedicineMarketplace() {
         if (qty < 1 || !id) return;
         
         try {
-            const res = await fetch('http://localhost:3001/api/store/cart', {
+            const res = await fetch(`${API_BASE_URL}/api/store/cart`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

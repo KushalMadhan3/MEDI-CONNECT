@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../../utils/config';
 import { Stethoscope, Search, Star, Clock, MapPin, ArrowLeft, Loader2, Award, DollarSign } from 'lucide-react';
 import { Logo } from '../branding/Logo';
 import { MedicalButton } from '../ui-kit/MedicalButton';
@@ -49,7 +50,7 @@ export function BrowseDoctors({ onNavigate }: { onNavigate: NavigateFn }) {
       }
 
       // Use public endpoint without authentication
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const apiUrl = API_BASE_URL;
       const url = `${apiUrl}/api/patient/doctors/public?${params.toString()}`;
       
       console.log('🔍 Fetching doctors from:', url);
