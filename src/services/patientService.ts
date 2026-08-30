@@ -168,6 +168,14 @@ export const patientAPI = {
   },
 
   /**
+   * AI Symptom → Doctor Agent: describe symptoms, get matching specializations + doctors
+   */
+  recommendDoctor: async (query: string): Promise<any> => {
+    const response = await api.get('/patient/ai/recommend-doctor', { params: { query } });
+    return response.data.data;
+  },
+
+  /**
    * Book an appointment (REQUIRES PAYMENT)
    */
   bookAppointment: async (data: {

@@ -23,7 +23,8 @@ import {
   Stethoscope,
   ShoppingBag,
   Upload,
-  Package
+  Package,
+  Sparkles
 } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import type { NavigateFn, UserRole, UserInfo } from '../../types/navigation';
@@ -33,6 +34,7 @@ import { PrescriptionUpload } from '../patient/PrescriptionUpload';
 import { ProfileSettings } from '../patient/ProfileSettings';
 import OrdersPage from '../patient/OrdersPage';
 import { NotificationDropdown } from '../shared/NotificationDropdown';
+import { AISymptomAssistant } from '../patient/AISymptomAssistant';
 
 interface PatientDashboardProps {
   onNavigate: NavigateFn;
@@ -41,7 +43,7 @@ interface PatientDashboardProps {
   userInfo?: UserInfo | null;
 }
 
-type Tab = 'home' | 'appointments' | 'marketplace' | 'prescriptions' | 'orders' | 'records' | 'settings';
+type Tab = 'home' | 'appointments' | 'marketplace' | 'prescriptions' | 'orders' | 'records' | 'settings' | 'ai';
 
 export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDashboardProps) {
   const [activeTab, setActiveTab] = useState<Tab>('home');
@@ -664,6 +666,7 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
 
   const sidebarItems = [
     { id: 'home', icon: Home, label: 'Home' },
+    { id: 'ai', icon: Sparkles, label: 'AI Assistant' },
     { id: 'appointments', icon: CalendarPlus, label: 'Book Appointment' },
     { id: 'marketplace', icon: ShoppingBag, label: 'Medicine Store' },
     { id: 'prescriptions', icon: Upload, label: 'Upload Prescription' },
@@ -676,6 +679,8 @@ export function PatientDashboard({ onNavigate, onLogout, userInfo }: PatientDash
     switch (activeTab) {
       case 'appointments':
         return <DoctorCategorySection onNavigateToHome={() => setActiveTab('home')} />;
+      case 'ai':
+        return <AISymptomAssistant onSelectDoctor={() => setActiveTab('appointments')} />;
       case 'marketplace':
         return <MedicineMarketplace />;
       case 'prescriptions':
