@@ -48,6 +48,24 @@ router.use(authenticateToken);
 router.get('/doctors', getAllDoctors);
 router.get('/doctors/:id/slots', getAvailableSlots);
 
+// AI Symptom → Doctor Agent (for authenticated patients)
+router.get('/ai/recommend-doctor', requireRole('patient'), async (req, res) => {
+  const { getDoctorRecommendations } = await import('../services/aiAgentService.js');
+  const { query } = req.query;
+
+  if (!query || !query.trim()) {
+    return res.status(400).json({ success: false, message: 'Please describe your symptoms.' });
+  }
+
+  try {
+    const result = await getDoctorRecommendations(query.trim());
+    res.json({ success: true, data: result });
+  } catch (error) {
+    console.error('AI recommend doctor error:', error);
+    res.status(500).json({ success: false, message: 'Failed to get recommendations. Please try again.' });
+  }
+});
+
 // Appointments (with 50% advance payment)
 router.get('/appointments', requireRole('patient'), getPatientAppointments);
 router.post('/appointments', requireRole('patient'), bookAppointment);
