@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { API_BASE_URL } from '../../utils/config';
 import { Logo } from '../branding/Logo';
 import { MedicalButton } from '../ui-kit/MedicalButton';
 import { MedicalCard } from '../ui-kit/MedicalCard';
@@ -815,7 +816,7 @@ export function LoginPage({ onNavigate, onAuthSuccess }: LoginPageProps) {
                         setGlobalMessage(null);
 
                         try {
-                          const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+                          const apiUrl = API_BASE_URL;
                           const res = await fetch(`${apiUrl}/api/auth/forgot-password`, {
                             method: 'POST',
                             headers: {

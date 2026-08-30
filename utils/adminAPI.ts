@@ -1,4 +1,5 @@
 import api from './api';
+import { API_URL } from './config';
 
 export interface User {
   id: string;
@@ -258,7 +259,7 @@ export const adminAPI = {
 
   // Export Reports
   exportReport: async (resource: 'users' | 'appointments' | 'payments' | 'logs' | 'analytics', format: 'csv' | 'pdf' = 'csv', from?: string, to?: string): Promise<Blob | any> => {
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+    const API_BASE_URL = API_URL;
     const token = localStorage.getItem('token');
     
     if (format === 'csv') {

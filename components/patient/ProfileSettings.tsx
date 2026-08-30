@@ -4,6 +4,7 @@ import { MedicalButton } from '../ui-kit/MedicalButton';
 import { User, Mail, Phone, MapPin, Lock, Save, Loader2, CheckCircle2, Upload, Calendar, Droplets, Activity, Heart, Weight, Thermometer, FileText, X } from 'lucide-react';
 import { UserInfo } from '../../types/navigation';
 import { patientAPI } from '../../src/services/patientService';
+import { API_URL } from '../../utils/config';
 
 interface ProfileSettingsProps {
     userInfo?: UserInfo | null;
@@ -205,7 +206,7 @@ export function ProfileSettings({ userInfo }: ProfileSettingsProps) {
         uploadData.append('image', photoFile);
 
         try {
-            const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+            const API_BASE_URL = API_URL;
             const res = await fetch(`${API_BASE_URL}/upload/profile`, {
                 method: 'POST',
                 headers: {

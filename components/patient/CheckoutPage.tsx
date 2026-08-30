@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { API_BASE_URL } from '../../utils/config';
 import { ArrowLeft, MapPin, CreditCard, Truck, CheckCircle, ShieldCheck, Wallet, Smartphone, Loader2 } from 'lucide-react';
 
 
@@ -94,7 +95,7 @@ export default function CheckoutPage({ cartItems, total, onOrderPlaced, onBack }
             console.log('Shipping address:', `${address.street}, ${address.city}, ${address.state} - ${address.zip}`);
 
             // Get base URL and ensure it doesn't have trailing /api
-            let baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+            let baseUrl = API_BASE_URL;
             // Remove trailing /api if present to avoid double /api/api/
             baseUrl = baseUrl.replace(/\/api\/?$/, '');
             const url = `${baseUrl}/api/orders/checkout`;

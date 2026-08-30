@@ -4,6 +4,7 @@
  */
 
 import api from '../../utils/api';
+import { API_URL } from '../../utils/config';
 
 // Types
 export interface DashboardStats {
@@ -261,7 +262,7 @@ export const doctorAPI = {
    * Export doctor report
    */
   exportReport: async (from: string, to: string, format: 'csv' | 'pdf' = 'csv'): Promise<any> => {
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+    const API_BASE_URL = API_URL;
     const token = localStorage.getItem('token');
     
     if (format === 'csv') {

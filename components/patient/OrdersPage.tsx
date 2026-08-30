@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../../utils/config';
 import { Package, Calendar, ChevronRight, Truck, CheckCircle, Smartphone, Wallet, Loader2, X, MapPin, Trash2 } from 'lucide-react';
 
 export default function OrdersPage() {
@@ -34,7 +35,7 @@ export default function OrdersPage() {
             }
 
             // Get base URL and ensure it doesn't have trailing /api
-            let apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+            let apiUrl = API_BASE_URL;
             // Remove trailing /api if present to avoid double /api/api/
             apiUrl = apiUrl.replace(/\/api\/?$/, '');
             const url = `${apiUrl}/api/orders`;
@@ -122,7 +123,7 @@ export default function OrdersPage() {
 
             setTrackingOrderId(orderId);
             // Get base URL and ensure it doesn't have trailing /api
-            let apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+            let apiUrl = API_BASE_URL;
             apiUrl = apiUrl.replace(/\/api\/?$/, '');
             const url = `${apiUrl}/api/orders/${orderId}/track`;
             const res = await fetch(url, {
@@ -156,7 +157,7 @@ export default function OrdersPage() {
             }
 
             // Get base URL and ensure it doesn't have trailing /api
-            let apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+            let apiUrl = API_BASE_URL;
             apiUrl = apiUrl.replace(/\/api\/?$/, '');
             const url = `${apiUrl}/api/orders/${orderId}/cancel`;
             const res = await fetch(url, {
@@ -202,7 +203,7 @@ export default function OrdersPage() {
             }
 
             // Get base URL and ensure it doesn't have trailing /api
-            let apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+            let apiUrl = API_BASE_URL;
             apiUrl = apiUrl.replace(/\/api\/?$/, '');
             const url = `${apiUrl}/api/orders/${orderId}`;
             const res = await fetch(url, {
