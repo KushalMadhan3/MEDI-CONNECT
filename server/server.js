@@ -135,7 +135,8 @@ app.use('/assets', express.static(path.join(__dirname, '../../public/assets')));
 if (NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../../dist')));
 
-  app.get('*', (req, res) => {
+  // Express 5 catch-all: {*splat} matches any path (including "/")
+  app.get('/{*splat}', (req, res) => {
     res.sendFile(path.join(__dirname, '../../dist/index.html'));
   });
 }
